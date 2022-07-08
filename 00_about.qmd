@@ -98,7 +98,7 @@ library(patchwork)  # arrange plots
 
 First, donwload the `.zip` file that contains the static website.
 
-<a href="https://github.com/TiagoOlivoto/tiagoolivoto/raw/master/static/tutorials/pliman_ip/imgs.rar">
+<a href="https://github.com/TiagoOlivoto/pliman_tut/archive/refs/heads/master.zip">
 <button class="btn btn-success"><i class="fa fa-save"></i> Download the images and scripts</button>
 </a>
 
