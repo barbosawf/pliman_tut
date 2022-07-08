@@ -1,0 +1,123 @@
+---
+title: " Segment objects"
+---
+
+```{r include = FALSE}
+knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/cursos/pliman_tut/imgs")
+```
+
+# Directory
+```{r eval=FALSE}
+setwd("E:/Desktop/UFSC/cursos/pliman_tut/imgs")
+```
+
+
+# Import images
+```{r collapse = TRUE, message=FALSE, warning=FALSE}
+library(pliman) 
+img <- 
+  image_import("folhas.jpg") |> 
+  image_horizontal(plot = TRUE)
+img_r <- image_resize(img, rel_size = 30) #fast processing
+```
+
+
+# Segment images
+
+In `pliman`, the following functions can be used to segment an image.
+
+* `image_binary()` to produce a binary (black and white) image.
+* `image_segment()` to produce a segmented image (image objects and a white background).
+* `image_segment_iter()` to segment an image interactively.
+
+Both functions segment the image based on the value of some image index, which can be one of the RGB bands or any operation with these bands. Internally, these functions call `image_index()` to calculate these indices.
+
+Here, we use the `index" `argument to test segmentation based on RGB and its normalized values. Users can also provide their index with the `my_index` argument.
+
+
+```{r segmentação2, fig.width = 10, fig.height = 6}
+# Calcule os índices
+indexes <- image_index(img_r, index = c("R, G, B, NR, NG, NB"))
+
+# Crie um gráfico raster com os valores RGB
+plot(indexes)
+
+# Crie um histograma com os valores RGB
+plot(indexes, type = "density")
+
+```
+
+The two peaks represent the leaf (smallest peak) and the background (larger peak). The clearer the difference between these peaks, the better the image segmentation.
+
+
+
+# Producing a binary image
+
+To segment objects, `pliman` uses the `threshold` technique (Otsu, 1979)^[Otsu, N. 1979. Threshold selection method from gray-level histograms. IEEE Trans Syst Man Cybern SMC-9(1): 62–66. doi: 10.1109/tsmc.1979.4310076.], that is, a cut-off point (considering the pixel values) is chosen and the image is classified into two classes (foreground and background). We then have a binary image. We can produce this image with `image_binary()`. This binarization is the key process to all object analysis steps. The better the binarization, the better the results.
+
+By default, image binary applies median filtering in the binary mask so that noises (for example, small dust points) are removed. Users can control whether the filter is applied and its intensity. Let's to produce a binary image using the index `"B"` with no filter applied.
+
+```{r binary3, fig.width = 10, fig.height = 5}
+binary <- 
+  image_binary(img,
+               index = "B",
+               filter = FALSE)
+
+```
+
+Note that some pixels within the bottom leaf were considered as background and some pixels at the bottom-right corner were considered as foreground. We can improve this binarization by applying a median filter. The default is `image_binary()` is `filter = 2`, but this value can be adjusted to obtain better results. Note how the change in the `filter` argument impact the results.
+
+```{r binary2, fig.width = 10, fig.height = 5}
+bin <- image_binary(img, 
+                    index = "B", 
+                    show_image = FALSE)[[1]]
+bin2 <- image_binary(img, 
+                     index = "B", 
+                     filter = 5,
+                     show_image = FALSE)[[1]]
+bin3 <- image_binary(img, 
+                     index = "B", 
+                     filter = 30,
+                     show_image = FALSE)[[1]]
+
+image_combine(bin, bin2, bin3, ncol = 3)
+```
+
+
+
+The `image_segment()` function is used to segment images using image indices. In this example, we will use compare the `B` and `NB` index to segment the leaves.
+
+```{r segmentação3, fig.width = 10, fig.height = 5}
+segmented <- 
+  image_segment(img,
+                index = c("B, NB"))
+
+```
+
+
+
+# Iterative segmentation
+
+The function `image_segment_iter()` provides an iterative image segmentation. Users can choose how many segmentation to perform, using the argument `nseg`. Note that the same results can be obtained with `image_segment_iter()` using an iterative section.
+
+```{r segmentation7, eval=FALSE}
+# Only run iteratively
+image_segment_iter(img, nseg = 1)
+```
+
+
+# Segmentation with a mask
+
+By using `image_segment_mask()` it is possible to segment an object using a mask.
+
+```{r}
+img <- image_import("objects_300.jpg", plot = TRUE)
+
+image_segment_mask(img,
+                   size = 1171,
+                   rel_pos_y = 0.6,
+                   rel_pos_x = 0.08,
+                   shape = "box")
+```
+
+

@@ -1,0 +1,75 @@
+project:
+  type: website
+
+
+theme:
+  light: flatly
+  dark: darkly
+
+website:
+  search:
+    location: sidebar
+  title: "R package {pliman}"
+  crossref:
+    fig-title: Fig     # (default is "Figure")
+    tbl-title: Tbl     # (default is "Table")
+    title-delim: —     # (default is ":")
+  page-layout: custom
+  page-footer: 
+    border: true
+    background: light
+    left: "A brief tutorial on {pliman} R package"
+    right: "Prof. Dr. Tiago Olivoto FIT/CCA/UFSC "
+  page-navigation: true
+  navbar:
+    background: "#0759e8"
+    # foreground: dark
+    search: true
+    left:
+      - text: "About"
+        file: 00_about.qmd
+        icon: fa fa-home
+        
+
+    right:
+      - icon: "fab fa-researchgate fa"
+        href: https://www.researchgate.net/profile/Tiago_Olivoto
+      - icon: bi bi-github
+        href: https://github.com/TiagoOlivoto/pliman
+      - icon: bi bi-twitter 
+        href: https://twitter.com/tolivoto
+      - icon: "fab fa-mendeley fa"
+        href: https://www.mendeley.com/profiles/tiago-olivoto/
+
+        
+  sidebar:
+    - title: "Contents"
+      style: "docked"
+      background: light
+      contents:
+        - 01_manipulate.qmd
+        - 02_segment.qmd
+        - 03_analyze.qmd
+        - 04_phytopathometry.qmd
+
+
+format:
+  html:
+    theme: 
+       light: journal
+       dark: darkly
+    toc: true
+    df_print: paged
+    toc-title: "In this page"
+    number-sections: true
+    number-depth: 3
+    smooth-scroll: true
+    code-fold: false
+    code-tools: true
+    code-block-bg: "#f5f2f2"
+    highlight-style: tango
+    code-block-border-left: "#31BAE9"
+    code-link: true
+
+execute:
+  collapse: true
