@@ -276,7 +276,7 @@ The functions seen so far can be used to obtain measurements of objects. However
 ```{r collapse =TRUE}
 library(pliman)
 library(tidyverse)
-library(patchwork)
+library(metan)
 
 img <- image_pliman("objects_300dpi.jpg", plot = TRUE)
 
@@ -370,21 +370,21 @@ The function computes 13 Haralick texture features for each object based on a gr
 
 The followig measures are returned (fore more details, see [this post](https://earlglynn.github.io/RNotes/package/EBImage/Features-Haralick.html))
 
- - `asm`: The angular second-moment feature.
- - `con`: The contrast feature
- - `cor`: Correlation measures the linear dependency of gray levels of
- neighboring pixels.
- - `var`: The variance of gray levels pixels.
- - `idm`: The Inverse Difference Moment (IDM), i.e., the local
- homogeneity.
- - `sav`: The Sum Average.
- - `sva`: The Sum Variance.
- - `sen`: Sum Entropy.
- - `dva`: Difference Variance.
- - `den`: Difference Entropy
- - `f12`: Difference Variance.
- - `f13`: The angular second-moment feature.
- 
+- `asm`: The angular second-moment feature.
+- `con`: The contrast feature
+- `cor`: Correlation measures the linear dependency of gray levels of
+neighboring pixels.
+- `var`: The variance of gray levels pixels.
+- `idm`: The Inverse Difference Moment (IDM), i.e., the local
+homogeneity.
+- `sav`: The Sum Average.
+- `sva`: The Sum Variance.
+- `sen`: Sum Entropy.
+- `dva`: Difference Variance.
+- `den`: Difference Entropy
+- `f12`: Difference Variance.
+- `f13`: The angular second-moment feature.
+
 
 ## Single image processing
 The `analyze_objects()` function calculates a range of measurements that can be used to study the shape and texture of objects, such as leaves. In the following example, I show how to plot the length and width of each leaf in the following image.
@@ -695,7 +695,7 @@ plot_measures(af_cor ,
 
 
 ## Reference object (dev version)
-
+### Single images
 The `reference` argument can now be used to correct the object measures even when images with different shooting distances are used. In this example, the leaf area of the `ref_leaves` image is quantified and corrected considering a 5 x 5 (25 cm$^2$) white square as the reference object. For this, it is necessary to provide color palettes referring to the background (`background`), leaves (` foreground`) and the reference object (`reference`). Also, the area of the reference object needs to be informed in `reference_area`.
 
 ```{r}
@@ -711,6 +711,46 @@ area <-
                   marker = "area",
                   watershed = FALSE)
 ```
+
+
+
+### Multiple images
+```{r}
+res <-
+  analyze_objects(pattern = "img_",
+                  dir_original = "linhaca",
+                  foreground = "folhalin",
+                  background = "fundolin",
+                  reference = "reflin",
+                  reference_area = 20,
+                  watershed = FALSE,
+                  filter = 3)
+
+area <- 
+  res$results |> 
+  separate_col(img, 
+               into = c("img", "avaliacao", "block"))
+
+
+df_plot <- 
+  area |> 
+  sum_by(avaliacao, block, .vars = area) |> 
+  group_by(avaliacao) |> 
+  desc_stat(area, stats = c("mean, sd.amo"))
+
+
+
+
+ggplot(df_plot, aes(avaliacao, mean)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin = mean - sd.amo, 
+                    ymax = mean + sd.amo),
+                width = 0.2) +
+  labs(x = "Período de avaliação",
+       y = "Área foliar (cm2 por planta)") +
+  theme_bw(base_size = 16)
+```
+
 
 
 
@@ -932,8 +972,7 @@ p3 <-
   geom_jitter(color="red") +
   labs(x = "Image", y = "Solidity")
 
-p1 + p2 + p3 +
-  plot_layout(ncol = 3)
+arrange_ggplot(p1, p2, p3)
 ```
 
 
