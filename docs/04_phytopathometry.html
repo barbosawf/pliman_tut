@@ -190,27 +190,27 @@
 <ul>
 <li><a href="#directory" class="nav-link active" data-scroll-target="#directory"> <span class="header-section-number">1</span> Directory</a></li>
 <li><a href="#disease-severity" class="nav-link" data-scroll-target="#disease-severity"> <span class="header-section-number">2</span> Disease severity</a></li>
+<li><a href="#using-image-indexes" class="nav-link" data-scroll-target="#using-image-indexes"> <span class="header-section-number">3</span> Using image indexes</a></li>
 <li>
-<a href="#using-image-indexes" class="nav-link" data-scroll-target="#using-image-indexes"> <span class="header-section-number">3</span> Using image indexes</a>
+<a href="#using-sample-palettes" class="nav-link" data-scroll-target="#using-sample-palettes"> <span class="header-section-number">4</span> Using sample palettes</a>
 <ul class="collapse">
-<li><a href="#using-sample-palettes" class="nav-link" data-scroll-target="#using-sample-palettes"> <span class="header-section-number">3.1</span> Using sample palettes</a></li>
 <li>
-<a href="#producing-sample-palettes" class="nav-link" data-scroll-target="#producing-sample-palettes"> <span class="header-section-number">3.2</span> Producing sample palettes</a>
+<a href="#producing-sample-palettes" class="nav-link" data-scroll-target="#producing-sample-palettes"> <span class="header-section-number">4.1</span> Producing sample palettes</a>
 <ul class="collapse">
-<li><a href="#defaults-settings" class="nav-link" data-scroll-target="#defaults-settings"> <span class="header-section-number">3.2.1</span> Defaults settings</a></li>
-<li><a href="#filling-lesions" class="nav-link" data-scroll-target="#filling-lesions"> <span class="header-section-number">3.2.2</span> Filling lesions</a></li>
-<li><a href="#showing-a-mask" class="nav-link" data-scroll-target="#showing-a-mask"> <span class="header-section-number">3.2.3</span> Showing a mask</a></li>
-<li><a href="#segmenting-and-analyzing-lesions" class="nav-link" data-scroll-target="#segmenting-and-analyzing-lesions"> <span class="header-section-number">3.2.4</span> Segmenting and analyzing lesions</a></li>
+<li><a href="#defaults-settings" class="nav-link" data-scroll-target="#defaults-settings"> <span class="header-section-number">4.1.1</span> Defaults settings</a></li>
+<li><a href="#filling-lesions" class="nav-link" data-scroll-target="#filling-lesions"> <span class="header-section-number">4.1.2</span> Filling lesions</a></li>
+<li><a href="#showing-a-mask" class="nav-link" data-scroll-target="#showing-a-mask"> <span class="header-section-number">4.1.3</span> Showing a mask</a></li>
+<li><a href="#segmenting-and-analyzing-lesions" class="nav-link" data-scroll-target="#segmenting-and-analyzing-lesions"> <span class="header-section-number">4.1.4</span> Segmenting and analyzing lesions</a></li>
 </ul>
 </li>
-<li><a href="#batch-processing" class="nav-link" data-scroll-target="#batch-processing"> <span class="header-section-number">3.3</span> Batch processing</a></li>
-<li><a href="#standard-area-diagrams" class="nav-link" data-scroll-target="#standard-area-diagrams"> <span class="header-section-number">3.4</span> Standard area diagrams</a></li>
-<li><a href="#parallel-processing" class="nav-link" data-scroll-target="#parallel-processing"> <span class="header-section-number">3.5</span> Parallel processing</a></li>
-<li><a href="#multiple-images-of-the-same-sample" class="nav-link" data-scroll-target="#multiple-images-of-the-same-sample"> <span class="header-section-number">3.6</span> Multiple images of the same sample</a></li>
-<li><a href="#multiple-leaves-in-one-image" class="nav-link" data-scroll-target="#multiple-leaves-in-one-image"> <span class="header-section-number">3.7</span> Multiple leaves in one image</a></li>
-<li><a href="#a-little-gift" class="nav-link" data-scroll-target="#a-little-gift"> <span class="header-section-number">3.8</span> A little gift</a></li>
 </ul>
 </li>
+<li><a href="#batch-processing" class="nav-link" data-scroll-target="#batch-processing"> <span class="header-section-number">5</span> Batch processing</a></li>
+<li><a href="#standard-area-diagrams" class="nav-link" data-scroll-target="#standard-area-diagrams"> <span class="header-section-number">6</span> Standard area diagrams</a></li>
+<li><a href="#parallel-processing" class="nav-link" data-scroll-target="#parallel-processing"> <span class="header-section-number">7</span> Parallel processing</a></li>
+<li><a href="#multiple-images-of-the-same-sample" class="nav-link" data-scroll-target="#multiple-images-of-the-same-sample"> <span class="header-section-number">8</span> Multiple images of the same sample</a></li>
+<li><a href="#multiple-leaves-in-one-image" class="nav-link" data-scroll-target="#multiple-leaves-in-one-image"> <span class="header-section-number">9</span> Multiple leaves in one image</a></li>
+<li><a href="#a-little-gift" class="nav-link" data-scroll-target="#a-little-gift"> <span class="header-section-number">10</span> A little gift</a></li>
 </ul></nav>
     </div>
 <!-- main -->
@@ -264,8 +264,8 @@
 1 86.94463    13.05537</code></pre>
 </div>
 </div>
-<section id="using-sample-palettes" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="using-sample-palettes">
-<span class="header-section-number">3.1</span> Using sample palettes</h2>
+</section><section id="using-sample-palettes" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Using sample palettes</h1>
 <p>Sample palettes can be made by simply manually sampling small areas of representative images and producing a composite image that will represent each of the desired classes (background, healthy, and symptomatic tissues).</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">img</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"exemp_1.jpeg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -277,8 +277,8 @@
 <p><img src="04_phytopathometry_files/figure-html/doen%C3%A7a1-1.png" class="img-fluid" width="1152"></p>
 </div>
 </div>
-</section><section id="producing-sample-palettes" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="producing-sample-palettes">
-<span class="header-section-number">3.2</span> Producing sample palettes</h2>
+<section id="producing-sample-palettes" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="producing-sample-palettes">
+<span class="header-section-number">4.1</span> Producing sample palettes</h2>
 <p>Users can produce these palettes with <code><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette()</a></code> function.</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
@@ -286,8 +286,8 @@
 <span><span class="va">b2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_combine.html">image_combine</a></span><span class="op">(</span><span class="va">h2</span>, <span class="va">d2</span>, <span class="va">b2</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="defaults-settings" class="level3" data-number="3.2.1"><h3 data-number="3.2.1" class="anchored" data-anchor-id="defaults-settings">
-<span class="header-section-number">3.2.1</span> Defaults settings</h3>
+<section id="defaults-settings" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="defaults-settings">
+<span class="header-section-number">4.1.1</span> Defaults settings</h3>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>img <span class="op">=</span> <span class="va">img</span>,</span>
@@ -300,11 +300,11 @@
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span><span class="op">$</span><span class="va">severity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>   healthy symptomatic
-1 92.48196    7.518036</code></pre>
+1 92.71941    7.280595</code></pre>
 </div>
 </div>
-</section><section id="filling-lesions" class="level3" data-number="3.2.2"><h3 data-number="3.2.2" class="anchored" data-anchor-id="filling-lesions">
-<span class="header-section-number">3.2.2</span> Filling lesions</h3>
+</section><section id="filling-lesions" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="filling-lesions">
+<span class="header-section-number">4.1.2</span> Filling lesions</h3>
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>img <span class="op">=</span> <span class="va">img</span>,</span>
@@ -316,8 +316,8 @@
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="showing-a-mask" class="level3" data-number="3.2.3"><h3 data-number="3.2.3" class="anchored" data-anchor-id="showing-a-mask">
-<span class="header-section-number">3.2.3</span> Showing a mask</h3>
+</section><section id="showing-a-mask" class="level3" data-number="4.1.3"><h3 data-number="4.1.3" class="anchored" data-anchor-id="showing-a-mask">
+<span class="header-section-number">4.1.3</span> Showing a mask</h3>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>img <span class="op">=</span> <span class="va">img</span>,</span>
@@ -330,8 +330,8 @@
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="segmenting-and-analyzing-lesions" class="level3" data-number="3.2.4"><h3 data-number="3.2.4" class="anchored" data-anchor-id="segmenting-and-analyzing-lesions">
-<span class="header-section-number">3.2.4</span> Segmenting and analyzing lesions</h3>
+</section><section id="segmenting-and-analyzing-lesions" class="level3" data-number="4.1.4"><h3 data-number="4.1.4" class="anchored" data-anchor-id="segmenting-and-analyzing-lesions">
+<span class="header-section-number">4.1.4</span> Segmenting and analyzing lesions</h3>
 <p>When using <code>show_features = TRUE</code>, the function analyzes the lesions and returns results such as number of lesions, area, perimeter, etc. With <code>show_segmentation = TRUE</code>, segmented lesions are shown.</p>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
@@ -347,8 +347,8 @@
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># correct the measures (dpi = 150)</span></span>
 <span><span class="va">sev_corrected</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">get_measures</a></span><span class="op">(</span><span class="va">sev</span>, dpi <span class="op">=</span> <span class="fl">150</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="batch-processing" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="batch-processing">
-<span class="header-section-number">3.3</span> Batch processing</h2>
+</section></section></section><section id="batch-processing" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> Batch processing</h1>
 <p>To analyze several images from a directory, use the <code>pattern</code> argument to declare a pattern of filenames. Here, we Will used 50 soybean leaves available in the repository https://osf.io/4hbr6, a database of images of annotation of severity of plant diseases. Thanks to <a href="https://osf.io/jb6yd/">Emerson M. Del Ponte</a> and his contributors for keeping this project publicly available. Using the <code>save_image = TRUE</code> argument we save the processed images in a temporary directory, defined by <code><a href="https://rdrr.io/r/base/tempfile.html">tempdir()</a></code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># criar um diretório temporário</span></span>
@@ -376,207 +376,207 @@
 <pre><code>Processing image soy_11 |==                                      | 6% 00:00:04 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_12 |===                                     | 8% 00:00:06 </code></pre>
+<pre><code>Processing image soy_12 |===                                     | 8% 00:00:05 </code></pre>
 </div>
 <div class="cell-output-stdout">
 <pre><code>Processing image soy_13 |====                                    | 10% 00:00:07 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_14 |=====                                   | 12% 00:00:09 </code></pre>
+<pre><code>Processing image soy_14 |=====                                   | 12% 00:00:08 </code></pre>
 </div>
 <div class="cell-output-stdout">
 <pre><code>Processing image soy_15 |======                                  | 14% 00:00:10 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_16 |======                                  | 16% 00:00:11 </code></pre>
+<pre><code>Processing image soy_16 |======                                  | 16% 00:00:10 </code></pre>
 </div>
 <div class="cell-output-stdout">
 <pre><code>Processing image soy_17 |=======                                 | 18% 00:00:12 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_18 |========                                | 20% 00:00:14 </code></pre>
+<pre><code>Processing image soy_18 |========                                | 20% 00:00:13 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_19 |=========                               | 22% 00:00:16 </code></pre>
+<pre><code>Processing image soy_19 |=========                               | 22% 00:00:15 </code></pre>
 </div>
 <div class="cell-output-stdout">
 <pre><code>Processing image soy_2 |==========                               | 24% 00:00:17 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_20 |==========                              | 26% 00:00:18 </code></pre>
+<pre><code>Processing image soy_20 |==========                              | 26% 00:00:17 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_21 |===========                             | 28% 00:00:20 </code></pre>
+<pre><code>Processing image soy_21 |===========                             | 28% 00:00:19 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_22 |============                            | 30% 00:00:22 </code></pre>
+<pre><code>Processing image soy_22 |============                            | 30% 00:00:21 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_23 |=============                           | 32% 00:00:23 </code></pre>
+<pre><code>Processing image soy_23 |=============                           | 32% 00:00:22 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_24 |==============                          | 34% 00:00:23 </code></pre>
+<pre><code>Processing image soy_24 |==============                          | 34% 00:00:22 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_25 |==============                          | 36% 00:00:25 </code></pre>
+<pre><code>Processing image soy_25 |==============                          | 36% 00:00:24 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_26 |===============                         | 38% 00:00:27 </code></pre>
+<pre><code>Processing image soy_26 |===============                         | 38% 00:00:26 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_27 |================                        | 40% 00:00:29 </code></pre>
+<pre><code>Processing image soy_27 |================                        | 40% 00:00:28 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_28 |=================                       | 42% 00:00:30 </code></pre>
+<pre><code>Processing image soy_28 |=================                       | 42% 00:00:29 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_29 |==================                      | 44% 00:00:32 </code></pre>
+<pre><code>Processing image soy_29 |==================                      | 44% 00:00:31 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_3 |===================                      | 46% 00:00:33 </code></pre>
+<pre><code>Processing image soy_3 |===================                      | 46% 00:00:32 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_30 |===================                     | 48% 00:00:35 </code></pre>
+<pre><code>Processing image soy_30 |===================                     | 48% 00:00:34 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_31 |====================                    | 50% 00:00:36 </code></pre>
+<pre><code>Processing image soy_31 |====================                    | 50% 00:00:34 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_32 |=====================                   | 52% 00:00:36 </code></pre>
+<pre><code>Processing image soy_32 |=====================                   | 52% 00:00:35 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_33 |======================                  | 54% 00:00:38 </code></pre>
+<pre><code>Processing image soy_33 |======================                  | 54% 00:00:36 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_34 |======================                  | 56% 00:00:40 </code></pre>
+<pre><code>Processing image soy_34 |======================                  | 56% 00:00:38 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_35 |=======================                 | 58% 00:00:42 </code></pre>
+<pre><code>Processing image soy_35 |=======================                 | 58% 00:00:40 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_36 |========================                | 60% 00:00:43 </code></pre>
+<pre><code>Processing image soy_36 |========================                | 60% 00:00:41 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_37 |=========================               | 62% 00:00:45 </code></pre>
+<pre><code>Processing image soy_37 |=========================               | 62% 00:00:43 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_38 |==========================              | 64% 00:00:46 </code></pre>
+<pre><code>Processing image soy_38 |==========================              | 64% 00:00:44 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_39 |==========================              | 66% 00:00:47 </code></pre>
+<pre><code>Processing image soy_39 |==========================              | 66% 00:00:45 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_4 |============================             | 68% 00:00:49 </code></pre>
+<pre><code>Processing image soy_4 |============================             | 68% 00:00:46 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_40 |============================            | 70% 00:00:50 </code></pre>
+<pre><code>Processing image soy_40 |============================            | 70% 00:00:47 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_41 |=============================           | 72% 00:00:51 </code></pre>
+<pre><code>Processing image soy_41 |=============================           | 72% 00:00:48 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_42 |==============================          | 74% 00:00:53 </code></pre>
+<pre><code>Processing image soy_42 |==============================          | 74% 00:00:50 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_43 |==============================          | 76% 00:00:55 </code></pre>
+<pre><code>Processing image soy_43 |==============================          | 76% 00:00:52 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_44 |===============================         | 78% 00:00:56 </code></pre>
+<pre><code>Processing image soy_44 |===============================         | 78% 00:00:53 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_45 |================================        | 80% 00:00:57 </code></pre>
+<pre><code>Processing image soy_45 |================================        | 80% 00:00:55 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_46 |=================================       | 82% 00:00:59 </code></pre>
+<pre><code>Processing image soy_46 |=================================       | 82% 00:00:56 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_47 |==================================      | 84% 00:01:00 </code></pre>
+<pre><code>Processing image soy_47 |==================================      | 84% 00:00:58 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_48 |==================================      | 86% 00:01:01 </code></pre>
+<pre><code>Processing image soy_48 |==================================      | 86% 00:00:59 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_49 |===================================     | 88% 00:01:02 </code></pre>
+<pre><code>Processing image soy_49 |===================================     | 88% 00:01:00 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_5 |=====================================    | 90% 00:01:03 </code></pre>
+<pre><code>Processing image soy_5 |=====================================    | 90% 00:01:01 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_50 |=====================================   | 92% 00:01:05 </code></pre>
+<pre><code>Processing image soy_50 |=====================================   | 92% 00:01:02 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_6 |=======================================  | 94% 00:01:06 </code></pre>
+<pre><code>Processing image soy_6 |=======================================  | 94% 00:01:04 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_7 |=======================================  | 96% 00:01:07 </code></pre>
+<pre><code>Processing image soy_7 |=======================================  | 96% 00:01:05 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_8 |======================================== | 98% 00:01:08 </code></pre>
+<pre><code>Processing image soy_8 |======================================== | 98% 00:01:05 </code></pre>
 </div>
 <div class="cell-output-stdout">
-<pre><code>Processing image soy_9 |=========================================| 100% 00:01:09 </code></pre>
+<pre><code>Processing image soy_9 |=========================================| 100% 00:01:06 </code></pre>
 </div>
 <div class="cell-output-stdout">
 <pre><code>  usuário   sistema decorrido 
-    62.81      8.36     71.20 </code></pre>
+    61.23      7.03     68.50 </code></pre>
 </div>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev_lote</span><span class="op">$</span><span class="va">severity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>      img  healthy symptomatic
-1   soy_1 92.30598    7.694025
-2  soy_10 53.80360   46.196397
-3  soy_11 88.00941   11.990592
-4  soy_12 62.49139   37.508612
-5  soy_13 51.26833   48.731667
-6  soy_14 99.79172    0.208283
-7  soy_15 71.62207   28.377926
-8  soy_16 30.37714   69.622864
-9  soy_17 20.94673   79.053265
-10 soy_18 80.94158   19.058422
-11 soy_19 38.04735   61.952654
-12  soy_2 85.63328   14.366722
-13 soy_20 33.00604   66.993959
-14 soy_21 33.37444   66.625555
-15 soy_22 75.93323   24.066765
-16 soy_23 59.91690   40.083099
-17 soy_24 72.18240   27.817601
-18 soy_25 10.42410   89.575897
-19 soy_26 26.35530   73.644700
-20 soy_27 30.76558   69.234421
-21 soy_28 52.13914   47.860864
-22 soy_29 23.45779   76.542208
-23  soy_3 15.38918   84.610817
-24 soy_30 43.90665   56.093350
-25 soy_31 13.50568   86.494320
-26 soy_32 46.16725   53.832751
-27 soy_33 89.85766   10.142338
-28 soy_34 47.03267   52.967327
-29 soy_35 58.00870   41.991303
-30 soy_36 93.53585    6.464153
-31 soy_37 36.80026   63.199742
-32 soy_38 52.98365   47.016352
-33 soy_39 39.96360   60.036400
-34  soy_4 66.48391   33.516086
-35 soy_40 68.25036   31.749641
-36 soy_41 97.24293    2.757070
-37 soy_42 84.55326   15.446743
-38 soy_43 92.03686    7.963141
-39 soy_44 58.10199   41.898013
-40 soy_45 83.62880   16.371200
-41 soy_46 83.64167   16.358326
-42 soy_47 79.41822   20.581780
-43 soy_48 75.42505   24.574951
-44 soy_49 70.22985   29.770153
-45  soy_5 77.46601   22.533989
-46 soy_50 53.19483   46.805165
-47  soy_6 64.94720   35.052799
-48  soy_7 58.30199   41.698010
-49  soy_8 42.05012   57.949881
-50  soy_9 81.74081   18.259186</code></pre>
+1   soy_1 92.54979   7.4502120
+2  soy_10 52.42661  47.5733920
+3  soy_11 88.97561  11.0243935
+4  soy_12 62.09516  37.9048355
+5  soy_13 50.70039  49.2996072
+6  soy_14 99.77114   0.2288569
+7  soy_15 71.79901  28.2009870
+8  soy_16 27.99610  72.0038980
+9  soy_17 22.07859  77.9214104
+10 soy_18 83.04478  16.9552218
+11 soy_19 38.46741  61.5325856
+12  soy_2 85.39094  14.6090631
+13 soy_20 34.86163  65.1383696
+14 soy_21 33.28426  66.7157361
+15 soy_22 75.02173  24.9782667
+16 soy_23 59.84829  40.1517066
+17 soy_24 71.30972  28.6902811
+18 soy_25 10.55560  89.4443984
+19 soy_26 26.72445  73.2755536
+20 soy_27 31.19710  68.8029001
+21 soy_28 52.12310  47.8769002
+22 soy_29 24.48866  75.5113439
+23  soy_3 16.34296  83.6570423
+24 soy_30 43.07619  56.9238051
+25 soy_31 14.63903  85.3609689
+26 soy_32 45.98730  54.0127019
+27 soy_33 89.41139  10.5886059
+28 soy_34 44.59374  55.4062587
+29 soy_35 60.65275  39.3472504
+30 soy_36 94.14728   5.8527215
+31 soy_37 35.38619  64.6138066
+32 soy_38 51.85648  48.1435179
+33 soy_39 41.84025  58.1597533
+34  soy_4 65.65609  34.3439125
+35 soy_40 66.93071  33.0692895
+36 soy_41 97.29034   2.7096598
+37 soy_42 85.41356  14.5864410
+38 soy_43 90.70652   9.2934828
+39 soy_44 57.52541  42.4745938
+40 soy_45 82.82098  17.1790195
+41 soy_46 83.66599  16.3340092
+42 soy_47 77.14769  22.8523125
+43 soy_48 76.26701  23.7329864
+44 soy_49 70.21470  29.7853029
+45  soy_5 82.50701  17.4929927
+46 soy_50 52.68894  47.3110608
+47  soy_6 65.11704  34.8829602
+48  soy_7 60.07675  39.9232513
+49  soy_8 44.78891  55.2110932
+50  soy_9 76.92256  23.0774419</code></pre>
 </div>
 </div>
-</section><section id="standard-area-diagrams" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="standard-area-diagrams">
-<span class="header-section-number">3.4</span> Standard area diagrams</h2>
+</section><section id="standard-area-diagrams" class="level1" data-number="6"><h1 data-number="6">
+<span class="header-section-number">6</span> Standard area diagrams</h1>
 <p>Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments.</p>
 <p>Given an object computed with <code><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease()</a></code> a Standard Area Diagram (SAD) with <code>n</code> images containing the respective severity values are obtained with <code><a href="https://rdrr.io/pkg/pliman/man/sad.html">sad()</a></code>.</p>
 <p>Leaves with the smallest and highest severity will always be in the SAD. If <code>n = 1</code>, the leaf with the smallest severity will be returned. The others are sampled sequentially to achieve the n images after severity has been ordered in ascending order. For example, if there are 30 leaves and n is set to 3, the leaves sampled will be the 1st, 15th, and 30th with the smallest severity values.</p>
@@ -588,16 +588,16 @@
 </div>
 <div class="cell-output-stdout">
 <pre><code>      img  healthy symptomatic rank
-6  soy_14 99.79172    0.208283    1
-41 soy_46 83.64167   16.358326   10
-44 soy_49 70.22985   29.770153   20
-46 soy_50 53.19483   46.805165   30
-31 soy_37 36.80026   63.199742   40
-18 soy_25 10.42410   89.575897   50</code></pre>
+6  soy_14 99.77114   0.2288569    1
+41 soy_46 83.66599  16.3340092   10
+44 soy_49 70.21470  29.7853029   20
+2  soy_10 52.42661  47.5733920   30
+31 soy_37 35.38619  64.6138066   40
+18 soy_25 10.55560  89.4443984   50</code></pre>
 </div>
 </div>
-</section><section id="parallel-processing" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="parallel-processing">
-<span class="header-section-number">3.5</span> Parallel processing</h2>
+</section><section id="parallel-processing" class="level1" data-number="7"><h1 data-number="7">
+<span class="header-section-number">7</span> Parallel processing</h1>
 <p>To speed up processing time when multiple images are available, you can use the <code>paralell</code> argument. In parallel programming (<code>parallel = TRUE</code>), the images are processed asynchronously (in parallel) in separate R sessions running in the background on the same machine. The number of sections is set by default to 50% of available cores. This number can be controlled explicitly with the argument workers.</p>
 <div class="cell">
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span></span>
@@ -614,11 +614,11 @@
 </div>
 <div class="cell-output-stdout">
 <pre><code>  usuário   sistema decorrido 
-     0.69      0.17     25.36 </code></pre>
+     0.69      0.23     23.77 </code></pre>
 </div>
 </div>
-</section><section id="multiple-images-of-the-same-sample" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="multiple-images-of-the-same-sample">
-<span class="header-section-number">3.6</span> Multiple images of the same sample</h2>
+</section><section id="multiple-images-of-the-same-sample" class="level1" data-number="8"><h1 data-number="8">
+<span class="header-section-number">8</span> Multiple images of the same sample</h1>
 <p>If users need to analyze multiple images from the same sample, the images from the same sample must share the same filename prefix, which is defined as the part of the filename that precedes the first hyphen (<code>-</code>) or underscore (<code>_</code>).</p>
 <p>In the following example, 16 images will be used as examples. Here, they represent four replicates of four different treatments (<code>TRAT1_1, TRAT1_2, ..., TRAT4_4</code>). Note that to ensure that all images are processed, all images must share a common pattern, in this case (<code>"TRAT"</code>).</p>
 <div class="cell">
@@ -637,7 +637,7 @@
 </div>
 <div class="cell-output-stdout">
 <pre><code>  usuário   sistema decorrido 
-     0.50      0.14     17.14 </code></pre>
+     0.48      0.11     16.47 </code></pre>
 </div>
 <div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="va">sev_trats</span><span class="op">$</span><span class="va">severity</span> <span class="op">|&gt;</span> </span>
@@ -653,8 +653,8 @@
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="multiple-leaves-in-one-image" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="multiple-leaves-in-one-image">
-<span class="header-section-number">3.7</span> Multiple leaves in one image</h2>
+</section><section id="multiple-leaves-in-one-image" class="level1" data-number="9"><h1 data-number="9">
+<span class="header-section-number">9</span> Multiple leaves in one image</h1>
 <p>When multiple leaves are present in an image, the <code>measure_disease</code> function returns the average severity of the leaves present in the image. To quantify the severity <em>per leaf</em>, the <code><a href="https://rdrr.io/pkg/pliman/man/measure_disease_byl.html">measure_disease_byl()</a></code> function can be used.</p>
 <p>This function computes the percentage of symptomatic leaf area using color palettes or RGB indices for each leaf (<code>byl</code>) of an image. This allows, for example, to process replicates of the same treatment and obtain the results of each replication with a single image. To do this, the sample sheets are first split using the <code><a href="https://rdrr.io/pkg/pliman/man/object_split.html">object_split()</a></code> function and then the <code><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease()</a></code> function is applied to the sheet list.</p>
 <div class="cell">
@@ -675,45 +675,45 @@
 <span><span class="va">results_byl</span><span class="op">$</span><span class="va">results</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>           img leaf id       x       y area area_ch perimeter radius_mean
-1 multiplas_01    1  1 232.000  27.278   36      32    24.142       2.934
-2 multiplas_01    1  2 374.250  31.675   40      34    27.728       3.561
-3 multiplas_01    1  3 168.704  82.423   71      64    32.385       4.347
-4 multiplas_01    1  4 226.286  86.500   14       8     9.828       1.660
-5 multiplas_01    1  5 175.529 104.176   34      26    20.485       2.947
-6 multiplas_01    1  6 127.667 102.667    3       0     2.414       0.654
+<pre><code>           img leaf id       x      y area area_ch perimeter radius_mean
+1 multiplas_01    1  1 231.294 26.956   68      70    37.042       4.359
+2 multiplas_01    1  2 374.071 31.321   84      81    41.870       5.021
+3 multiplas_01    1  3 323.333 35.333    9       4     8.000       1.239
+4 multiplas_01    1  4 181.600 56.600    5       1     5.828       0.969
+5 multiplas_01    1  5 414.167 59.167    6       2     4.828       1.043
+6 multiplas_01    1  6 317.167 61.667   12       7    10.243       1.558
   radius_min radius_max radius_sd diam_mean diam_min diam_max major_axis
-1      1.640      3.919     0.717     5.867    3.280    7.837      8.105
-2      1.755      6.046     1.167     7.122    3.509   12.093     11.317
-3      2.756      6.038     0.931     8.693    5.513   12.075     11.936
-4      1.300      1.921     0.230     3.321    2.600    3.842      4.209
-5      1.232      4.448     0.864     5.893    2.464    8.895      9.329
-6      0.471      0.745     0.129     1.308    0.943    1.491      2.309
+1      2.867      5.934     0.745     8.718    5.733   11.869      9.996
+2      2.603      8.159     1.517    10.042    5.205   16.319     14.939
+3      0.471      1.886     0.493     2.478    0.943    3.771      4.709
+4      0.601      1.641     0.447     1.938    1.202    3.283      4.342
+5      0.825      1.217     0.181     2.085    1.649    2.433      3.127
+6      0.539      2.508     0.620     3.115    1.077    5.016      5.768
   minor_axis length width radius_ratio eccentricity  theta solidity convexity
-1      6.233  7.505 5.559        2.390        0.598 -1.292    1.125     0.718
-2      4.821 10.738 4.484        3.446        0.165  0.436    1.176     0.775
-3      7.998 11.651 8.462        2.191        0.500 -1.089    1.109     0.825
-4      4.121  3.000 3.000        1.478        0.938  1.571    1.750     1.000
-5      4.875  8.546 4.382        3.610        0.297  0.839    1.308     0.914
-6      1.333  1.414 0.707        1.581        0.333 -0.785      Inf     1.000
-  elongation circularity circularity_haralick circularity_norm   asm   con
-1      0.259      16.190                4.093            1.893 0.089 0.883
-2      0.582      19.221                3.052            2.309 0.049 4.439
-3      0.274      14.771                4.667            1.490 0.130 0.762
-4      0.000       6.900                7.224            0.961 0.356 0.361
-5      0.487      12.343                3.409            1.421 0.116 3.360
-6      0.500       1.943                5.064            0.928 1.000 0.000
-    cor   var   idm    sav     sva   sen   ent   dva   den   f12   f13
-1 0.651 2.264 0.675 22.107 454.163 0.894 1.165 0.883 0.408 0.195 0.472
-2 0.425 4.858 0.493 19.912 367.418 1.033 1.495 4.439 0.702 0.125 0.426
-3 0.505 1.769 0.702 22.424 471.542 0.763 1.011 0.762 0.388 0.128 0.359
-4 0.126 1.207 0.819 20.583 407.338 0.412 0.521 0.361 0.284 0.013 0.082
-5 0.045 2.760 0.551 19.040 337.034 0.782 1.168 3.360 0.631 0.034 0.198
-6 0.000 1.000 1.000 18.000 324.000 0.000 0.000 0.000 0.000 0.000 0.000</code></pre>
+1      9.559 10.564 9.582        2.070        0.861  1.346    0.971     0.731
+2      8.168 14.988 7.980        3.135        0.339  0.598    1.037     0.594
+3      2.504  3.379 1.946        4.000        0.283  0.232    2.250     1.020
+4      1.277  3.156 0.928        2.732        0.084 -1.204    5.000     0.798
+5      2.309  2.121 1.414        1.475        0.556  0.785    3.000     1.086
+6      2.679  4.966 2.102        4.657        0.236 -1.450    1.714     0.821
+  elongation circularity circularity_haralick circularity_norm   asm    con
+1      0.093      20.178                5.848            2.120 0.071  1.070
+2      0.468      20.870                3.311            2.130 0.032  7.819
+3      0.424       7.111                2.514            1.455 0.301  0.389
+4      0.706       6.794                2.168            2.703 0.319  0.500
+5      0.333       3.886                5.768            0.742 0.066 15.091
+6      0.577       8.743                2.513            1.391 0.516  0.259
+    cor    var   idm    sav     sva   sen   ent    dva   den   f12   f13
+1 0.658  2.563 0.645 23.080 494.759 0.953 1.263  1.070 0.441 0.192 0.485
+2 0.713 14.622 0.457 23.085 522.589 1.270 1.771  7.819 0.790 0.213 0.587
+3 0.157  1.231 0.806 16.722 265.458 0.446 0.563  0.389 0.290 0.019 0.103
+4 0.390  1.410 0.750 20.833 417.058 0.439 0.590  0.500 0.301 0.352 0.472
+5 0.002  8.562 0.237 29.455 833.003 0.857 1.206 15.091 0.877 0.187 0.469
+6 0.180  1.158 0.870 22.185 475.850 0.380 0.458  0.259 0.249 0.044 0.142</code></pre>
 </div>
 </div>
-</section><section id="a-little-gift" class="level2" data-number="3.8"><h2 data-number="3.8" class="anchored" data-anchor-id="a-little-gift">
-<span class="header-section-number">3.8</span> A little gift</h2>
+</section><section id="a-little-gift" class="level1" data-number="10"><h1 data-number="10">
+<span class="header-section-number">10</span> A little gift</h1>
 <div class="cell">
 <div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">f0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"fungo.jpg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">res</span> <span class="op">&lt;-</span> </span>
@@ -765,7 +765,7 @@ Tip
 
 
 <!-- -->
-<div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title anchored" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title anchored" id="quarto-embedded-source-code-modal-label" data-anchor-id="a-little-gift">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb92" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Phytopathometry"</span></span>
 <span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
@@ -795,7 +795,7 @@ Tip
 <span id="cb92-29"><a href="#cb92-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb92-30"><a href="#cb92-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-31"><a href="#cb92-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-32"><a href="#cb92-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using sample palettes</span></span>
+<span id="cb92-32"><a href="#cb92-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># Using sample palettes</span></span>
 <span id="cb92-33"><a href="#cb92-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-34"><a href="#cb92-34" aria-hidden="true" tabindex="-1"></a>Sample palettes can be made by simply manually sampling small areas of representative images and producing a composite image that will represent each of the desired classes (background, healthy, and symptomatic tissues). </span>
 <span id="cb92-35"><a href="#cb92-35" aria-hidden="true" tabindex="-1"></a></span>
@@ -873,7 +873,7 @@ Tip
 <span id="cb92-115"><a href="#cb92-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb92-116"><a href="#cb92-116" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-117"><a href="#cb92-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-118"><a href="#cb92-118" aria-hidden="true" tabindex="-1"></a><span class="fu">## Batch processing</span></span>
+<span id="cb92-118"><a href="#cb92-118" aria-hidden="true" tabindex="-1"></a><span class="fu"># Batch processing</span></span>
 <span id="cb92-119"><a href="#cb92-119" aria-hidden="true" tabindex="-1"></a>To analyze several images from a directory, use the <span class="in">`pattern`</span> argument to declare a pattern of filenames. Here, we Will used 50 soybean leaves available in the repository https://osf.io/4hbr6, a database of images of annotation of severity of plant diseases. Thanks to <span class="co">[</span><span class="ot">Emerson M. Del Ponte</span><span class="co">](https://osf.io/jb6yd/)</span> and his contributors for keeping this project publicly available. Using the <span class="in">`save_image = TRUE`</span> argument we save the processed images in a temporary directory, defined by <span class="in">`tempdir()`</span>.</span>
 <span id="cb92-120"><a href="#cb92-120" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-123"><a href="#cb92-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -898,7 +898,7 @@ Tip
 <span id="cb92-142"><a href="#cb92-142" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-143"><a href="#cb92-143" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-144"><a href="#cb92-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-145"><a href="#cb92-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## Standard area diagrams</span></span>
+<span id="cb92-145"><a href="#cb92-145" aria-hidden="true" tabindex="-1"></a><span class="fu"># Standard area diagrams</span></span>
 <span id="cb92-146"><a href="#cb92-146" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-147"><a href="#cb92-147" aria-hidden="true" tabindex="-1"></a>Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments.</span>
 <span id="cb92-148"><a href="#cb92-148" aria-hidden="true" tabindex="-1"></a></span>
@@ -913,7 +913,7 @@ Tip
 <span id="cb92-159"><a href="#cb92-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb92-160"><a href="#cb92-160" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-161"><a href="#cb92-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-162"><a href="#cb92-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Parallel processing</span></span>
+<span id="cb92-162"><a href="#cb92-162" aria-hidden="true" tabindex="-1"></a><span class="fu"># Parallel processing</span></span>
 <span id="cb92-163"><a href="#cb92-163" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-164"><a href="#cb92-164" aria-hidden="true" tabindex="-1"></a>To speed up processing time when multiple images are available, you can use the <span class="in">`paralell`</span> argument. In parallel programming (<span class="in">`parallel = TRUE`</span>), the images are processed asynchronously (in parallel) in separate R sessions running in the background on the same machine. The number of sections is set by default to 50% of available cores. This number can be controlled explicitly with the argument workers.</span>
 <span id="cb92-165"><a href="#cb92-165" aria-hidden="true" tabindex="-1"></a></span>
@@ -933,7 +933,7 @@ Tip
 <span id="cb92-181"><a href="#cb92-181" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-182"><a href="#cb92-182" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-183"><a href="#cb92-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-184"><a href="#cb92-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multiple images of the same sample</span></span>
+<span id="cb92-184"><a href="#cb92-184" aria-hidden="true" tabindex="-1"></a><span class="fu"># Multiple images of the same sample</span></span>
 <span id="cb92-185"><a href="#cb92-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-186"><a href="#cb92-186" aria-hidden="true" tabindex="-1"></a>If users need to analyze multiple images from the same sample, the images from the same sample must share the same filename prefix, which is defined as the part of the filename that precedes the first hyphen (<span class="in">`-`</span>) or underscore (<span class="in">`_`</span>).</span>
 <span id="cb92-187"><a href="#cb92-187" aria-hidden="true" tabindex="-1"></a></span>
@@ -964,7 +964,7 @@ Tip
 <span id="cb92-214"><a href="#cb92-214" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-215"><a href="#cb92-215" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-216"><a href="#cb92-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-217"><a href="#cb92-217" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multiple leaves in one image</span></span>
+<span id="cb92-217"><a href="#cb92-217" aria-hidden="true" tabindex="-1"></a><span class="fu"># Multiple leaves in one image</span></span>
 <span id="cb92-218"><a href="#cb92-218" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-219"><a href="#cb92-219" aria-hidden="true" tabindex="-1"></a>When multiple leaves are present in an image, the <span class="in">`measure_disease`</span> function returns the average severity of the leaves present in the image. To quantify the severity *per leaf*, the <span class="in">`measure_disease_byl()`</span> function can be used.</span>
 <span id="cb92-220"><a href="#cb92-220" aria-hidden="true" tabindex="-1"></a></span>
@@ -989,7 +989,7 @@ Tip
 <span id="cb92-241"><a href="#cb92-241" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-242"><a href="#cb92-242" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-243"><a href="#cb92-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-244"><a href="#cb92-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## A little gift</span></span>
+<span id="cb92-244"><a href="#cb92-244" aria-hidden="true" tabindex="-1"></a><span class="fu"># A little gift</span></span>
 <span id="cb92-245"><a href="#cb92-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-248"><a href="#cb92-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb92-249"><a href="#cb92-249" aria-hidden="true" tabindex="-1"></a>f0 <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"fungo.jpg"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
@@ -1033,7 +1033,7 @@ Tip
 <span id="cb92-287"><a href="#cb92-287" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
-</section></section></main><!-- /main --><script type="application/javascript">
+</section></main><!-- /main --><script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {

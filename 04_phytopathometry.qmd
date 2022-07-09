@@ -27,7 +27,7 @@ res$severity
 ```
 
 
-## Using sample palettes
+# Using sample palettes
 
 Sample palettes can be made by simply manually sampling small areas of representative images and producing a composite image that will represent each of the desired classes (background, healthy, and symptomatic tissues). 
 
@@ -105,7 +105,7 @@ sev_corrected <- get_measures(sev, dpi = 150)
 ```
 
 
-## Batch processing
+# Batch processing
 To analyze several images from a directory, use the `pattern` argument to declare a pattern of filenames. Here, we Will used 50 soybean leaves available in the repository https://osf.io/4hbr6, a database of images of annotation of severity of plant diseases. Thanks to [Emerson M. Del Ponte](https://osf.io/jb6yd/) and his contributors for keeping this project publicly available. Using the `save_image = TRUE` argument we save the processed images in a temporary directory, defined by `tempdir()`.
 
 ```{r}
@@ -130,7 +130,7 @@ sev_lote$severity
 
 
 
-## Standard area diagrams
+# Standard area diagrams
 
 Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments.
 
@@ -145,7 +145,7 @@ sad(sev_lote, n = 6, ncol = 3)
 ```
 
 
-## Parallel processing
+# Parallel processing
 
 To speed up processing time when multiple images are available, you can use the `paralell` argument. In parallel programming (`parallel = TRUE`), the images are processed asynchronously (in parallel) in separate R sessions running in the background on the same machine. The number of sections is set by default to 50% of available cores. This number can be controlled explicitly with the argument workers.
 
@@ -165,7 +165,7 @@ system.time(
 
 
 
-## Multiple images of the same sample
+# Multiple images of the same sample
 
 If users need to analyze multiple images from the same sample, the images from the same sample must share the same filename prefix, which is defined as the part of the filename that precedes the first hyphen (`-`) or underscore (`_`).
 
@@ -196,7 +196,7 @@ ggplot(sev, aes(TRAT, symptomatic))+
 
 
 
-## Multiple leaves in one image
+# Multiple leaves in one image
 
 When multiple leaves are present in an image, the `measure_disease` function returns the average severity of the leaves present in the image. To quantify the severity *per leaf*, the `measure_disease_byl()` function can be used.
 
@@ -221,7 +221,7 @@ results_byl$results |>
 
 
 
-## A little gift
+# A little gift
 
 ```{r}
 f0 <- image_import("fungo.jpg", plot = TRUE)
