@@ -2,111 +2,122 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.80">
+<meta name="generator" content="quarto-1.0.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>R package {pliman} - Phytopathometry</title>
 <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./03_analyze.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link class="quarto-color-scheme" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link class="quarto-color-scheme" href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="site_libs/bootstrap/bootstrap-dark.min.css">
-<script id="quarto-search-options" type="application/json">{
-    "location": "sidebar",
-    "copy-button": false,
-    "collapse-after": 2,
-    "panel-placement": "start",
-    "type": "textbox",
-    "limit": 20,
-    "language": {
-      "search-no-results-text": "No results",
-      "search-matching-documents-text": "matching documents",
-      "search-copy-link-title": "Copy link to search",
-      "search-hide-matches-text": "Hide additional matches",
-      "search-more-match-text": "more match in this document",
-      "search-more-matches-text": "more matches in this document",
-      "search-clear-button-title": "Clear",
-      "search-detached-cancel-button-title": "Cancel",
-      "search-submit-button-title": "Submit"
-    }
-  }</script><!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03_analyze.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="docked">
+<body class="nav-sidebar docked nav-fixed">
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
       <a class="navbar-brand" href="./index.html">
@@ -150,7 +161,7 @@
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">Phytopathometry</h1>
-      <button type="button" class="quarto-btn-toggle btn">
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
@@ -187,35 +198,49 @@
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">In this page</h2>
-<ul>
-<li><a href="#directory" class="nav-link active" data-scroll-target="#directory"> <span class="header-section-number">1</span> Directory</a></li>
-<li><a href="#disease-severity" class="nav-link" data-scroll-target="#disease-severity"> <span class="header-section-number">2</span> Disease severity</a></li>
-<li><a href="#using-image-indexes" class="nav-link" data-scroll-target="#using-image-indexes"> <span class="header-section-number">3</span> Using image indexes</a></li>
+   
+  <ul>
+<li><a href="#directory" id="toc-directory" class="nav-link active" data-scroll-target="#directory"> <span class="header-section-number">1</span> Directory</a></li>
+  <li><a href="#disease-severity" id="toc-disease-severity" class="nav-link" data-scroll-target="#disease-severity"> <span class="header-section-number">2</span> Disease severity</a></li>
+  <li><a href="#using-image-indexes" id="toc-using-image-indexes" class="nav-link" data-scroll-target="#using-image-indexes"> <span class="header-section-number">3</span> Using image indexes</a></li>
+  <li>
+<a href="#using-sample-palettes" id="toc-using-sample-palettes" class="nav-link" data-scroll-target="#using-sample-palettes"> <span class="header-section-number">4</span> Using sample palettes</a>
+  <ul class="collapse">
 <li>
-<a href="#using-sample-palettes" class="nav-link" data-scroll-target="#using-sample-palettes"> <span class="header-section-number">4</span> Using sample palettes</a>
-<ul class="collapse">
-<li>
-<a href="#producing-sample-palettes" class="nav-link" data-scroll-target="#producing-sample-palettes"> <span class="header-section-number">4.1</span> Producing sample palettes</a>
-<ul class="collapse">
-<li><a href="#defaults-settings" class="nav-link" data-scroll-target="#defaults-settings"> <span class="header-section-number">4.1.1</span> Defaults settings</a></li>
-<li><a href="#filling-lesions" class="nav-link" data-scroll-target="#filling-lesions"> <span class="header-section-number">4.1.2</span> Filling lesions</a></li>
-<li><a href="#showing-a-mask" class="nav-link" data-scroll-target="#showing-a-mask"> <span class="header-section-number">4.1.3</span> Showing a mask</a></li>
-<li><a href="#segmenting-and-analyzing-lesions" class="nav-link" data-scroll-target="#segmenting-and-analyzing-lesions"> <span class="header-section-number">4.1.4</span> Segmenting and analyzing lesions</a></li>
-</ul>
+<a href="#producing-sample-palettes" id="toc-producing-sample-palettes" class="nav-link" data-scroll-target="#producing-sample-palettes"> <span class="header-section-number">4.1</span> Producing sample palettes</a>
+  <ul class="collapse">
+<li><a href="#defaults-settings" id="toc-defaults-settings" class="nav-link" data-scroll-target="#defaults-settings"> <span class="header-section-number">4.1.1</span> Defaults settings</a></li>
+  <li><a href="#filling-lesions" id="toc-filling-lesions" class="nav-link" data-scroll-target="#filling-lesions"> <span class="header-section-number">4.1.2</span> Filling lesions</a></li>
+  <li><a href="#showing-a-mask" id="toc-showing-a-mask" class="nav-link" data-scroll-target="#showing-a-mask"> <span class="header-section-number">4.1.3</span> Showing a mask</a></li>
+  <li><a href="#segmenting-and-analyzing-lesions" id="toc-segmenting-and-analyzing-lesions" class="nav-link" data-scroll-target="#segmenting-and-analyzing-lesions"> <span class="header-section-number">4.1.4</span> Segmenting and analyzing lesions</a></li>
+  </ul>
 </li>
-</ul>
+  </ul>
 </li>
-<li><a href="#batch-processing" class="nav-link" data-scroll-target="#batch-processing"> <span class="header-section-number">5</span> Batch processing</a></li>
-<li><a href="#standard-area-diagrams" class="nav-link" data-scroll-target="#standard-area-diagrams"> <span class="header-section-number">6</span> Standard area diagrams</a></li>
-<li><a href="#parallel-processing" class="nav-link" data-scroll-target="#parallel-processing"> <span class="header-section-number">7</span> Parallel processing</a></li>
-<li><a href="#multiple-images-of-the-same-sample" class="nav-link" data-scroll-target="#multiple-images-of-the-same-sample"> <span class="header-section-number">8</span> Multiple images of the same sample</a></li>
-<li><a href="#multiple-leaves-in-one-image" class="nav-link" data-scroll-target="#multiple-leaves-in-one-image"> <span class="header-section-number">9</span> Multiple leaves in one image</a></li>
-<li><a href="#a-little-gift" class="nav-link" data-scroll-target="#a-little-gift"> <span class="header-section-number">10</span> A little gift</a></li>
-</ul></nav>
+  <li><a href="#batch-processing" id="toc-batch-processing" class="nav-link" data-scroll-target="#batch-processing"> <span class="header-section-number">5</span> Batch processing</a></li>
+  <li><a href="#standard-area-diagrams" id="toc-standard-area-diagrams" class="nav-link" data-scroll-target="#standard-area-diagrams"> <span class="header-section-number">6</span> Standard area diagrams</a></li>
+  <li><a href="#parallel-processing" id="toc-parallel-processing" class="nav-link" data-scroll-target="#parallel-processing"> <span class="header-section-number">7</span> Parallel processing</a></li>
+  <li><a href="#multiple-images-of-the-same-sample" id="toc-multiple-images-of-the-same-sample" class="nav-link" data-scroll-target="#multiple-images-of-the-same-sample"> <span class="header-section-number">8</span> Multiple images of the same sample</a></li>
+  <li><a href="#multiple-leaves-in-one-image" id="toc-multiple-leaves-in-one-image" class="nav-link" data-scroll-target="#multiple-leaves-in-one-image"> <span class="header-section-number">9</span> Multiple leaves in one image</a></li>
+  <li><a href="#more-than-two-classes" id="toc-more-than-two-classes" class="nav-link" data-scroll-target="#more-than-two-classes"> <span class="header-section-number">10</span> More than two classes</a></li>
+  <li><a href="#a-little-gift" id="toc-a-little-gift" class="nav-link" data-scroll-target="#a-little-gift"> <span class="header-section-number">11</span> A little gift</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<div class="quarto-title"><h1 class="title d-none d-lg-block">Phytopathometry</h1></div></header><section id="directory" class="level1" data-number="1"><h1 data-number="1">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Phytopathometry</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><section id="directory" class="level1" data-number="1"><h1 data-number="1">
 <span class="header-section-number">1</span> Directory</h1>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -224,54 +249,35 @@
 <span class="header-section-number">2</span> Disease severity</h1>
 </section><section id="using-image-indexes" class="level1" data-number="3"><h1 data-number="3">
 <span class="header-section-number">3</span> Using image indexes</h1>
+<p>The following image<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> shows symptoms of anthracnose (<em>Elsinoë ampelina</em>) on grape leaves.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/pliman">pliman</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
-<pre><code>|==========================================================|</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>| Tools for Plant Image Analysis (pliman 1.2.0)            |</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>| Author: Tiago Olivoto                                    |</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>| Type 'citation('pliman')' to know how to cite pliman     |</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>| Type 'vignette('pliman_start')' for a short tutorial     |</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>| Visit 'http://bit.ly/pkg_pliman' for a complete tutorial |</code></pre>
-</div>
-<div class="cell-output-stderr">
-<pre><code>|==========================================================|</code></pre>
-</div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">img</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"disease.jpeg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TiagoOlivoto/pliman">pliman</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="va">img</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"videira.png"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span><span class="va">img</span>,</span>
-<span>                       index_lb <span class="op">=</span> <span class="st">"B"</span>,</span>
-<span>                       index_dh <span class="op">=</span> <span class="st">"HUE2"</span>,</span>
-<span>                       invert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span><span class="va">img</span>,</span>
+<span>                  index_lb <span class="op">=</span> <span class="st">"G"</span>,</span>
+<span>                  index_dh <span class="op">=</span> <span class="st">"G-R"</span>,</span>
+<span>                  show_segmentation <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res</span><span class="op">$</span><span class="va">severity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span><span class="op">$</span><span class="va">severity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>   healthy symptomatic
-1 86.94463    13.05537</code></pre>
+1 83.30028    16.69972</code></pre>
 </div>
 </div>
 </section><section id="using-sample-palettes" class="level1" data-number="4"><h1 data-number="4">
 <span class="header-section-number">4</span> Using sample palettes</h1>
 <p>Sample palettes can be made by simply manually sampling small areas of representative images and producing a composite image that will represent each of the desired classes (background, healthy, and symptomatic tissues).</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">img</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"exemp_1.jpeg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"exem_h.png"</span><span class="op">)</span></span>
-<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"exem_d.png"</span><span class="op">)</span></span>
-<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"exem_b.png"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"videira_h.png"</span><span class="op">)</span></span>
+<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"videira_d.png"</span><span class="op">)</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"videira_b.png"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_combine.html">image_combine</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">h</span>, <span class="va">d</span>, <span class="va">b</span>, ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_phytopathometry_files/figure-html/doen%C3%A7a1-1.png" class="img-fluid" width="1152"></p>
@@ -281,7 +287,7 @@
 <span class="header-section-number">4.1</span> Producing sample palettes</h2>
 <p>Users can produce these palettes with <code><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette()</a></code> function.</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
 <span><span class="va">d2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
 <span><span class="va">b2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_combine.html">image_combine</a></span><span class="op">(</span><span class="va">h2</span>, <span class="va">d2</span>, <span class="va">b2</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -289,7 +295,7 @@
 <section id="defaults-settings" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="defaults-settings">
 <span class="header-section-number">4.1.1</span> Defaults settings</h3>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>img <span class="op">=</span> <span class="va">img</span>,</span>
 <span>                  img_healthy <span class="op">=</span> <span class="va">h</span>,</span>
 <span>                  img_symptoms <span class="op">=</span> <span class="va">d</span>,</span>
@@ -297,16 +303,16 @@
 <div class="cell-output-display">
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span><span class="op">$</span><span class="va">severity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span><span class="op">$</span><span class="va">severity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>   healthy symptomatic
-1 92.71941    7.280595</code></pre>
+1 85.66133    14.33867</code></pre>
 </div>
 </div>
 </section><section id="filling-lesions" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="filling-lesions">
 <span class="header-section-number">4.1.2</span> Filling lesions</h3>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>img <span class="op">=</span> <span class="va">img</span>,</span>
 <span>                  img_healthy <span class="op">=</span> <span class="va">h</span>,</span>
 <span>                  img_symptoms <span class="op">=</span> <span class="va">d</span>,</span>
@@ -319,13 +325,13 @@
 </section><section id="showing-a-mask" class="level3" data-number="4.1.3"><h3 data-number="4.1.3" class="anchored" data-anchor-id="showing-a-mask">
 <span class="header-section-number">4.1.3</span> Showing a mask</h3>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>img <span class="op">=</span> <span class="va">img</span>,</span>
 <span>                  img_healthy <span class="op">=</span> <span class="va">h</span>,</span>
 <span>                  img_symptoms <span class="op">=</span> <span class="va">d</span>,</span>
 <span>                  img_background <span class="op">=</span> <span class="va">b</span>,</span>
 <span>                  show_original <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                  col_lesions <span class="op">=</span> <span class="st">"brown"</span><span class="op">)</span> <span class="co"># padrão é "black"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>                  col_lesions <span class="op">=</span> <span class="st">"brown"</span><span class="op">)</span> <span class="co"># default is "black"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -334,24 +340,25 @@
 <span class="header-section-number">4.1.4</span> Segmenting and analyzing lesions</h3>
 <p>When using <code>show_features = TRUE</code>, the function analyzes the lesions and returns results such as number of lesions, area, perimeter, etc. With <code>show_segmentation = TRUE</code>, segmented lesions are shown.</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>img <span class="op">=</span> <span class="va">img</span>,</span>
 <span>                  img_healthy <span class="op">=</span> <span class="va">h</span>,</span>
 <span>                  img_symptoms <span class="op">=</span> <span class="va">d</span>,</span>
 <span>                  img_background <span class="op">=</span> <span class="va">b</span>,</span>
 <span>                  show_features <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                  watershed <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                  show_segmentation <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># correct the measures (dpi = 150)</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># correct the measures (dpi = 150)</span></span>
 <span><span class="va">sev_corrected</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">get_measures</a></span><span class="op">(</span><span class="va">sev</span>, dpi <span class="op">=</span> <span class="fl">150</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section></section><section id="batch-processing" class="level1" data-number="5"><h1 data-number="5">
 <span class="header-section-number">5</span> Batch processing</h1>
 <p>To analyze several images from a directory, use the <code>pattern</code> argument to declare a pattern of filenames. Here, we Will used 50 soybean leaves available in the repository https://osf.io/4hbr6, a database of images of annotation of severity of plant diseases. Thanks to <a href="https://osf.io/jb6yd/">Emerson M. Del Ponte</a> and his contributors for keeping this project publicly available. Using the <code>save_image = TRUE</code> argument we save the processed images in a temporary directory, defined by <code><a href="https://rdrr.io/r/base/tempfile.html">tempdir()</a></code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># criar um diretório temporário</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># criar um diretório temporário</span></span>
 <span><span class="va">temp_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span></span>
@@ -366,241 +373,243 @@
 <span>                    show_contour <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                    col_lesions <span class="op">=</span> <span class="st">"brown"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Processing image soy_1 |=                                        | 2% 00:00:00 </code></pre>
 </div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Processing image soy_10 |==                                      | 4% 00:00:02 </code></pre>
 </div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>Processing image soy_11 |==                                      | 6% 00:00:04 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_12 |===                                     | 8% 00:00:05 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_12 |===                                     | 8% 00:00:06 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_13 |====                                    | 10% 00:00:07 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_13 |====                                    | 10% 00:00:08 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_14 |=====                                   | 12% 00:00:08 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_14 |=====                                   | 12% 00:00:09 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_15 |======                                  | 14% 00:00:10 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_15 |======                                  | 14% 00:00:11 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_16 |======                                  | 16% 00:00:10 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_16 |======                                  | 16% 00:00:11 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_17 |=======                                 | 18% 00:00:12 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_17 |=======                                 | 18% 00:00:13 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_18 |========                                | 20% 00:00:13 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_18 |========                                | 20% 00:00:15 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_19 |=========                               | 22% 00:00:15 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_19 |=========                               | 22% 00:00:17 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_2 |==========                               | 24% 00:00:17 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_2 |==========                               | 24% 00:00:18 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_20 |==========                              | 26% 00:00:17 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_20 |==========                              | 26% 00:00:19 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_21 |===========                             | 28% 00:00:19 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_21 |===========                             | 28% 00:00:21 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_22 |============                            | 30% 00:00:21 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_22 |============                            | 30% 00:00:23 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_23 |=============                           | 32% 00:00:22 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_23 |=============                           | 32% 00:00:24 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_24 |==============                          | 34% 00:00:22 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_24 |==============                          | 34% 00:00:25 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_25 |==============                          | 36% 00:00:24 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_25 |==============                          | 36% 00:00:27 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_26 |===============                         | 38% 00:00:26 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_26 |===============                         | 38% 00:00:29 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_27 |================                        | 40% 00:00:28 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_27 |================                        | 40% 00:00:30 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_28 |=================                       | 42% 00:00:29 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_28 |=================                       | 42% 00:00:32 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_29 |==================                      | 44% 00:00:31 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_29 |==================                      | 44% 00:00:34 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_3 |===================                      | 46% 00:00:32 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_3 |===================                      | 46% 00:00:35 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_30 |===================                     | 48% 00:00:34 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_30 |===================                     | 48% 00:00:37 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_31 |====================                    | 50% 00:00:34 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_31 |====================                    | 50% 00:00:38 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_32 |=====================                   | 52% 00:00:35 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_32 |=====================                   | 52% 00:00:39 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_33 |======================                  | 54% 00:00:36 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_33 |======================                  | 54% 00:00:40 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_34 |======================                  | 56% 00:00:38 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_34 |======================                  | 56% 00:00:42 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_35 |=======================                 | 58% 00:00:40 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_35 |=======================                 | 58% 00:00:44 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_36 |========================                | 60% 00:00:41 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_36 |========================                | 60% 00:00:45 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_37 |=========================               | 62% 00:00:43 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_37 |=========================               | 62% 00:00:47 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_38 |==========================              | 64% 00:00:44 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_38 |==========================              | 64% 00:00:48 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_39 |==========================              | 66% 00:00:45 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_39 |==========================              | 66% 00:00:49 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_4 |============================             | 68% 00:00:46 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_4 |============================             | 68% 00:00:50 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_40 |============================            | 70% 00:00:47 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_40 |============================            | 70% 00:00:52 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_41 |=============================           | 72% 00:00:48 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_41 |=============================           | 72% 00:00:52 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_42 |==============================          | 74% 00:00:50 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_42 |==============================          | 74% 00:00:54 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_43 |==============================          | 76% 00:00:52 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_43 |==============================          | 76% 00:00:56 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_44 |===============================         | 78% 00:00:53 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_44 |===============================         | 78% 00:00:57 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_45 |================================        | 80% 00:00:55 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_45 |================================        | 80% 00:00:59 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_46 |=================================       | 82% 00:00:56 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_46 |=================================       | 82% 00:01:00 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_47 |==================================      | 84% 00:00:58 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_47 |==================================      | 84% 00:01:02 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_48 |==================================      | 86% 00:00:59 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_48 |==================================      | 86% 00:01:03 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_49 |===================================     | 88% 00:01:00 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_49 |===================================     | 88% 00:01:04 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_5 |=====================================    | 90% 00:01:01 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_5 |=====================================    | 90% 00:01:05 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_50 |=====================================   | 92% 00:01:02 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_50 |=====================================   | 92% 00:01:06 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_6 |=======================================  | 94% 00:01:04 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_6 |=======================================  | 94% 00:01:08 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_7 |=======================================  | 96% 00:01:05 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_7 |=======================================  | 96% 00:01:09 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_8 |======================================== | 98% 00:01:05 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_8 |======================================== | 98% 00:01:09 </code></pre>
 </div>
-<div class="cell-output-stdout">
-<pre><code>Processing image soy_9 |=========================================| 100% 00:01:06 </code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>Processing image soy_9 |=========================================| 100% 00:01:10 </code></pre>
 </div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>  usuário   sistema decorrido 
-    61.23      7.03     68.50 </code></pre>
+    63.16      9.00     72.54 </code></pre>
 </div>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev_lote</span><span class="op">$</span><span class="va">severity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code>      img  healthy symptomatic
-1   soy_1 92.54979   7.4502120
-2  soy_10 52.42661  47.5733920
-3  soy_11 88.97561  11.0243935
-4  soy_12 62.09516  37.9048355
-5  soy_13 50.70039  49.2996072
-6  soy_14 99.77114   0.2288569
-7  soy_15 71.79901  28.2009870
-8  soy_16 27.99610  72.0038980
-9  soy_17 22.07859  77.9214104
-10 soy_18 83.04478  16.9552218
-11 soy_19 38.46741  61.5325856
-12  soy_2 85.39094  14.6090631
-13 soy_20 34.86163  65.1383696
-14 soy_21 33.28426  66.7157361
-15 soy_22 75.02173  24.9782667
-16 soy_23 59.84829  40.1517066
-17 soy_24 71.30972  28.6902811
-18 soy_25 10.55560  89.4443984
-19 soy_26 26.72445  73.2755536
-20 soy_27 31.19710  68.8029001
-21 soy_28 52.12310  47.8769002
-22 soy_29 24.48866  75.5113439
-23  soy_3 16.34296  83.6570423
-24 soy_30 43.07619  56.9238051
-25 soy_31 14.63903  85.3609689
-26 soy_32 45.98730  54.0127019
-27 soy_33 89.41139  10.5886059
-28 soy_34 44.59374  55.4062587
-29 soy_35 60.65275  39.3472504
-30 soy_36 94.14728   5.8527215
-31 soy_37 35.38619  64.6138066
-32 soy_38 51.85648  48.1435179
-33 soy_39 41.84025  58.1597533
-34  soy_4 65.65609  34.3439125
-35 soy_40 66.93071  33.0692895
-36 soy_41 97.29034   2.7096598
-37 soy_42 85.41356  14.5864410
-38 soy_43 90.70652   9.2934828
-39 soy_44 57.52541  42.4745938
-40 soy_45 82.82098  17.1790195
-41 soy_46 83.66599  16.3340092
-42 soy_47 77.14769  22.8523125
-43 soy_48 76.26701  23.7329864
-44 soy_49 70.21470  29.7853029
-45  soy_5 82.50701  17.4929927
-46 soy_50 52.68894  47.3110608
-47  soy_6 65.11704  34.8829602
-48  soy_7 60.07675  39.9232513
-49  soy_8 44.78891  55.2110932
-50  soy_9 76.92256  23.0774419</code></pre>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev_lote</span><span class="op">$</span><span class="va">severity</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      img   healthy symptomatic
+1   soy_1 92.561965   7.4380352
+2  soy_10 56.596436  43.4035636
+3  soy_11 87.854282  12.1457181
+4  soy_12 63.824984  36.1750164
+5  soy_13 51.207163  48.7928367
+6  soy_14 99.693826   0.3061742
+7  soy_15 73.035175  26.9648246
+8  soy_16 30.754927  69.2450734
+9  soy_17 21.340046  78.6599542
+10 soy_18 81.341313  18.6586875
+11 soy_19 38.054795  61.9452046
+12  soy_2 85.326771  14.6732286
+13 soy_20 34.626454  65.3735459
+14 soy_21 34.734468  65.2655318
+15 soy_22 77.721269  22.2787314
+16 soy_23 60.208081  39.7919193
+17 soy_24 75.373663  24.6263373
+18 soy_25  9.667896  90.3321045
+19 soy_26 26.751170  73.2488304
+20 soy_27 31.829014  68.1709861
+21 soy_28 55.915927  44.0840730
+22 soy_29 24.103095  75.8969050
+23  soy_3 16.226228  83.7737724
+24 soy_30 44.380500  55.6195004
+25 soy_31 14.101584  85.8984162
+26 soy_32 45.929325  54.0706752
+27 soy_33 90.295207   9.7047926
+28 soy_34 49.138473  50.8615267
+29 soy_35 60.169551  39.8304491
+30 soy_36 92.958299   7.0417013
+31 soy_37 39.323625  60.6763747
+32 soy_38 52.630456  47.3695438
+33 soy_39 40.190882  59.8091178
+34  soy_4 65.752480  34.2475201
+35 soy_40 71.668418  28.3315815
+36 soy_41 96.968643   3.0313569
+37 soy_42 86.576751  13.4232486
+38 soy_43 90.320852   9.6791485
+39 soy_44 57.757194  42.2428058
+40 soy_45 83.155734  16.8442658
+41 soy_46 84.100800  15.8992001
+42 soy_47 77.391598  22.6084023
+43 soy_48 76.212081  23.7879192
+44 soy_49 69.778843  30.2211566
+45  soy_5 80.179465  19.8205352
+46 soy_50 61.072367  38.9276334
+47  soy_6 65.925521  34.0744787
+48  soy_7 57.404769  42.5952313
+49  soy_8 44.434393  55.5656072
+50  soy_9 79.166022  20.8339781</code></pre>
 </div>
 </div>
 </section><section id="standard-area-diagrams" class="level1" data-number="6"><h1 data-number="6">
 <span class="header-section-number">6</span> Standard area diagrams</h1>
-<p>Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments.</p>
-<p>Given an object computed with <code><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease()</a></code> a Standard Area Diagram (SAD) with <code>n</code> images containing the respective severity values are obtained with <code><a href="https://rdrr.io/pkg/pliman/man/sad.html">sad()</a></code>.</p>
+<p>Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments. Given an object computed with <code><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease()</a></code> a Standard Area Diagram (SAD) with <code>n</code> images containing the respective severity values are obtained with <code><a href="https://rdrr.io/pkg/pliman/man/sad.html">sad()</a></code>.</p>
 <p>Leaves with the smallest and highest severity will always be in the SAD. If <code>n = 1</code>, the leaf with the smallest severity will be returned. The others are sampled sequentially to achieve the n images after severity has been ordered in ascending order. For example, if there are 30 leaves and n is set to 3, the leaves sampled will be the 1st, 15th, and 30th with the smallest severity values.</p>
 <p>The SAD can be only computed if an image pattern name is used in argument <code>pattern</code> of <code><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease()</a></code>. If the images are saved, the <code>n</code> images will be retrevied from <code>dir_processed</code> directory. Otherwise, the severity will be computed again to generate the images. A SAD with 8 images from the above example can be obtained easely with:</p>
 <div class="cell">
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/sad.html">sad</a></span><span class="op">(</span><span class="va">sev_lote</span>, n <span class="op">=</span> <span class="fl">6</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/sad.html">sad</a></span><span class="op">(</span><span class="va">sev_lote</span>, n <span class="op">=</span> <span class="fl">9</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="cell-output-stdout">
-<pre><code>      img  healthy symptomatic rank
-6  soy_14 99.77114   0.2288569    1
-41 soy_46 83.66599  16.3340092   10
-44 soy_49 70.21470  29.7853029   20
-2  soy_10 52.42661  47.5733920   30
-31 soy_37 35.38619  64.6138066   40
-18 soy_25 10.55560  89.4443984   50</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>      img   healthy symptomatic rank
+6  soy_14 99.693826   0.3061742    1
+3  soy_11 87.854282  12.1457181    7
+45  soy_5 80.179465  19.8205352   13
+7  soy_15 73.035175  26.9648246   19
+46 soy_50 61.072367  38.9276334   25
+21 soy_28 55.915927  44.0840730   31
+24 soy_30 44.380500  55.6195004   37
+20 soy_27 31.829014  68.1709861   43
+18 soy_25  9.667896  90.3321045   50</code></pre>
 </div>
 </div>
 </section><section id="parallel-processing" class="level1" data-number="7"><h1 data-number="7">
 <span class="header-section-number">7</span> Parallel processing</h1>
 <p>To speed up processing time when multiple images are available, you can use the <code>paralell</code> argument. In parallel programming (<code>parallel = TRUE</code>), the images are processed asynchronously (in parallel) in separate R sessions running in the background on the same machine. The number of sections is set by default to 50% of available cores. This number can be controlled explicitly with the argument workers.</p>
 <div class="cell">
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span></span>
 <span>  <span class="va">sev_lote</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"soy"</span>,</span>
 <span>                    img_healthy <span class="op">=</span> <span class="st">"soja_h"</span>,</span>
@@ -609,12 +618,12 @@
 <span>                    show_image <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                    parallel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Image processing using multiple sessions (6). Please wait.</code></pre>
 </div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>  usuário   sistema decorrido 
-     0.69      0.23     23.77 </code></pre>
+     0.67      0.16     24.42 </code></pre>
 </div>
 </div>
 </section><section id="multiple-images-of-the-same-sample" class="level1" data-number="8"><h1 data-number="8">
@@ -622,7 +631,7 @@
 <p>If users need to analyze multiple images from the same sample, the images from the same sample must share the same filename prefix, which is defined as the part of the filename that precedes the first hyphen (<code>-</code>) or underscore (<code>_</code>).</p>
 <p>In the following example, 16 images will be used as examples. Here, they represent four replicates of four different treatments (<code>TRAT1_1, TRAT1_2, ..., TRAT4_4</code>). Note that to ensure that all images are processed, all images must share a common pattern, in this case (<code>"TRAT"</code>).</p>
 <div class="cell">
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span></span>
 <span>  <span class="va">sev_trats</span> <span class="op">&lt;-</span> </span>
 <span>    <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"TRAT"</span>,</span>
 <span>                    img_healthy <span class="op">=</span> <span class="st">"feijao_h"</span>,</span>
@@ -632,18 +641,18 @@
 <span>                    show_image <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                    parallel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Image processing using multiple sessions (6). Please wait.</code></pre>
 </div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>  usuário   sistema decorrido 
-     0.48      0.11     16.47 </code></pre>
+     0.47      0.06     17.41 </code></pre>
 </div>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sev</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="va">sev_trats</span><span class="op">$</span><span class="va">severity</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/separate_col.html">separate_col</a></span><span class="op">(</span><span class="va">img</span>, into <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TRAT"</span>, <span class="st">"REP"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">sev</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">TRAT</span>, <span class="va">symptomatic</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
@@ -658,8 +667,8 @@
 <p>When multiple leaves are present in an image, the <code>measure_disease</code> function returns the average severity of the leaves present in the image. To quantify the severity <em>per leaf</em>, the <code><a href="https://rdrr.io/pkg/pliman/man/measure_disease_byl.html">measure_disease_byl()</a></code> function can be used.</p>
 <p>This function computes the percentage of symptomatic leaf area using color palettes or RGB indices for each leaf (<code>byl</code>) of an image. This allows, for example, to process replicates of the same treatment and obtain the results of each replication with a single image. To do this, the sample sheets are first split using the <code><a href="https://rdrr.io/pkg/pliman/man/object_split.html">object_split()</a></code> function and then the <code><a href="https://rdrr.io/pkg/pliman/man/measure_disease.html">measure_disease()</a></code> function is applied to the sheet list.</p>
 <div class="cell">
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">byl</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease_byl.html">measure_disease_byl</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"multiplas"</span>,</span>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">byl</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/measure_disease_byl.html">measure_disease_byl</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"multiplas_02"</span>,</span>
 <span>                      index <span class="op">=</span> <span class="st">"B"</span>, <span class="co"># used to segment leaves from background</span></span>
 <span>                      img_healthy <span class="op">=</span> <span class="st">"soja_h"</span>,</span>
 <span>                      img_symptoms <span class="op">=</span> <span class="st">"soja_s"</span>,</span>
@@ -667,70 +676,87 @@
 <span>                      show_features <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                      col_lesions <span class="op">=</span> <span class="st">"red"</span>,</span>
 <span>                      parallel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stderr">
+<div class="cell-output cell-output-stderr">
 <pre><code>Image processing using multiple sessions (6). Please wait.</code></pre>
 </div>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">results_byl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">get_measures</a></span><span class="op">(</span><span class="va">byl</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">results_byl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">get_measures</a></span><span class="op">(</span><span class="va">byl</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">results_byl</span><span class="op">$</span><span class="va">results</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code>           img leaf id       x      y area area_ch perimeter radius_mean
-1 multiplas_01    1  1 231.294 26.956   68      70    37.042       4.359
-2 multiplas_01    1  2 374.071 31.321   84      81    41.870       5.021
-3 multiplas_01    1  3 323.333 35.333    9       4     8.000       1.239
-4 multiplas_01    1  4 181.600 56.600    5       1     5.828       0.969
-5 multiplas_01    1  5 414.167 59.167    6       2     4.828       1.043
-6 multiplas_01    1  6 317.167 61.667   12       7    10.243       1.558
+<div class="cell-output cell-output-stdout">
+<pre><code>           img leaf id       x       y area area_ch perimeter radius_mean
+1 multiplas_02    1  1 173.868  83.074   68      74    41.799       4.997
+2 multiplas_02    1  2 239.600 105.906  532     682   127.397      13.834
+3 multiplas_02    1  3 138.765 103.382  102      91    36.556       5.271
+4 multiplas_02    1  4 199.275 131.895 1231    1750   219.208      19.998
+5 multiplas_02    1  7 158.510 132.255  412     553   118.983      11.133
+6 multiplas_02    1  9 222.395 118.116   43      37    27.142       3.114
   radius_min radius_max radius_sd diam_mean diam_min diam_max major_axis
-1      2.867      5.934     0.745     8.718    5.733   11.869      9.996
-2      2.603      8.159     1.517    10.042    5.205   16.319     14.939
-3      0.471      1.886     0.493     2.478    0.943    3.771      4.709
-4      0.601      1.641     0.447     1.938    1.202    3.283      4.342
-5      0.825      1.217     0.181     2.085    1.649    2.433      3.127
-6      0.539      2.508     0.620     3.115    1.077    5.016      5.768
-  minor_axis length width radius_ratio eccentricity  theta solidity convexity
-1      9.559 10.564 9.582        2.070        0.861  1.346    0.971     0.731
-2      8.168 14.988 7.980        3.135        0.339  0.598    1.037     0.594
-3      2.504  3.379 1.946        4.000        0.283  0.232    2.250     1.020
-4      1.277  3.156 0.928        2.732        0.084 -1.204    5.000     0.798
-5      2.309  2.121 1.414        1.475        0.556  0.785    3.000     1.086
-6      2.679  4.966 2.102        4.657        0.236 -1.450    1.714     0.821
-  elongation circularity circularity_haralick circularity_norm   asm    con
-1      0.093      20.178                5.848            2.120 0.071  1.070
-2      0.468      20.870                3.311            2.130 0.032  7.819
-3      0.424       7.111                2.514            1.455 0.301  0.389
-4      0.706       6.794                2.168            2.703 0.319  0.500
-5      0.333       3.886                5.768            0.742 0.066 15.091
-6      0.577       8.743                2.513            1.391 0.516  0.259
-    cor    var   idm    sav     sva   sen   ent    dva   den   f12   f13
-1 0.658  2.563 0.645 23.080 494.759 0.953 1.263  1.070 0.441 0.192 0.485
-2 0.713 14.622 0.457 23.085 522.589 1.270 1.771  7.819 0.790 0.213 0.587
-3 0.157  1.231 0.806 16.722 265.458 0.446 0.563  0.389 0.290 0.019 0.103
-4 0.390  1.410 0.750 20.833 417.058 0.439 0.590  0.500 0.301 0.352 0.472
-5 0.002  8.562 0.237 29.455 833.003 0.857 1.206 15.091 0.877 0.187 0.469
-6 0.180  1.158 0.870 22.185 475.850 0.380 0.458  0.259 0.249 0.044 0.142</code></pre>
+1      1.065      8.855     2.250     9.993    2.130   17.709     19.381
+2      2.926     24.100     5.089    27.667    5.852   48.200     44.282
+3      3.682      6.872     0.916    10.543    7.364   13.744     13.962
+4      5.972     31.538     7.021    39.996   11.944   63.075     60.985
+5      1.067     19.014     4.042    22.265    2.134   38.028     33.385
+6      0.962      4.417     0.869     6.227    1.924    8.834      8.613
+  minor_axis length  width radius_ratio eccentricity  theta solidity convexity
+1      5.659 16.502  6.320        8.314        0.106  0.368    0.919     0.904
+2     19.295 44.026 24.129        8.237        0.239  0.011    0.780     0.836
+3      9.436 13.153  8.890        1.866        0.533 -0.136    1.121     0.923
+4     34.627 60.931 42.755        5.281        0.442  1.546    0.703     0.567
+5     22.275 33.887 24.048       17.821        0.481  0.607    0.745     0.650
+6      7.148  8.230  6.324        4.592        0.694  0.290    1.162     0.733
+  elongation circularity circularity_haralick circularity_norm coverage   asm
+1      0.617      25.693                2.221            2.867    0.000 0.091
+2      0.452      30.507                2.718            2.716    0.001 0.024
+3      0.324      13.102                5.754            1.259    0.000 0.064
+4      0.298      39.035                2.848            3.362    0.003 0.025
+5      0.290      34.361                2.754            3.134    0.001 0.038
+6      0.232      17.132                3.583            1.954    0.000 0.076
+    con   cor   var   idm    sav      sva   sen   ent   dva   den   f12   f13
+1 1.312 0.460 2.216 0.624 27.312  702.276 0.879 1.191 1.312 0.478 0.126 0.385
+2 1.954 0.852 7.596 0.562 33.251 1046.802 1.276 1.711 1.954 0.549 0.279 0.653
+3 1.871 0.722 4.360 0.606 28.524  766.785 1.043 1.358 1.871 0.508 0.249 0.566
+4 1.893 0.844 7.068 0.569 34.710 1140.819 1.266 1.700 1.893 0.543 0.272 0.643
+5 1.341 0.810 4.536 0.609 30.335  864.522 1.151 1.517 1.341 0.478 0.266 0.610
+6 1.197 0.516 2.237 0.619 28.772  782.712 0.862 1.153 1.197 0.453 0.137 0.396</code></pre>
 </div>
 </div>
-</section><section id="a-little-gift" class="level1" data-number="10"><h1 data-number="10">
-<span class="header-section-number">10</span> A little gift</h1>
+</section><section id="more-than-two-classes" class="level1" data-number="10"><h1 data-number="10">
+<span class="header-section-number">10</span> More than two classes</h1>
 <div class="cell">
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">f0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"fungo.jpg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">res</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/analyze_objects.html">analyze_objects</a></span><span class="op">(</span><span class="va">f0</span>,</span>
-<span>                  my_index <span class="op">=</span> <span class="st">"(G+B)^3-R"</span>,</span>
-<span>                  watershed <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                  filter <span class="op">=</span> <span class="fl">30</span>,</span>
-<span>                  contour_size <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>                  contour_col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">meas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">get_measures</a></span><span class="op">(</span><span class="va">res</span>, dpi <span class="op">=</span> <span class="fl">254</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">plot_measures</a></span><span class="op">(</span><span class="va">meas</span>,</span>
-<span>              col <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span>              measure <span class="op">=</span> <span class="st">"diam_mean"</span>,</span>
-<span>              size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">img</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_pliman</a></span><span class="op">(</span><span class="st">"sev_leaf.jpg"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment_iter</a></span><span class="op">(</span><span class="va">img</span>,</span>
+<span>                   nseg <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>                   index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"NGRDI"</span>, <span class="st">"G-B"</span><span class="op">)</span>,</span>
+<span>                   ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     image pixels   percent
+1 original 818790 100.00000
+2     seg1 462978  56.54417
+3     seg2  90714  19.59359
+4     seg3  28269  31.16278</code></pre>
+</div>
 <div class="cell-output-display">
 <p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section><section id="a-little-gift" class="level1" data-number="11"><h1 data-number="11">
+<span class="header-section-number">11</span> A little gift</h1>
+<div class="cell">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fungo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"fungo.jpeg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">res</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/analyze_objects.html">analyze_objects</a></span><span class="op">(</span><span class="va">fungo</span>, </span>
+<span>                  index <span class="op">=</span> <span class="st">"HUE"</span>,</span>
+<span>                  invert <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                  filter <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>                  watershed <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>                  contour_size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">get_measures</a></span><span class="op">(</span><span class="va">res</span>, dpi <span class="op">=</span> <span class="fl">90</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">plot_measures</a></span><span class="op">(</span>measure <span class="op">=</span> <span class="st">"area"</span>, </span>
+<span>                col <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>                size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="04_phytopathometry_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -743,298 +769,54 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The segmentation can also be performed using sample palettes representing the foreground and background. In this example, pick the color samples, then use them in the <code><a href="https://rdrr.io/pkg/pliman/man/analyze_objects.html">analyze_objects()</a></code>. ::: {.cell}</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">back</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">f0</span><span class="op">)</span></span>
-<span><span class="va">fore</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">f0</span><span class="op">)</span></span>
+<p>The segmentation can also be performed using sample palettes representing the foreground and background. In this example, pick the color samples, then use them in the <code><a href="https://rdrr.io/pkg/pliman/man/analyze_objects.html">analyze_objects()</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">back</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">fungo</span><span class="op">)</span></span>
+<span><span class="va">fore</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_pick.html">pick_palette</a></span><span class="op">(</span><span class="va">fungo</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">res</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/analyze_objects.html">analyze_objects</a></span><span class="op">(</span><span class="va">f0</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/analyze_objects.html">analyze_objects</a></span><span class="op">(</span><span class="va">fungo</span>,</span>
 <span>                  background <span class="op">=</span> <span class="va">back</span>,</span>
 <span>                  foreground <span class="op">=</span> <span class="va">fore</span>,</span>
 <span>                  watershed <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>                  filter <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
+<span>                  filter <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>                  contour_size <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">meas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">get_measures</a></span><span class="op">(</span><span class="va">res</span>, dpi <span class="op">=</span> <span class="fl">254</span><span class="op">)</span></span>
+<span><span class="va">meas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">get_measures</a></span><span class="op">(</span><span class="va">res</span>, dpi <span class="op">=</span> <span class="fl">90</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_measures.html">plot_measures</a></span><span class="op">(</span><span class="va">meas</span>,</span>
 <span>              col <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>              measure <span class="op">=</span> <span class="st">"diam_mean"</span>,</span>
+<span>              measure <span class="op">=</span> <span class="st">"area"</span>,</span>
 <span>              size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>:::</p>
+</div>
 
 
 <!-- -->
-<div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title anchored" id="quarto-embedded-source-code-modal-label" data-anchor-id="a-little-gift">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb92" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Phytopathometry"</span></span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
-<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span>)</span>
-<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-10"><a href="#cb92-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory</span></span>
-<span id="cb92-11"><a href="#cb92-11" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span>)</span>
-<span id="cb92-13"><a href="#cb92-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-14"><a href="#cb92-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-15"><a href="#cb92-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-16"><a href="#cb92-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-17"><a href="#cb92-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Disease severity</span></span>
-<span id="cb92-18"><a href="#cb92-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Using image indexes</span></span>
-<span id="cb92-21"><a href="#cb92-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-22"><a href="#cb92-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pliman)</span>
-<span id="cb92-23"><a href="#cb92-23" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"disease.jpeg"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb92-24"><a href="#cb92-24" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">measure_disease</span>(img,</span>
-<span id="cb92-25"><a href="#cb92-25" aria-hidden="true" tabindex="-1"></a>                       <span class="at">index_lb =</span> <span class="st">"B"</span>,</span>
-<span id="cb92-26"><a href="#cb92-26" aria-hidden="true" tabindex="-1"></a>                       <span class="at">index_dh =</span> <span class="st">"HUE2"</span>,</span>
-<span id="cb92-27"><a href="#cb92-27" aria-hidden="true" tabindex="-1"></a>                       <span class="at">invert =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>))</span>
-<span id="cb92-28"><a href="#cb92-28" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>severity</span>
-<span id="cb92-29"><a href="#cb92-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-30"><a href="#cb92-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-31"><a href="#cb92-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-32"><a href="#cb92-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># Using sample palettes</span></span>
-<span id="cb92-33"><a href="#cb92-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-34"><a href="#cb92-34" aria-hidden="true" tabindex="-1"></a>Sample palettes can be made by simply manually sampling small areas of representative images and producing a composite image that will represent each of the desired classes (background, healthy, and symptomatic tissues). </span>
-<span id="cb92-35"><a href="#cb92-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-36"><a href="#cb92-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r doença1, fig.width = 12, fig.height = 3}</span></span>
-<span id="cb92-37"><a href="#cb92-37" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"exemp_1.jpeg"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb92-38"><a href="#cb92-38" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"exem_h.png"</span>)</span>
-<span id="cb92-39"><a href="#cb92-39" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"exem_d.png"</span>)</span>
-<span id="cb92-40"><a href="#cb92-40" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"exem_b.png"</span>)</span>
-<span id="cb92-41"><a href="#cb92-41" aria-hidden="true" tabindex="-1"></a><span class="fu">image_combine</span>(img, h, d, b, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
-<span id="cb92-42"><a href="#cb92-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-43"><a href="#cb92-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-44"><a href="#cb92-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-45"><a href="#cb92-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Producing sample palettes</span></span>
-<span id="cb92-46"><a href="#cb92-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-47"><a href="#cb92-47" aria-hidden="true" tabindex="-1"></a>Users can produce these palettes with <span class="in">`pick_palette()`</span> function.</span>
-<span id="cb92-48"><a href="#cb92-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-49"><a href="#cb92-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE, fig.width=10}</span></span>
-<span id="cb92-50"><a href="#cb92-50" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(img)</span>
-<span id="cb92-51"><a href="#cb92-51" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(img)</span>
-<span id="cb92-52"><a href="#cb92-52" aria-hidden="true" tabindex="-1"></a>b2 <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(img)</span>
-<span id="cb92-53"><a href="#cb92-53" aria-hidden="true" tabindex="-1"></a><span class="fu">image_combine</span>(h2, d2, b2, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb92-54"><a href="#cb92-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-55"><a href="#cb92-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-56"><a href="#cb92-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-57"><a href="#cb92-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-58"><a href="#cb92-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Defaults settings</span></span>
-<span id="cb92-61"><a href="#cb92-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-62"><a href="#cb92-62" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
-<span id="cb92-63"><a href="#cb92-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(<span class="at">img =</span> img,</span>
-<span id="cb92-64"><a href="#cb92-64" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_healthy =</span> h,</span>
-<span id="cb92-65"><a href="#cb92-65" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_symptoms =</span> d,</span>
-<span id="cb92-66"><a href="#cb92-66" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_background =</span> b)</span>
-<span id="cb92-67"><a href="#cb92-67" aria-hidden="true" tabindex="-1"></a>sev<span class="sc">$</span>severity</span>
-<span id="cb92-68"><a href="#cb92-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-69"><a href="#cb92-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-70"><a href="#cb92-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-71"><a href="#cb92-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filling lesions</span></span>
-<span id="cb92-74"><a href="#cb92-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-75"><a href="#cb92-75" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
-<span id="cb92-76"><a href="#cb92-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(<span class="at">img =</span> img,</span>
-<span id="cb92-77"><a href="#cb92-77" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_healthy =</span> h,</span>
-<span id="cb92-78"><a href="#cb92-78" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_symptoms =</span> d,</span>
-<span id="cb92-79"><a href="#cb92-79" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_background =</span> b,</span>
-<span id="cb92-80"><a href="#cb92-80" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_contour =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb92-81"><a href="#cb92-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-82"><a href="#cb92-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-83"><a href="#cb92-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-84"><a href="#cb92-84" aria-hidden="true" tabindex="-1"></a><span class="fu">### Showing a mask</span></span>
-<span id="cb92-87"><a href="#cb92-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-88"><a href="#cb92-88" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
-<span id="cb92-89"><a href="#cb92-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(<span class="at">img =</span> img,</span>
-<span id="cb92-90"><a href="#cb92-90" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_healthy =</span> h,</span>
-<span id="cb92-91"><a href="#cb92-91" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_symptoms =</span> d,</span>
-<span id="cb92-92"><a href="#cb92-92" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_background =</span> b,</span>
-<span id="cb92-93"><a href="#cb92-93" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_original =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb92-94"><a href="#cb92-94" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col_lesions =</span> <span class="st">"brown"</span>) <span class="co"># padrão é "black"</span></span>
-<span id="cb92-95"><a href="#cb92-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-96"><a href="#cb92-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-97"><a href="#cb92-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-98"><a href="#cb92-98" aria-hidden="true" tabindex="-1"></a><span class="fu">### Segmenting and analyzing lesions</span></span>
-<span id="cb92-99"><a href="#cb92-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-100"><a href="#cb92-100" aria-hidden="true" tabindex="-1"></a>When using <span class="in">`show_features = TRUE`</span>, the function analyzes the lesions and returns results such as number of lesions, area, perimeter, etc. With <span class="in">`show_segmentation = TRUE`</span>, segmented lesions are shown.</span>
-<span id="cb92-101"><a href="#cb92-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-104"><a href="#cb92-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-105"><a href="#cb92-105" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
-<span id="cb92-106"><a href="#cb92-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(<span class="at">img =</span> img,</span>
-<span id="cb92-107"><a href="#cb92-107" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_healthy =</span> h,</span>
-<span id="cb92-108"><a href="#cb92-108" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_symptoms =</span> d,</span>
-<span id="cb92-109"><a href="#cb92-109" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_background =</span> b,</span>
-<span id="cb92-110"><a href="#cb92-110" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_features =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb92-111"><a href="#cb92-111" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_segmentation =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb92-112"><a href="#cb92-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-113"><a href="#cb92-113" aria-hidden="true" tabindex="-1"></a><span class="co"># correct the measures (dpi = 150)</span></span>
-<span id="cb92-114"><a href="#cb92-114" aria-hidden="true" tabindex="-1"></a>sev_corrected <span class="ot">&lt;-</span> <span class="fu">get_measures</span>(sev, <span class="at">dpi =</span> <span class="dv">150</span>)</span>
-<span id="cb92-115"><a href="#cb92-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-116"><a href="#cb92-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-117"><a href="#cb92-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-118"><a href="#cb92-118" aria-hidden="true" tabindex="-1"></a><span class="fu"># Batch processing</span></span>
-<span id="cb92-119"><a href="#cb92-119" aria-hidden="true" tabindex="-1"></a>To analyze several images from a directory, use the <span class="in">`pattern`</span> argument to declare a pattern of filenames. Here, we Will used 50 soybean leaves available in the repository https://osf.io/4hbr6, a database of images of annotation of severity of plant diseases. Thanks to <span class="co">[</span><span class="ot">Emerson M. Del Ponte</span><span class="co">](https://osf.io/jb6yd/)</span> and his contributors for keeping this project publicly available. Using the <span class="in">`save_image = TRUE`</span> argument we save the processed images in a temporary directory, defined by <span class="in">`tempdir()`</span>.</span>
-<span id="cb92-120"><a href="#cb92-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-123"><a href="#cb92-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-124"><a href="#cb92-124" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um diretório temporário</span></span>
-<span id="cb92-125"><a href="#cb92-125" aria-hidden="true" tabindex="-1"></a>temp_dir <span class="ot">&lt;-</span> <span class="fu">tempdir</span>()</span>
-<span id="cb92-126"><a href="#cb92-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-127"><a href="#cb92-127" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb92-128"><a href="#cb92-128" aria-hidden="true" tabindex="-1"></a>  sev_lote <span class="ot">&lt;-</span> </span>
-<span id="cb92-129"><a href="#cb92-129" aria-hidden="true" tabindex="-1"></a>    <span class="fu">measure_disease</span>(<span class="at">pattern =</span> <span class="st">"soy"</span>,</span>
-<span id="cb92-130"><a href="#cb92-130" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_healthy =</span> <span class="st">"soja_h"</span>,</span>
-<span id="cb92-131"><a href="#cb92-131" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_symptoms =</span> <span class="st">"soja_s"</span>,</span>
-<span id="cb92-132"><a href="#cb92-132" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_background =</span> <span class="st">"soja_b"</span>,</span>
-<span id="cb92-133"><a href="#cb92-133" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_image =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb92-134"><a href="#cb92-134" aria-hidden="true" tabindex="-1"></a>                    <span class="at">save_image =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb92-135"><a href="#cb92-135" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dir_processed =</span> temp_dir,</span>
-<span id="cb92-136"><a href="#cb92-136" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_contour =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb92-137"><a href="#cb92-137" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col_lesions =</span> <span class="st">"brown"</span>)</span>
-<span id="cb92-138"><a href="#cb92-138" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb92-139"><a href="#cb92-139" aria-hidden="true" tabindex="-1"></a>sev_lote<span class="sc">$</span>severity</span>
-<span id="cb92-140"><a href="#cb92-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-141"><a href="#cb92-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-142"><a href="#cb92-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-143"><a href="#cb92-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-144"><a href="#cb92-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-145"><a href="#cb92-145" aria-hidden="true" tabindex="-1"></a><span class="fu"># Standard area diagrams</span></span>
-<span id="cb92-146"><a href="#cb92-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-147"><a href="#cb92-147" aria-hidden="true" tabindex="-1"></a>Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments.</span>
-<span id="cb92-148"><a href="#cb92-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-149"><a href="#cb92-149" aria-hidden="true" tabindex="-1"></a>Given an object computed with <span class="in">`measure_disease()`</span> a Standard Area Diagram (SAD) with <span class="in">`n`</span> images containing the respective severity values are obtained with <span class="in">`sad()`</span>.</span>
-<span id="cb92-150"><a href="#cb92-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-151"><a href="#cb92-151" aria-hidden="true" tabindex="-1"></a>Leaves with the smallest and highest severity will always be in the SAD. If <span class="in">`n = 1`</span>, the leaf with the smallest severity will be returned. The others are sampled sequentially to achieve the n images after severity has been ordered in ascending order. For example, if there are 30 leaves and n is set to 3, the leaves sampled will be the 1st, 15th, and 30th with the smallest severity values.</span>
-<span id="cb92-152"><a href="#cb92-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-153"><a href="#cb92-153" aria-hidden="true" tabindex="-1"></a>The SAD can be only computed if an image pattern name is used in argument <span class="in">`pattern`</span> of <span class="in">`measure_disease()`</span>. If the images are saved, the <span class="in">`n`</span> images will be retrevied from <span class="in">`dir_processed`</span> directory. Otherwise, the severity will be computed again to generate the images. A SAD with 8 images from the above example can be obtained easely with:</span>
-<span id="cb92-154"><a href="#cb92-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-157"><a href="#cb92-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-158"><a href="#cb92-158" aria-hidden="true" tabindex="-1"></a><span class="fu">sad</span>(sev_lote, <span class="at">n =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb92-159"><a href="#cb92-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-160"><a href="#cb92-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-161"><a href="#cb92-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-162"><a href="#cb92-162" aria-hidden="true" tabindex="-1"></a><span class="fu"># Parallel processing</span></span>
-<span id="cb92-163"><a href="#cb92-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-164"><a href="#cb92-164" aria-hidden="true" tabindex="-1"></a>To speed up processing time when multiple images are available, you can use the <span class="in">`paralell`</span> argument. In parallel programming (<span class="in">`parallel = TRUE`</span>), the images are processed asynchronously (in parallel) in separate R sessions running in the background on the same machine. The number of sections is set by default to 50% of available cores. This number can be controlled explicitly with the argument workers.</span>
-<span id="cb92-165"><a href="#cb92-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-168"><a href="#cb92-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-169"><a href="#cb92-169" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb92-170"><a href="#cb92-170" aria-hidden="true" tabindex="-1"></a>  sev_lote <span class="ot">&lt;-</span> </span>
-<span id="cb92-171"><a href="#cb92-171" aria-hidden="true" tabindex="-1"></a>    <span class="fu">measure_disease</span>(<span class="at">pattern =</span> <span class="st">"soy"</span>,</span>
-<span id="cb92-172"><a href="#cb92-172" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_healthy =</span> <span class="st">"soja_h"</span>,</span>
-<span id="cb92-173"><a href="#cb92-173" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_symptoms =</span> <span class="st">"soja_s"</span>,</span>
-<span id="cb92-174"><a href="#cb92-174" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_background =</span> <span class="st">"soja_b"</span>,</span>
-<span id="cb92-175"><a href="#cb92-175" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_image =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb92-176"><a href="#cb92-176" aria-hidden="true" tabindex="-1"></a>                    <span class="at">parallel =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb92-177"><a href="#cb92-177" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb92-178"><a href="#cb92-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-179"><a href="#cb92-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-180"><a href="#cb92-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-181"><a href="#cb92-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-182"><a href="#cb92-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-183"><a href="#cb92-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-184"><a href="#cb92-184" aria-hidden="true" tabindex="-1"></a><span class="fu"># Multiple images of the same sample</span></span>
-<span id="cb92-185"><a href="#cb92-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-186"><a href="#cb92-186" aria-hidden="true" tabindex="-1"></a>If users need to analyze multiple images from the same sample, the images from the same sample must share the same filename prefix, which is defined as the part of the filename that precedes the first hyphen (<span class="in">`-`</span>) or underscore (<span class="in">`_`</span>).</span>
-<span id="cb92-187"><a href="#cb92-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-188"><a href="#cb92-188" aria-hidden="true" tabindex="-1"></a>In the following example, 16 images will be used as examples. Here, they represent four replicates of four different treatments (<span class="in">`TRAT1_1, TRAT1_2, ..., TRAT4_4`</span>). Note that to ensure that all images are processed, all images must share a common pattern, in this case (<span class="in">`"TRAT"`</span>).</span>
-<span id="cb92-189"><a href="#cb92-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-192"><a href="#cb92-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-193"><a href="#cb92-193" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
-<span id="cb92-194"><a href="#cb92-194" aria-hidden="true" tabindex="-1"></a>  sev_trats <span class="ot">&lt;-</span> </span>
-<span id="cb92-195"><a href="#cb92-195" aria-hidden="true" tabindex="-1"></a>    <span class="fu">measure_disease</span>(<span class="at">pattern =</span> <span class="st">"TRAT"</span>,</span>
-<span id="cb92-196"><a href="#cb92-196" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_healthy =</span> <span class="st">"feijao_h"</span>,</span>
-<span id="cb92-197"><a href="#cb92-197" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_symptoms =</span> <span class="st">"feijao_s"</span>,</span>
-<span id="cb92-198"><a href="#cb92-198" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_background =</span> <span class="st">"feijao_b"</span>,</span>
-<span id="cb92-199"><a href="#cb92-199" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_features =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb92-200"><a href="#cb92-200" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_image =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb92-201"><a href="#cb92-201" aria-hidden="true" tabindex="-1"></a>                    <span class="at">parallel =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb92-202"><a href="#cb92-202" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb92-203"><a href="#cb92-203" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
-<span id="cb92-204"><a href="#cb92-204" aria-hidden="true" tabindex="-1"></a>  sev_trats<span class="sc">$</span>severity <span class="sc">|&gt;</span> </span>
-<span id="cb92-205"><a href="#cb92-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_col</span>(img, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"TRAT"</span>, <span class="st">"REP"</span>))</span>
-<span id="cb92-206"><a href="#cb92-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-207"><a href="#cb92-207" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb92-208"><a href="#cb92-208" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sev, <span class="fu">aes</span>(TRAT, symptomatic))<span class="sc">+</span></span>
-<span id="cb92-209"><a href="#cb92-209" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb92-210"><a href="#cb92-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb92-211"><a href="#cb92-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Tratamentos"</span>,</span>
-<span id="cb92-212"><a href="#cb92-212" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Severidade (%)"</span>)</span>
-<span id="cb92-213"><a href="#cb92-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-214"><a href="#cb92-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-215"><a href="#cb92-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-216"><a href="#cb92-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-217"><a href="#cb92-217" aria-hidden="true" tabindex="-1"></a><span class="fu"># Multiple leaves in one image</span></span>
-<span id="cb92-218"><a href="#cb92-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-219"><a href="#cb92-219" aria-hidden="true" tabindex="-1"></a>When multiple leaves are present in an image, the <span class="in">`measure_disease`</span> function returns the average severity of the leaves present in the image. To quantify the severity *per leaf*, the <span class="in">`measure_disease_byl()`</span> function can be used.</span>
-<span id="cb92-220"><a href="#cb92-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-221"><a href="#cb92-221" aria-hidden="true" tabindex="-1"></a>This function computes the percentage of symptomatic leaf area using color palettes or RGB indices for each leaf (<span class="in">`byl`</span>) of an image. This allows, for example, to process replicates of the same treatment and obtain the results of each replication with a single image. To do this, the sample sheets are first split using the <span class="in">`object_split()`</span> function and then the <span class="in">`measure_disease()`</span> function is applied to the sheet list.</span>
-<span id="cb92-222"><a href="#cb92-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-225"><a href="#cb92-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-226"><a href="#cb92-226" aria-hidden="true" tabindex="-1"></a>byl <span class="ot">&lt;-</span> </span>
-<span id="cb92-227"><a href="#cb92-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease_byl</span>(<span class="at">pattern =</span> <span class="st">"multiplas"</span>,</span>
-<span id="cb92-228"><a href="#cb92-228" aria-hidden="true" tabindex="-1"></a>                      <span class="at">index =</span> <span class="st">"B"</span>, <span class="co"># used to segment leaves from background</span></span>
-<span id="cb92-229"><a href="#cb92-229" aria-hidden="true" tabindex="-1"></a>                      <span class="at">img_healthy =</span> <span class="st">"soja_h"</span>,</span>
-<span id="cb92-230"><a href="#cb92-230" aria-hidden="true" tabindex="-1"></a>                      <span class="at">img_symptoms =</span> <span class="st">"soja_s"</span>,</span>
-<span id="cb92-231"><a href="#cb92-231" aria-hidden="true" tabindex="-1"></a>                      <span class="at">show_contour =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb92-232"><a href="#cb92-232" aria-hidden="true" tabindex="-1"></a>                      <span class="at">show_features =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb92-233"><a href="#cb92-233" aria-hidden="true" tabindex="-1"></a>                      <span class="at">col_lesions =</span> <span class="st">"red"</span>,</span>
-<span id="cb92-234"><a href="#cb92-234" aria-hidden="true" tabindex="-1"></a>                      <span class="at">parallel =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb92-235"><a href="#cb92-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-236"><a href="#cb92-236" aria-hidden="true" tabindex="-1"></a>results_byl <span class="ot">&lt;-</span> <span class="fu">get_measures</span>(byl)</span>
-<span id="cb92-237"><a href="#cb92-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-238"><a href="#cb92-238" aria-hidden="true" tabindex="-1"></a>results_byl<span class="sc">$</span>results <span class="sc">|&gt;</span> </span>
-<span id="cb92-239"><a href="#cb92-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
-<span id="cb92-240"><a href="#cb92-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-241"><a href="#cb92-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-242"><a href="#cb92-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-243"><a href="#cb92-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-244"><a href="#cb92-244" aria-hidden="true" tabindex="-1"></a><span class="fu"># A little gift</span></span>
-<span id="cb92-245"><a href="#cb92-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-248"><a href="#cb92-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb92-249"><a href="#cb92-249" aria-hidden="true" tabindex="-1"></a>f0 <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"fungo.jpg"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb92-250"><a href="#cb92-250" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> </span>
-<span id="cb92-251"><a href="#cb92-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">analyze_objects</span>(f0,</span>
-<span id="cb92-252"><a href="#cb92-252" aria-hidden="true" tabindex="-1"></a>                  <span class="at">my_index =</span> <span class="st">"(G+B)^3-R"</span>,</span>
-<span id="cb92-253"><a href="#cb92-253" aria-hidden="true" tabindex="-1"></a>                  <span class="at">watershed =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb92-254"><a href="#cb92-254" aria-hidden="true" tabindex="-1"></a>                  <span class="at">filter =</span> <span class="dv">30</span>,</span>
-<span id="cb92-255"><a href="#cb92-255" aria-hidden="true" tabindex="-1"></a>                  <span class="at">contour_size =</span> <span class="dv">3</span>,</span>
-<span id="cb92-256"><a href="#cb92-256" aria-hidden="true" tabindex="-1"></a>                  <span class="at">contour_col =</span> <span class="st">"black"</span>)</span>
-<span id="cb92-257"><a href="#cb92-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-258"><a href="#cb92-258" aria-hidden="true" tabindex="-1"></a>meas <span class="ot">&lt;-</span> <span class="fu">get_measures</span>(res, <span class="at">dpi =</span> <span class="dv">254</span>)</span>
-<span id="cb92-259"><a href="#cb92-259" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_measures</span>(meas,</span>
-<span id="cb92-260"><a href="#cb92-260" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">"white"</span>,</span>
-<span id="cb92-261"><a href="#cb92-261" aria-hidden="true" tabindex="-1"></a>              <span class="at">measure =</span> <span class="st">"diam_mean"</span>,</span>
-<span id="cb92-262"><a href="#cb92-262" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">2</span>)</span>
-<span id="cb92-263"><a href="#cb92-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-264"><a href="#cb92-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-265"><a href="#cb92-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-266"><a href="#cb92-266" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
-<span id="cb92-267"><a href="#cb92-267" aria-hidden="true" tabindex="-1"></a>The segmentation can also be performed using sample palettes representing the foreground and background. In this example, pick the color samples, then use them in the <span class="in">`analyze_objects()`</span>.</span>
-<span id="cb92-268"><a href="#cb92-268" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb92-269"><a href="#cb92-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-270"><a href="#cb92-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-271"><a href="#cb92-271" aria-hidden="true" tabindex="-1"></a>back <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(f0)</span>
-<span id="cb92-272"><a href="#cb92-272" aria-hidden="true" tabindex="-1"></a>fore <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(f0)</span>
-<span id="cb92-273"><a href="#cb92-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-274"><a href="#cb92-274" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> </span>
-<span id="cb92-275"><a href="#cb92-275" aria-hidden="true" tabindex="-1"></a>  <span class="fu">analyze_objects</span>(f0,</span>
-<span id="cb92-276"><a href="#cb92-276" aria-hidden="true" tabindex="-1"></a>                  <span class="at">background =</span> back,</span>
-<span id="cb92-277"><a href="#cb92-277" aria-hidden="true" tabindex="-1"></a>                  <span class="at">foreground =</span> fore,</span>
-<span id="cb92-278"><a href="#cb92-278" aria-hidden="true" tabindex="-1"></a>                  <span class="at">watershed =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb92-279"><a href="#cb92-279" aria-hidden="true" tabindex="-1"></a>                  <span class="at">filter =</span> <span class="dv">30</span>)</span>
-<span id="cb92-280"><a href="#cb92-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-281"><a href="#cb92-281" aria-hidden="true" tabindex="-1"></a>meas <span class="ot">&lt;-</span> <span class="fu">get_measures</span>(res, <span class="at">dpi =</span> <span class="dv">254</span>)</span>
-<span id="cb92-282"><a href="#cb92-282" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_measures</span>(meas,</span>
-<span id="cb92-283"><a href="#cb92-283" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">"black"</span>,</span>
-<span id="cb92-284"><a href="#cb92-284" aria-hidden="true" tabindex="-1"></a>              <span class="at">measure =</span> <span class="st">"diam_mean"</span>,</span>
-<span id="cb92-285"><a href="#cb92-285" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">2</span>)</span>
-<span id="cb92-286"><a href="#cb92-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb92-287"><a href="#cb92-287" aria-hidden="true" tabindex="-1"></a>:::</span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
-</section></main><!-- /main --><script type="application/javascript">
+
+</section><div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<ol>
+<li id="fn1" role="doc-endnote"><p>Fonte: <a href="http://gazeta-rs.com.br/as-principais-doencas-da-videira-na-primavera/#prettyPhoto" class="uri">http://gazeta-rs.com.br/as-principais-doencas-da-videira-na-primavera/#prettyPhoto</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -1064,8 +846,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles
@@ -1151,7 +939,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
     setTimeout(function() {
+      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
@@ -1263,13 +1054,287 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb86" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Phytopathometry"</span></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span>)</span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory</span></span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span>)</span>
+<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-14"><a href="#cb86-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-15"><a href="#cb86-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-16"><a href="#cb86-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Disease severity</span></span>
+<span id="cb86-17"><a href="#cb86-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-18"><a href="#cb86-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Using image indexes</span></span>
+<span id="cb86-19"><a href="#cb86-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-20"><a href="#cb86-20" aria-hidden="true" tabindex="-1"></a>The following image<span class="ot">[^1]</span> shows symptoms of anthracnose (*Elsinoë ampelina*) on grape leaves.</span>
+<span id="cb86-21"><a href="#cb86-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-22"><a href="#cb86-22" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Fonte: <span class="ot">&lt;http://gazeta-rs.com.br/as-principais-doencas-da-videira-na-primavera/#prettyPhoto&gt;</span></span>
+<span id="cb86-23"><a href="#cb86-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-26"><a href="#cb86-26" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-27"><a href="#cb86-27" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb86-28"><a href="#cb86-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb86-29"><a href="#cb86-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-30"><a href="#cb86-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pliman)</span>
+<span id="cb86-31"><a href="#cb86-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb86-32"><a href="#cb86-32" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"videira.png"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb86-33"><a href="#cb86-33" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
+<span id="cb86-34"><a href="#cb86-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(img,</span>
+<span id="cb86-35"><a href="#cb86-35" aria-hidden="true" tabindex="-1"></a>                  <span class="at">index_lb =</span> <span class="st">"G"</span>,</span>
+<span id="cb86-36"><a href="#cb86-36" aria-hidden="true" tabindex="-1"></a>                  <span class="at">index_dh =</span> <span class="st">"G-R"</span>,</span>
+<span id="cb86-37"><a href="#cb86-37" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_segmentation =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb86-38"><a href="#cb86-38" aria-hidden="true" tabindex="-1"></a>sev<span class="sc">$</span>severity</span>
+<span id="cb86-39"><a href="#cb86-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-40"><a href="#cb86-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-41"><a href="#cb86-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-42"><a href="#cb86-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-43"><a href="#cb86-43" aria-hidden="true" tabindex="-1"></a><span class="fu"># Using sample palettes</span></span>
+<span id="cb86-44"><a href="#cb86-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-45"><a href="#cb86-45" aria-hidden="true" tabindex="-1"></a>Sample palettes can be made by simply manually sampling small areas of representative images and producing a composite image that will represent each of the desired classes (background, healthy, and symptomatic tissues).</span>
+<span id="cb86-46"><a href="#cb86-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-47"><a href="#cb86-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r doença1, fig.width = 12, fig.height = 3}</span></span>
+<span id="cb86-48"><a href="#cb86-48" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"videira_h.png"</span>)</span>
+<span id="cb86-49"><a href="#cb86-49" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"videira_d.png"</span>)</span>
+<span id="cb86-50"><a href="#cb86-50" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"videira_b.png"</span>)</span>
+<span id="cb86-51"><a href="#cb86-51" aria-hidden="true" tabindex="-1"></a><span class="fu">image_combine</span>(img, h, d, b, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb86-52"><a href="#cb86-52" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-53"><a href="#cb86-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-54"><a href="#cb86-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Producing sample palettes</span></span>
+<span id="cb86-55"><a href="#cb86-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-56"><a href="#cb86-56" aria-hidden="true" tabindex="-1"></a>Users can produce these palettes with <span class="in">`pick_palette()`</span> function.</span>
+<span id="cb86-57"><a href="#cb86-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-58"><a href="#cb86-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE, fig.width=10}</span></span>
+<span id="cb86-59"><a href="#cb86-59" aria-hidden="true" tabindex="-1"></a>h2 <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(img)</span>
+<span id="cb86-60"><a href="#cb86-60" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(img)</span>
+<span id="cb86-61"><a href="#cb86-61" aria-hidden="true" tabindex="-1"></a>b2 <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(img)</span>
+<span id="cb86-62"><a href="#cb86-62" aria-hidden="true" tabindex="-1"></a><span class="fu">image_combine</span>(h2, d2, b2, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb86-63"><a href="#cb86-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-64"><a href="#cb86-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-65"><a href="#cb86-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-66"><a href="#cb86-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### Defaults settings</span></span>
+<span id="cb86-67"><a href="#cb86-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-70"><a href="#cb86-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-71"><a href="#cb86-71" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
+<span id="cb86-72"><a href="#cb86-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(<span class="at">img =</span> img,</span>
+<span id="cb86-73"><a href="#cb86-73" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_healthy =</span> h,</span>
+<span id="cb86-74"><a href="#cb86-74" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_symptoms =</span> d,</span>
+<span id="cb86-75"><a href="#cb86-75" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_background =</span> b)</span>
+<span id="cb86-76"><a href="#cb86-76" aria-hidden="true" tabindex="-1"></a>sev<span class="sc">$</span>severity</span>
+<span id="cb86-77"><a href="#cb86-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-78"><a href="#cb86-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-79"><a href="#cb86-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-80"><a href="#cb86-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filling lesions</span></span>
+<span id="cb86-81"><a href="#cb86-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-84"><a href="#cb86-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-85"><a href="#cb86-85" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
+<span id="cb86-86"><a href="#cb86-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(<span class="at">img =</span> img,</span>
+<span id="cb86-87"><a href="#cb86-87" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_healthy =</span> h,</span>
+<span id="cb86-88"><a href="#cb86-88" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_symptoms =</span> d,</span>
+<span id="cb86-89"><a href="#cb86-89" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_background =</span> b,</span>
+<span id="cb86-90"><a href="#cb86-90" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_contour =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb86-91"><a href="#cb86-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-92"><a href="#cb86-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-93"><a href="#cb86-93" aria-hidden="true" tabindex="-1"></a><span class="fu">### Showing a mask</span></span>
+<span id="cb86-94"><a href="#cb86-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-97"><a href="#cb86-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-98"><a href="#cb86-98" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
+<span id="cb86-99"><a href="#cb86-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(<span class="at">img =</span> img,</span>
+<span id="cb86-100"><a href="#cb86-100" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_healthy =</span> h,</span>
+<span id="cb86-101"><a href="#cb86-101" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_symptoms =</span> d,</span>
+<span id="cb86-102"><a href="#cb86-102" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_background =</span> b,</span>
+<span id="cb86-103"><a href="#cb86-103" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_original =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-104"><a href="#cb86-104" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col_lesions =</span> <span class="st">"brown"</span>) <span class="co"># default is "black"</span></span>
+<span id="cb86-105"><a href="#cb86-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-106"><a href="#cb86-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-107"><a href="#cb86-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Segmenting and analyzing lesions</span></span>
+<span id="cb86-108"><a href="#cb86-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-109"><a href="#cb86-109" aria-hidden="true" tabindex="-1"></a>When using <span class="in">`show_features = TRUE`</span>, the function analyzes the lesions and returns results such as number of lesions, area, perimeter, etc. With <span class="in">`show_segmentation = TRUE`</span>, segmented lesions are shown.</span>
+<span id="cb86-110"><a href="#cb86-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-113"><a href="#cb86-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-114"><a href="#cb86-114" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
+<span id="cb86-115"><a href="#cb86-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease</span>(<span class="at">img =</span> img,</span>
+<span id="cb86-116"><a href="#cb86-116" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_healthy =</span> h,</span>
+<span id="cb86-117"><a href="#cb86-117" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_symptoms =</span> d,</span>
+<span id="cb86-118"><a href="#cb86-118" aria-hidden="true" tabindex="-1"></a>                  <span class="at">img_background =</span> b,</span>
+<span id="cb86-119"><a href="#cb86-119" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_features =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb86-120"><a href="#cb86-120" aria-hidden="true" tabindex="-1"></a>                  <span class="at">watershed =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb86-121"><a href="#cb86-121" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show_segmentation =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb86-122"><a href="#cb86-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-123"><a href="#cb86-123" aria-hidden="true" tabindex="-1"></a><span class="co"># correct the measures (dpi = 150)</span></span>
+<span id="cb86-124"><a href="#cb86-124" aria-hidden="true" tabindex="-1"></a>sev_corrected <span class="ot">&lt;-</span> <span class="fu">get_measures</span>(sev, <span class="at">dpi =</span> <span class="dv">150</span>)</span>
+<span id="cb86-125"><a href="#cb86-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-126"><a href="#cb86-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-127"><a href="#cb86-127" aria-hidden="true" tabindex="-1"></a><span class="fu"># Batch processing</span></span>
+<span id="cb86-128"><a href="#cb86-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-129"><a href="#cb86-129" aria-hidden="true" tabindex="-1"></a>To analyze several images from a directory, use the <span class="in">`pattern`</span> argument to declare a pattern of filenames. Here, we Will used 50 soybean leaves available in the repository https://osf.io/4hbr6, a database of images of annotation of severity of plant diseases. Thanks to <span class="co">[</span><span class="ot">Emerson M. Del Ponte</span><span class="co">](https://osf.io/jb6yd/)</span> and his contributors for keeping this project publicly available. Using the <span class="in">`save_image = TRUE`</span> argument we save the processed images in a temporary directory, defined by <span class="in">`tempdir()`</span>.</span>
+<span id="cb86-130"><a href="#cb86-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-133"><a href="#cb86-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-134"><a href="#cb86-134" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um diretório temporário</span></span>
+<span id="cb86-135"><a href="#cb86-135" aria-hidden="true" tabindex="-1"></a>temp_dir <span class="ot">&lt;-</span> <span class="fu">tempdir</span>()</span>
+<span id="cb86-136"><a href="#cb86-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-137"><a href="#cb86-137" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb86-138"><a href="#cb86-138" aria-hidden="true" tabindex="-1"></a>  sev_lote <span class="ot">&lt;-</span> </span>
+<span id="cb86-139"><a href="#cb86-139" aria-hidden="true" tabindex="-1"></a>    <span class="fu">measure_disease</span>(<span class="at">pattern =</span> <span class="st">"soy"</span>,</span>
+<span id="cb86-140"><a href="#cb86-140" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_healthy =</span> <span class="st">"soja_h"</span>,</span>
+<span id="cb86-141"><a href="#cb86-141" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_symptoms =</span> <span class="st">"soja_s"</span>,</span>
+<span id="cb86-142"><a href="#cb86-142" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_background =</span> <span class="st">"soja_b"</span>,</span>
+<span id="cb86-143"><a href="#cb86-143" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_image =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-144"><a href="#cb86-144" aria-hidden="true" tabindex="-1"></a>                    <span class="at">save_image =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb86-145"><a href="#cb86-145" aria-hidden="true" tabindex="-1"></a>                    <span class="at">dir_processed =</span> temp_dir,</span>
+<span id="cb86-146"><a href="#cb86-146" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_contour =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-147"><a href="#cb86-147" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col_lesions =</span> <span class="st">"brown"</span>)</span>
+<span id="cb86-148"><a href="#cb86-148" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb86-149"><a href="#cb86-149" aria-hidden="true" tabindex="-1"></a>sev_lote<span class="sc">$</span>severity</span>
+<span id="cb86-150"><a href="#cb86-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-151"><a href="#cb86-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-152"><a href="#cb86-152" aria-hidden="true" tabindex="-1"></a><span class="fu"># Standard area diagrams</span></span>
+<span id="cb86-153"><a href="#cb86-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-154"><a href="#cb86-154" aria-hidden="true" tabindex="-1"></a>Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments. Given an object computed with <span class="in">`measure_disease()`</span> a Standard Area Diagram (SAD) with <span class="in">`n`</span> images containing the respective severity values are obtained with <span class="in">`sad()`</span>.</span>
+<span id="cb86-155"><a href="#cb86-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-156"><a href="#cb86-156" aria-hidden="true" tabindex="-1"></a>Leaves with the smallest and highest severity will always be in the SAD. If <span class="in">`n = 1`</span>, the leaf with the smallest severity will be returned. The others are sampled sequentially to achieve the n images after severity has been ordered in ascending order. For example, if there are 30 leaves and n is set to 3, the leaves sampled will be the 1st, 15th, and 30th with the smallest severity values.</span>
+<span id="cb86-157"><a href="#cb86-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-158"><a href="#cb86-158" aria-hidden="true" tabindex="-1"></a>The SAD can be only computed if an image pattern name is used in argument <span class="in">`pattern`</span> of <span class="in">`measure_disease()`</span>. If the images are saved, the <span class="in">`n`</span> images will be retrevied from <span class="in">`dir_processed`</span> directory. Otherwise, the severity will be computed again to generate the images. A SAD with 8 images from the above example can be obtained easely with:</span>
+<span id="cb86-159"><a href="#cb86-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-162"><a href="#cb86-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-163"><a href="#cb86-163" aria-hidden="true" tabindex="-1"></a><span class="fu">sad</span>(sev_lote, <span class="at">n =</span> <span class="dv">9</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb86-164"><a href="#cb86-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-165"><a href="#cb86-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-166"><a href="#cb86-166" aria-hidden="true" tabindex="-1"></a><span class="fu"># Parallel processing</span></span>
+<span id="cb86-167"><a href="#cb86-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-168"><a href="#cb86-168" aria-hidden="true" tabindex="-1"></a>To speed up processing time when multiple images are available, you can use the <span class="in">`paralell`</span> argument. In parallel programming (<span class="in">`parallel = TRUE`</span>), the images are processed asynchronously (in parallel) in separate R sessions running in the background on the same machine. The number of sections is set by default to 50% of available cores. This number can be controlled explicitly with the argument workers.</span>
+<span id="cb86-169"><a href="#cb86-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-172"><a href="#cb86-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-173"><a href="#cb86-173" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb86-174"><a href="#cb86-174" aria-hidden="true" tabindex="-1"></a>  sev_lote <span class="ot">&lt;-</span> </span>
+<span id="cb86-175"><a href="#cb86-175" aria-hidden="true" tabindex="-1"></a>    <span class="fu">measure_disease</span>(<span class="at">pattern =</span> <span class="st">"soy"</span>,</span>
+<span id="cb86-176"><a href="#cb86-176" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_healthy =</span> <span class="st">"soja_h"</span>,</span>
+<span id="cb86-177"><a href="#cb86-177" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_symptoms =</span> <span class="st">"soja_s"</span>,</span>
+<span id="cb86-178"><a href="#cb86-178" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_background =</span> <span class="st">"soja_b"</span>,</span>
+<span id="cb86-179"><a href="#cb86-179" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_image =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-180"><a href="#cb86-180" aria-hidden="true" tabindex="-1"></a>                    <span class="at">parallel =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb86-181"><a href="#cb86-181" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb86-182"><a href="#cb86-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-183"><a href="#cb86-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-184"><a href="#cb86-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-185"><a href="#cb86-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-186"><a href="#cb86-186" aria-hidden="true" tabindex="-1"></a><span class="fu"># Multiple images of the same sample</span></span>
+<span id="cb86-187"><a href="#cb86-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-188"><a href="#cb86-188" aria-hidden="true" tabindex="-1"></a>If users need to analyze multiple images from the same sample, the images from the same sample must share the same filename prefix, which is defined as the part of the filename that precedes the first hyphen (<span class="in">`-`</span>) or underscore (<span class="in">`_`</span>).</span>
+<span id="cb86-189"><a href="#cb86-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-190"><a href="#cb86-190" aria-hidden="true" tabindex="-1"></a>In the following example, 16 images will be used as examples. Here, they represent four replicates of four different treatments (<span class="in">`TRAT1_1, TRAT1_2, ..., TRAT4_4`</span>). Note that to ensure that all images are processed, all images must share a common pattern, in this case (<span class="in">`"TRAT"`</span>).</span>
+<span id="cb86-191"><a href="#cb86-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-194"><a href="#cb86-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-195"><a href="#cb86-195" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(</span>
+<span id="cb86-196"><a href="#cb86-196" aria-hidden="true" tabindex="-1"></a>  sev_trats <span class="ot">&lt;-</span> </span>
+<span id="cb86-197"><a href="#cb86-197" aria-hidden="true" tabindex="-1"></a>    <span class="fu">measure_disease</span>(<span class="at">pattern =</span> <span class="st">"TRAT"</span>,</span>
+<span id="cb86-198"><a href="#cb86-198" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_healthy =</span> <span class="st">"feijao_h"</span>,</span>
+<span id="cb86-199"><a href="#cb86-199" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_symptoms =</span> <span class="st">"feijao_s"</span>,</span>
+<span id="cb86-200"><a href="#cb86-200" aria-hidden="true" tabindex="-1"></a>                    <span class="at">img_background =</span> <span class="st">"feijao_b"</span>,</span>
+<span id="cb86-201"><a href="#cb86-201" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_features =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb86-202"><a href="#cb86-202" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_image =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-203"><a href="#cb86-203" aria-hidden="true" tabindex="-1"></a>                    <span class="at">parallel =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb86-204"><a href="#cb86-204" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb86-205"><a href="#cb86-205" aria-hidden="true" tabindex="-1"></a>sev <span class="ot">&lt;-</span> </span>
+<span id="cb86-206"><a href="#cb86-206" aria-hidden="true" tabindex="-1"></a>  sev_trats<span class="sc">$</span>severity <span class="sc">|&gt;</span> </span>
+<span id="cb86-207"><a href="#cb86-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_col</span>(img, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"TRAT"</span>, <span class="st">"REP"</span>))</span>
+<span id="cb86-208"><a href="#cb86-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-209"><a href="#cb86-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-210"><a href="#cb86-210" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sev, <span class="fu">aes</span>(TRAT, symptomatic))<span class="sc">+</span></span>
+<span id="cb86-211"><a href="#cb86-211" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb86-212"><a href="#cb86-212" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb86-213"><a href="#cb86-213" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Tratamentos"</span>,</span>
+<span id="cb86-214"><a href="#cb86-214" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Severidade (%)"</span>)</span>
+<span id="cb86-215"><a href="#cb86-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-216"><a href="#cb86-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-217"><a href="#cb86-217" aria-hidden="true" tabindex="-1"></a><span class="fu"># Multiple leaves in one image</span></span>
+<span id="cb86-218"><a href="#cb86-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-219"><a href="#cb86-219" aria-hidden="true" tabindex="-1"></a>When multiple leaves are present in an image, the <span class="in">`measure_disease`</span> function returns the average severity of the leaves present in the image. To quantify the severity *per leaf*, the <span class="in">`measure_disease_byl()`</span> function can be used.</span>
+<span id="cb86-220"><a href="#cb86-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-221"><a href="#cb86-221" aria-hidden="true" tabindex="-1"></a>This function computes the percentage of symptomatic leaf area using color palettes or RGB indices for each leaf (<span class="in">`byl`</span>) of an image. This allows, for example, to process replicates of the same treatment and obtain the results of each replication with a single image. To do this, the sample sheets are first split using the <span class="in">`object_split()`</span> function and then the <span class="in">`measure_disease()`</span> function is applied to the sheet list.</span>
+<span id="cb86-222"><a href="#cb86-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-225"><a href="#cb86-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-226"><a href="#cb86-226" aria-hidden="true" tabindex="-1"></a>byl <span class="ot">&lt;-</span> </span>
+<span id="cb86-227"><a href="#cb86-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_disease_byl</span>(<span class="at">pattern =</span> <span class="st">"multiplas_02"</span>,</span>
+<span id="cb86-228"><a href="#cb86-228" aria-hidden="true" tabindex="-1"></a>                      <span class="at">index =</span> <span class="st">"B"</span>, <span class="co"># used to segment leaves from background</span></span>
+<span id="cb86-229"><a href="#cb86-229" aria-hidden="true" tabindex="-1"></a>                      <span class="at">img_healthy =</span> <span class="st">"soja_h"</span>,</span>
+<span id="cb86-230"><a href="#cb86-230" aria-hidden="true" tabindex="-1"></a>                      <span class="at">img_symptoms =</span> <span class="st">"soja_s"</span>,</span>
+<span id="cb86-231"><a href="#cb86-231" aria-hidden="true" tabindex="-1"></a>                      <span class="at">show_contour =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-232"><a href="#cb86-232" aria-hidden="true" tabindex="-1"></a>                      <span class="at">show_features =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb86-233"><a href="#cb86-233" aria-hidden="true" tabindex="-1"></a>                      <span class="at">col_lesions =</span> <span class="st">"red"</span>,</span>
+<span id="cb86-234"><a href="#cb86-234" aria-hidden="true" tabindex="-1"></a>                      <span class="at">parallel =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb86-235"><a href="#cb86-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-236"><a href="#cb86-236" aria-hidden="true" tabindex="-1"></a>results_byl <span class="ot">&lt;-</span> <span class="fu">get_measures</span>(byl)</span>
+<span id="cb86-237"><a href="#cb86-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-238"><a href="#cb86-238" aria-hidden="true" tabindex="-1"></a>results_byl<span class="sc">$</span>results <span class="sc">|&gt;</span> </span>
+<span id="cb86-239"><a href="#cb86-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb86-240"><a href="#cb86-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-241"><a href="#cb86-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-242"><a href="#cb86-242" aria-hidden="true" tabindex="-1"></a><span class="fu"># More than two classes</span></span>
+<span id="cb86-245"><a href="#cb86-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-246"><a href="#cb86-246" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">image_pliman</span>(<span class="st">"sev_leaf.jpg"</span>)</span>
+<span id="cb86-247"><a href="#cb86-247" aria-hidden="true" tabindex="-1"></a><span class="fu">image_segment_iter</span>(img,</span>
+<span id="cb86-248"><a href="#cb86-248" aria-hidden="true" tabindex="-1"></a>                   <span class="at">nseg =</span> <span class="dv">3</span>,</span>
+<span id="cb86-249"><a href="#cb86-249" aria-hidden="true" tabindex="-1"></a>                   <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"NGRDI"</span>, <span class="st">"G-B"</span>),</span>
+<span id="cb86-250"><a href="#cb86-250" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb86-251"><a href="#cb86-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-252"><a href="#cb86-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-253"><a href="#cb86-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-254"><a href="#cb86-254" aria-hidden="true" tabindex="-1"></a><span class="fu"># A little gift</span></span>
+<span id="cb86-255"><a href="#cb86-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-258"><a href="#cb86-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb86-259"><a href="#cb86-259" aria-hidden="true" tabindex="-1"></a>fungo <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"fungo.jpeg"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb86-260"><a href="#cb86-260" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> </span>
+<span id="cb86-261"><a href="#cb86-261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">analyze_objects</span>(fungo, </span>
+<span id="cb86-262"><a href="#cb86-262" aria-hidden="true" tabindex="-1"></a>                  <span class="at">index =</span> <span class="st">"HUE"</span>,</span>
+<span id="cb86-263"><a href="#cb86-263" aria-hidden="true" tabindex="-1"></a>                  <span class="at">invert =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb86-264"><a href="#cb86-264" aria-hidden="true" tabindex="-1"></a>                  <span class="at">filter =</span> <span class="dv">5</span>,</span>
+<span id="cb86-265"><a href="#cb86-265" aria-hidden="true" tabindex="-1"></a>                  <span class="at">watershed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-266"><a href="#cb86-266" aria-hidden="true" tabindex="-1"></a>                  <span class="at">contour_size =</span> <span class="dv">6</span>)</span>
+<span id="cb86-267"><a href="#cb86-267" aria-hidden="true" tabindex="-1"></a><span class="fu">get_measures</span>(res, <span class="at">dpi =</span> <span class="dv">90</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb86-268"><a href="#cb86-268" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_measures</span>(<span class="at">measure =</span> <span class="st">"area"</span>, </span>
+<span id="cb86-269"><a href="#cb86-269" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb86-270"><a href="#cb86-270" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb86-271"><a href="#cb86-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-272"><a href="#cb86-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-273"><a href="#cb86-273" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb86-274"><a href="#cb86-274" aria-hidden="true" tabindex="-1"></a>The segmentation can also be performed using sample palettes representing the foreground and background. In this example, pick the color samples, then use them in the <span class="in">`analyze_objects()`</span>.</span>
+<span id="cb86-275"><a href="#cb86-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-276"><a href="#cb86-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb86-277"><a href="#cb86-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-278"><a href="#cb86-278" aria-hidden="true" tabindex="-1"></a>back <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(fungo)</span>
+<span id="cb86-279"><a href="#cb86-279" aria-hidden="true" tabindex="-1"></a>fore <span class="ot">&lt;-</span> <span class="fu">pick_palette</span>(fungo)</span>
+<span id="cb86-280"><a href="#cb86-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-281"><a href="#cb86-281" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> </span>
+<span id="cb86-282"><a href="#cb86-282" aria-hidden="true" tabindex="-1"></a>  <span class="fu">analyze_objects</span>(fungo,</span>
+<span id="cb86-283"><a href="#cb86-283" aria-hidden="true" tabindex="-1"></a>                  <span class="at">background =</span> back,</span>
+<span id="cb86-284"><a href="#cb86-284" aria-hidden="true" tabindex="-1"></a>                  <span class="at">foreground =</span> fore,</span>
+<span id="cb86-285"><a href="#cb86-285" aria-hidden="true" tabindex="-1"></a>                  <span class="at">watershed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb86-286"><a href="#cb86-286" aria-hidden="true" tabindex="-1"></a>                  <span class="at">filter =</span> <span class="dv">5</span>,</span>
+<span id="cb86-287"><a href="#cb86-287" aria-hidden="true" tabindex="-1"></a>                  <span class="at">contour_size =</span> <span class="dv">6</span>)</span>
+<span id="cb86-288"><a href="#cb86-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-289"><a href="#cb86-289" aria-hidden="true" tabindex="-1"></a>meas <span class="ot">&lt;-</span> <span class="fu">get_measures</span>(res, <span class="at">dpi =</span> <span class="dv">90</span>)</span>
+<span id="cb86-290"><a href="#cb86-290" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_measures</span>(meas,</span>
+<span id="cb86-291"><a href="#cb86-291" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb86-292"><a href="#cb86-292" aria-hidden="true" tabindex="-1"></a>              <span class="at">measure =</span> <span class="st">"area"</span>,</span>
+<span id="cb86-293"><a href="#cb86-293" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb86-294"><a href="#cb86-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb86-295"><a href="#cb86-295" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">A brief tutorial on {pliman} R package</div>   
+    <div class="nav-footer-left">The {pliman} R package</div>   
     <div class="nav-footer-right">Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</div>
   </div>
 </footer>
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

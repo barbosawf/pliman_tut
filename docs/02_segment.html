@@ -2,112 +2,123 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.80">
+<meta name="generator" content="quarto-1.0.36">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>R package {pliman} - Segment objects</title>
 <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./03_analyze.html" rel="next">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03_analyze.html" rel="next">
 <link href="./01_manipulate.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link class="quarto-color-scheme" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link class="quarto-color-scheme" href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="site_libs/bootstrap/bootstrap-dark.min.css">
-<script id="quarto-search-options" type="application/json">{
-    "location": "sidebar",
-    "copy-button": false,
-    "collapse-after": 2,
-    "panel-placement": "start",
-    "type": "textbox",
-    "limit": 20,
-    "language": {
-      "search-no-results-text": "No results",
-      "search-matching-documents-text": "matching documents",
-      "search-copy-link-title": "Copy link to search",
-      "search-hide-matches-text": "Hide additional matches",
-      "search-more-match-text": "more match in this document",
-      "search-more-matches-text": "more matches in this document",
-      "search-clear-button-title": "Clear",
-      "search-detached-cancel-button-title": "Cancel",
-      "search-submit-button-title": "Submit"
-    }
-  }</script><!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="docked">
+<body class="nav-sidebar docked nav-fixed">
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
       <a class="navbar-brand" href="./index.html">
@@ -151,7 +162,7 @@
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">Segment objects</h1>
-      <button type="button" class="quarto-btn-toggle btn">
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
@@ -188,18 +199,45 @@
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">In this page</h2>
-<ul>
-<li><a href="#directory" class="nav-link active" data-scroll-target="#directory"> <span class="header-section-number">1</span> Directory</a></li>
-<li><a href="#import-images" class="nav-link" data-scroll-target="#import-images"> <span class="header-section-number">2</span> Import images</a></li>
-<li><a href="#segment-images" class="nav-link" data-scroll-target="#segment-images"> <span class="header-section-number">3</span> Segment images</a></li>
-<li><a href="#producing-a-binary-image" class="nav-link" data-scroll-target="#producing-a-binary-image"> <span class="header-section-number">4</span> Producing a binary image</a></li>
-<li><a href="#iterative-segmentation" class="nav-link" data-scroll-target="#iterative-segmentation"> <span class="header-section-number">5</span> Iterative segmentation</a></li>
-<li><a href="#segmentation-with-a-mask" class="nav-link" data-scroll-target="#segmentation-with-a-mask"> <span class="header-section-number">6</span> Segmentation with a mask</a></li>
-</ul></nav>
+   
+  <ul>
+<li><a href="#directory" id="toc-directory" class="nav-link active" data-scroll-target="#directory"> <span class="header-section-number">1</span> Directory</a></li>
+  <li><a href="#import-images" id="toc-import-images" class="nav-link" data-scroll-target="#import-images"> <span class="header-section-number">2</span> Import images</a></li>
+  <li><a href="#image-indexes" id="toc-image-indexes" class="nav-link" data-scroll-target="#image-indexes"> <span class="header-section-number">3</span> Image indexes</a></li>
+  <li><a href="#binary-images" id="toc-binary-images" class="nav-link" data-scroll-target="#binary-images"> <span class="header-section-number">4</span> Binary images</a></li>
+  <li>
+<a href="#automatic-segmentation" id="toc-automatic-segmentation" class="nav-link" data-scroll-target="#automatic-segmentation"> <span class="header-section-number">5</span> Automatic segmentation</a>
+  <ul class="collapse">
+<li><a href="#using-image-indexes" id="toc-using-image-indexes" class="nav-link" data-scroll-target="#using-image-indexes"> <span class="header-section-number">5.1</span> Using image indexes</a></li>
+  <li><a href="#using-k-means-algorithm" id="toc-using-k-means-algorithm" class="nav-link" data-scroll-target="#using-k-means-algorithm"> <span class="header-section-number">5.2</span> Using k-means algorithm</a></li>
+  <li><a href="#using-a-mask" id="toc-using-a-mask" class="nav-link" data-scroll-target="#using-a-mask"> <span class="header-section-number">5.3</span> Using a mask</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#manual-segmentation-only-runs-interactively" id="toc-manual-segmentation-only-runs-interactively" class="nav-link" data-scroll-target="#manual-segmentation-only-runs-interactively"> <span class="header-section-number">6</span> Manual segmentation (only runs interactively)</a>
+  <ul class="collapse">
+<li><a href="#iterative-segmentation" id="toc-iterative-segmentation" class="nav-link" data-scroll-target="#iterative-segmentation"> <span class="header-section-number">6.1</span> Iterative segmentation</a></li>
+  <li><a href="#point-click-and-segment" id="toc-point-click-and-segment" class="nav-link" data-scroll-target="#point-click-and-segment"> <span class="header-section-number">6.2</span> Point, click, and segment</a></li>
+  <li><a href="#shapefiles" id="toc-shapefiles" class="nav-link" data-scroll-target="#shapefiles"> <span class="header-section-number">6.3</span> Shapefiles</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title-block d-none d-lg-block"><div><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<div class="quarto-title"><h1 class="title d-none d-lg-block">Segment objects</h1></div></header><section id="directory" class="level1" data-number="1"><h1 data-number="1">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Segment objects</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><section id="directory" class="level1" data-number="1"><h1 data-number="1">
 <span class="header-section-number">1</span> Directory</h1>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -212,13 +250,31 @@
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"folhas.jpg"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_transform.html">image_horizontal</a></span><span class="op">(</span>plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="02_segment_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">img_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_transform.html">image_resize</a></span><span class="op">(</span><span class="va">img</span>, rel_size <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="co">#fast processing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply_fun_to_imgs</span>(<span class="at">pattern =</span> <span class="st">"img_"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fun =</span> image_resize,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rel_size =</span> <span class="dv">50</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">dir_processed =</span> <span class="st">"lista_exportada"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Processing image img_exported.jpg |==                            | 7% 00:00:00 </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_1.jpg <span class="sc">|</span><span class="er">====</span>                           <span class="er">|</span> <span class="dv">14</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_10.jpg <span class="sc">|</span><span class="er">======</span>                        <span class="er">|</span> <span class="dv">21</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_11.jpg <span class="sc">|</span><span class="er">=========</span>                     <span class="er">|</span> <span class="dv">29</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_12.jpg <span class="sc">|</span><span class="er">===========</span>                   <span class="er">|</span> <span class="dv">36</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_13.jpg <span class="sc">|</span><span class="er">=============</span>                 <span class="er">|</span> <span class="dv">43</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_2.jpg <span class="sc">|</span><span class="er">================</span>               <span class="er">|</span> <span class="dv">50</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_3.jpg <span class="sc">|</span><span class="er">==================</span>             <span class="er">|</span> <span class="dv">57</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_4.jpg <span class="sc">|</span><span class="er">====================</span>           <span class="er">|</span> <span class="dv">64</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_5.jpg <span class="sc">|</span><span class="er">======================</span>         <span class="er">|</span> <span class="dv">71</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">00</span> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_6.jpg <span class="sc">|</span><span class="er">========================</span>       <span class="er">|</span> <span class="dv">79</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">01</span> </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_7.jpg <span class="sc">|</span><span class="er">===========================</span>    <span class="er">|</span> <span class="dv">86</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">01</span> </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_8.jpg <span class="sc">|</span><span class="er">=============================</span>  <span class="er">|</span> <span class="dv">93</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">01</span> </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>Processing image img_sb_50_9.jpg <span class="sc">|</span><span class="er">===============================|</span> <span class="dv">100</span>% <span class="dv">00</span><span class="sc">:</span><span class="dv">00</span><span class="sc">:</span><span class="dv">01</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="segment-images" class="level1" data-number="3"><h1 data-number="3">
-<span class="header-section-number">3</span> Segment images</h1>
-<p>In <code>pliman</code>, the following functions can be used to segment an image.</p>
+</section><section id="image-indexes" class="level1" data-number="3"><h1 data-number="3">
+<span class="header-section-number">3</span> Image indexes</h1>
+<p>In <code>pliman</code>, the following functions can be used to segment image objects.</p>
 <ul>
 <li>
 <code><a href="https://rdrr.io/pkg/pliman/man/image_binary.html">image_binary()</a></code> to produce a binary (black and white) image.</li>
@@ -226,29 +282,37 @@
 <code><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment()</a></code> to produce a segmented image (image objects and a white background).</li>
 <li>
 <code><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment_iter()</a></code> to segment an image interactively.</li>
+<li>
+<code><a href="https://rdrr.io/pkg/pliman/man/image_segment_kmeans.html">image_segment_kmeans()</a></code> to segment an image using the k-means algorithm</li>
+<li>
+<code><a href="https://rdrr.io/pkg/pliman/man/image_segment_manual.html">image_segment_manual()</a></code> to segment an image manually</li>
+<li>
+<code><a href="https://rdrr.io/pkg/pliman/man/image_segment_mask.html">image_segment_mask()</a></code> to segment an image interactively</li>
 </ul>
 <p>Both functions segment the image based on the value of some image index, which can be one of the RGB bands or any operation with these bands. Internally, these functions call <code><a href="https://rdrr.io/pkg/pliman/man/image_index.html">image_index()</a></code> to calculate these indices.</p>
 <p>Here, we use the <code>index"</code>argument to test segmentation based on RGB and its normalized values. Users can also provide their index with the <code>my_index</code> argument.</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calcule os índices</span></span>
-<span><span class="va">indexes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_index.html">image_index</a></span><span class="op">(</span><span class="va">img_r</span>, index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"R, G, B, NR, NG, NB"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">indexes</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_index.html">image_index</a></span><span class="op">(</span><span class="va">img</span>, index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"R, G, B, NR, NG, NB"</span><span class="op">)</span>,</span>
+<span>              resize <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="co"># 30% of the original size</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/segmenta%C3%A7%C3%A3o2-1.png" class="img-fluid" width="960"></p>
+<p><img src="02_segment_files/figure-html/segmenta%C3%A7%C3%A3o2-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Crie um gráfico raster com os valores RGB</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">indexes</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/segmenta%C3%A7%C3%A3o2-2.png" class="img-fluid" width="960"></p>
+<p><img src="02_segment_files/figure-html/segmenta%C3%A7%C3%A3o2-2.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Crie um histograma com os valores RGB</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">indexes</span>, type <span class="op">=</span> <span class="st">"density"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/segmenta%C3%A7%C3%A3o2-3.png" class="img-fluid" width="960"></p>
+<p><img src="02_segment_files/figure-html/segmenta%C3%A7%C3%A3o2-3.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>The two peaks represent the leaf (smallest peak) and the background (larger peak). The clearer the difference between these peaks, the better the image segmentation.</p>
-</section><section id="producing-a-binary-image" class="level1" data-number="4"><h1 data-number="4">
-<span class="header-section-number">4</span> Producing a binary image</h1>
+</section><section id="binary-images" class="level1" data-number="4"><h1 data-number="4">
+<span class="header-section-number">4</span> Binary images</h1>
 <p>To segment objects, <code>pliman</code> uses the <code>threshold</code> technique (Otsu, 1979)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, that is, a cut-off point (considering the pixel values) is chosen and the image is classified into two classes (foreground and background). We then have a binary image. We can produce this image with <code><a href="https://rdrr.io/pkg/pliman/man/image_binary.html">image_binary()</a></code>. This binarization is the key process to all object analysis steps. The better the binarization, the better the results.</p>
 <p>By default, image binary applies median filtering in the binary mask so that noises (for example, small dust points) are removed. Users can control whether the filter is applied and its intensity. Let’s to produce a binary image using the index <code>"B"</code> with no filter applied.</p>
 <div class="cell">
@@ -257,61 +321,88 @@
 <span>               index <span class="op">=</span> <span class="st">"B"</span>,</span>
 <span>               filter <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/binary3-1.png" class="img-fluid" width="960"></p>
+<p><img src="02_segment_files/figure-html/binary3-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<p>Note that some pixels within the bottom leaf were considered as background and some pixels at the bottom-right corner were considered as foreground. We can improve this binarization by applying a median filter. The default is <code><a href="https://rdrr.io/pkg/pliman/man/image_binary.html">image_binary()</a></code> is <code>filter = 2</code>, but this value can be adjusted to obtain better results. Note how the change in the <code>filter</code> argument impact the results.</p>
+<p>Note that some pixels within the bottom leaf were considered as background and some pixels at the bottom-right corner were considered as foreground. We can improve this binarization by both applying a median filter with the argument <code>filter</code> and filling holes with <code>fill_hull = TRUE</code>. Note how the change in the <code>filter</code> argument impact the results.</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_binary.html">image_binary</a></span><span class="op">(</span><span class="va">img</span>, </span>
 <span>                    index <span class="op">=</span> <span class="st">"B"</span>, </span>
+<span>                    fill_hull <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                    show_image <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="va">bin2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_binary.html">image_binary</a></span><span class="op">(</span><span class="va">img</span>, </span>
 <span>                     index <span class="op">=</span> <span class="st">"B"</span>, </span>
-<span>                     filter <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>                     fill_hull <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                     filter <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>                     show_image <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="va">bin3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_binary.html">image_binary</a></span><span class="op">(</span><span class="va">img</span>, </span>
-<span>                     index <span class="op">=</span> <span class="st">"B"</span>, </span>
+<span>                     index <span class="op">=</span> <span class="st">"B"</span>,</span>
+<span>                     fill_hull <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                     filter <span class="op">=</span> <span class="fl">30</span>,</span>
 <span>                     show_image <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_combine.html">image_combine</a></span><span class="op">(</span><span class="va">bin</span>, <span class="va">bin2</span>, <span class="va">bin3</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/binary2-1.png" class="img-fluid" width="960"></p>
+<p><img src="02_segment_files/figure-html/binary2-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
+</section><section id="automatic-segmentation" class="level1" data-number="5"><h1 data-number="5">
+<span class="header-section-number">5</span> Automatic segmentation</h1>
+<section id="using-image-indexes" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="using-image-indexes">
+<span class="header-section-number">5.1</span> Using image indexes</h2>
 <p>The <code><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment()</a></code> function is used to segment images using image indices. In this example, we will use compare the <code>B</code> and <code>NB</code> index to segment the leaves.</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">segmented</span> <span class="op">&lt;-</span> </span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">seg1</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment</a></span><span class="op">(</span><span class="va">img</span>,</span>
 <span>                index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B, NB"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/segmenta%C3%A7%C3%A3o3-1.png" class="img-fluid" width="960"></p>
+<p><img src="02_segment_files/figure-html/segmenta%C3%A7%C3%A3o3-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-</section><section id="iterative-segmentation" class="level1" data-number="5"><h1 data-number="5">
-<span class="header-section-number">5</span> Iterative segmentation</h1>
-<p>The function <code><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment_iter()</a></code> provides an iterative image segmentation. Users can choose how many segmentation to perform, using the argument <code>nseg</code>. Note that the same results can be obtained with <code><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment_iter()</a></code> using an iterative section.</p>
+</section><section id="using-k-means-algorithm" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="using-k-means-algorithm">
+<span class="header-section-number">5.2</span> Using k-means algorithm</h2>
+<p>THe function <code><a href="https://rdrr.io/pkg/pliman/man/image_segment_kmeans.html">image_segment_kmeans()</a></code> segments image objects using clustering by the k-means clustering algorithm. Users need to declare the number of classes after object segmentation using the argument <code>nclasses</code>. By default, two classes are returned.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Only run iteratively</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment_iter</a></span><span class="op">(</span><span class="va">img</span>, nseg <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="segmentation-with-a-mask" class="level1" data-number="6"><h1 data-number="6">
-<span class="header-section-number">6</span> Segmentation with a mask</h1>
-<p>By using <code><a href="https://rdrr.io/pkg/pliman/man/image_segment_mask.html">image_segment_mask()</a></code> it is possible to segment an object using a mask.</p>
-<div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">img</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"objects_300.jpg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">seg2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_kmeans.html">image_segment_kmeans</a></span><span class="op">(</span><span class="va">img</span>, nclasses <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="02_segment_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_mask.html">image_segment_mask</a></span><span class="op">(</span><span class="va">img</span>,</span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">seg2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_kmeans.html">image_segment_kmeans</a></span><span class="op">(</span><span class="va">img</span>, nclasses <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="02_segment_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">seg2</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_kmeans.html">image_segment_kmeans</a></span><span class="op">(</span><span class="va">img</span>,</span>
+<span>                       nclasses <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>                       invert <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                       filter <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="02_segment_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section><section id="using-a-mask" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="using-a-mask">
+<span class="header-section-number">5.3</span> Using a mask</h2>
+<p>By using <code><a href="https://rdrr.io/pkg/pliman/man/image_segment_mask.html">image_segment_mask()</a></code> it is possible to segment an object using a mask.</p>
+<div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">objs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"objects_300.jpg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_mask.html">image_segment_mask</a></span><span class="op">(</span><span class="va">objs</span>,</span>
+<span>                   type <span class="op">=</span> <span class="st">"shadow"</span>,</span>
+<span>                   size <span class="op">=</span> <span class="fl">1171</span>,</span>
+<span>                   shape <span class="op">=</span> <span class="st">"box"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_mask.html">image_segment_mask</a></span><span class="op">(</span><span class="va">objs</span>,</span>
 <span>                   size <span class="op">=</span> <span class="fl">1171</span>,</span>
 <span>                   rel_pos_y <span class="op">=</span> <span class="fl">0.6</span>,</span>
 <span>                   rel_pos_x <span class="op">=</span> <span class="fl">0.08</span>,</span>
-<span>                   shape <span class="op">=</span> <span class="st">"box"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="02_segment_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
+<span>                   shape <span class="op">=</span> <span class="st">"disc"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="02_segment_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output-stdout">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="02_segment_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
 <pre><code>Image 
   colorMode    : Color 
   storage.mode : double 
@@ -328,139 +419,89 @@ imageData(object)[1:5,1:6,1]
 [5,]    1    1    1    1    1    1</code></pre>
 </div>
 </div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="02_segment_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<pre><code>Image 
+  colorMode    : Color 
+  storage.mode : double 
+  dim          : 2126 1535 3 
+  frames.total : 3 
+  frames.render: 1 
+
+imageData(object)[1:5,1:6,1]
+     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    1    1    1    1    1    1
+[2,]    1    1    1    1    1    1
+[3,]    1    1    1    1    1    1
+[4,]    1    1    1    1    1    1
+[5,]    1    1    1    1    1    1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section></section><section id="manual-segmentation-only-runs-interactively" class="level1" data-number="6"><h1 data-number="6">
+<span class="header-section-number">6</span> Manual segmentation (only runs interactively)</h1>
+<section id="iterative-segmentation" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="iterative-segmentation">
+<span class="header-section-number">6.1</span> Iterative segmentation</h2>
+<p>The function <code><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment_iter()</a></code> provides an iterative image segmentation. Users can choose how many segmentation to perform, using the argument <code>nseg</code>. Note that the same results can be obtained with <code><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment_iter()</a></code> using an iterative section.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Only run iteratively</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment.html">image_segment_iter</a></span><span class="op">(</span><span class="va">img</span>, nseg <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="point-click-and-segment" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="point-click-and-segment">
+<span class="header-section-number">6.2</span> Point, click, and segment</h2>
+<p><code><a href="https://rdrr.io/pkg/pliman/man/image_segment_manual.html">image_segment_manual()</a></code> segments image objects ‘by hand’. The user will need to pick the perimeter of the object to be segmented. So, this only works in an interactive section.</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/x11.html">x11</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">seg3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_manual.html">image_segment_manual</a></span><span class="op">(</span><span class="va">img</span><span class="op">)</span></span>
+<span><span class="va">seg3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_manual.html">image_segment_manual</a></span><span class="op">(</span><span class="va">img</span>, resize <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">seg3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_segment_manual.html">image_segment_manual</a></span><span class="op">(</span><span class="va">img</span>, type <span class="op">=</span> <span class="st">"exclude"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="shapefiles" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="shapefiles">
+<span class="header-section-number">6.3</span> Shapefiles</h2>
+<p><code><a href="https://rdrr.io/pkg/pliman/man/image_shp.html">image_shp()</a></code> creates a list of object coordinates given the desired number of rows and columns. It starts by selecting 4 points at the corners of objects of interest in the plot space. Then, given <code>rows</code> and <code>cols</code>, a grid is drawn and the objects’ coordinates are returned.</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/x11.html">x11</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">flax</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/utils_image.html">image_import</a></span><span class="op">(</span><span class="st">"shapefiles.jpg"</span>, plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">shps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_shp.html">image_shp</a></span><span class="op">(</span><span class="va">flax</span>, rows <span class="op">=</span> <span class="fl">3</span>, cols <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">shps</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">shps</span><span class="op">$</span><span class="va">bbox</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code><a href="https://rdrr.io/pkg/pliman/man/object_split_shp.html">object_split_shp()</a></code> splits the image objects into a list of objects considering the object coordinates computed with <code><a href="https://rdrr.io/pkg/pliman/man/image_shp.html">image_shp()</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">leaves</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pliman/man/object_split_shp.html">object_split_shp</a></span><span class="op">(</span><span class="va">flax</span>, rows <span class="op">=</span> <span class="fl">3</span>, cols <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pliman/man/image_combine.html">image_combine</a></span><span class="op">(</span><span class="va">leaves</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 <!-- -->
-<div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title anchored" id="quarto-embedded-source-code-modal-label" data-anchor-id="segmentation-with-a-mask">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> " Segment objects"</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Import images</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pliman) </span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> </span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_import</span>(<span class="st">"folhas.jpg"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_horizontal</span>(<span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>img_r <span class="ot">&lt;-</span> <span class="fu">image_resize</span>(img, <span class="at">rel_size =</span> <span class="dv">30</span>) <span class="co">#fast processing</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Segment images</span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>In <span class="in">`pliman`</span>, the following functions can be used to segment an image.</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_binary()`</span> to produce a binary (black and white) image.</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_segment()`</span> to produce a segmented image (image objects and a white background).</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_segment_iter()`</span> to segment an image interactively.</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>Both functions segment the image based on the value of some image index, which can be one of the RGB bands or any operation with these bands. Internally, these functions call <span class="in">`image_index()`</span> to calculate these indices.</span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>Here, we use the <span class="in">`index" `</span>argument to test segmentation based on RGB and its normalized values. Users can also provide their index with the <span class="in">`my_index`</span> argument.</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r segmentação2, fig.width = 10, fig.height = 6}</span></span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcule os índices</span></span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>indexes <span class="ot">&lt;-</span> <span class="fu">image_index</span>(img_r, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"R, G, B, NR, NG, NB"</span>))</span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um gráfico raster com os valores RGB</span></span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(indexes)</span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um histograma com os valores RGB</span></span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(indexes, <span class="at">type =</span> <span class="st">"density"</span>)</span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>The two peaks represent the leaf (smallest peak) and the background (larger peak). The clearer the difference between these peaks, the better the image segmentation.</span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="fu"># Producing a binary image</span></span>
-<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>To segment objects, <span class="in">`pliman`</span> uses the <span class="in">`threshold`</span> technique (Otsu, 1979)^<span class="co">[</span><span class="ot">Otsu, N. 1979. Threshold selection method from gray-level histograms. IEEE Trans Syst Man Cybern SMC-9(1): 62–66. doi: 10.1109/tsmc.1979.4310076.</span><span class="co">]</span>, that is, a cut-off point (considering the pixel values) is chosen and the image is classified into two classes (foreground and background). We then have a binary image. We can produce this image with <span class="in">`image_binary()`</span>. This binarization is the key process to all object analysis steps. The better the binarization, the better the results.</span>
-<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>By default, image binary applies median filtering in the binary mask so that noises (for example, small dust points) are removed. Users can control whether the filter is applied and its intensity. Let's to produce a binary image using the index <span class="in">`"B"`</span> with no filter applied.</span>
-<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r binary3, fig.width = 10, fig.height = 5}</span></span>
-<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>binary <span class="ot">&lt;-</span> </span>
-<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_binary</span>(img,</span>
-<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>               <span class="at">index =</span> <span class="st">"B"</span>,</span>
-<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>               <span class="at">filter =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>Note that some pixels within the bottom leaf were considered as background and some pixels at the bottom-right corner were considered as foreground. We can improve this binarization by applying a median filter. The default is <span class="in">`image_binary()`</span> is <span class="in">`filter = 2`</span>, but this value can be adjusted to obtain better results. Note how the change in the <span class="in">`filter`</span> argument impact the results.</span>
-<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r binary2, fig.width = 10, fig.height = 5}</span></span>
-<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>bin <span class="ot">&lt;-</span> <span class="fu">image_binary</span>(img, </span>
-<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>                    <span class="at">index =</span> <span class="st">"B"</span>, </span>
-<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_image =</span> <span class="cn">FALSE</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>bin2 <span class="ot">&lt;-</span> <span class="fu">image_binary</span>(img, </span>
-<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>                     <span class="at">index =</span> <span class="st">"B"</span>, </span>
-<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>                     <span class="at">filter =</span> <span class="dv">5</span>,</span>
-<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_image =</span> <span class="cn">FALSE</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a>bin3 <span class="ot">&lt;-</span> <span class="fu">image_binary</span>(img, </span>
-<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>                     <span class="at">index =</span> <span class="st">"B"</span>, </span>
-<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>                     <span class="at">filter =</span> <span class="dv">30</span>,</span>
-<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_image =</span> <span class="cn">FALSE</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a><span class="fu">image_combine</span>(bin, bin2, bin3, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a>The <span class="in">`image_segment()`</span> function is used to segment images using image indices. In this example, we will use compare the <span class="in">`B`</span> and <span class="in">`NB`</span> index to segment the leaves.</span>
-<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r segmentação3, fig.width = 10, fig.height = 5}</span></span>
-<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a>segmented <span class="ot">&lt;-</span> </span>
-<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_segment</span>(img,</span>
-<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a>                <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"B, NB"</span>))</span>
-<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a><span class="fu"># Iterative segmentation</span></span>
-<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a>The function <span class="in">`image_segment_iter()`</span> provides an iterative image segmentation. Users can choose how many segmentation to perform, using the argument <span class="in">`nseg`</span>. Note that the same results can be obtained with <span class="in">`image_segment_iter()`</span> using an iterative section.</span>
-<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r segmentation7, eval=FALSE}</span></span>
-<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Only run iteratively</span></span>
-<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a><span class="fu">image_segment_iter</span>(img, <span class="at">nseg =</span> <span class="dv">1</span>)</span>
-<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a><span class="fu"># Segmentation with a mask</span></span>
-<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a>By using <span class="in">`image_segment_mask()`</span> it is possible to segment an object using a mask.</span>
-<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"objects_300.jpg"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a><span class="fu">image_segment_mask</span>(img,</span>
-<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">1171</span>,</span>
-<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a>                   <span class="at">rel_pos_y =</span> <span class="fl">0.6</span>,</span>
-<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a>                   <span class="at">rel_pos_x =</span> <span class="fl">0.08</span>,</span>
-<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a>                   <span class="at">shape =</span> <span class="st">"box"</span>)</span>
-<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a></span>
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
-</section><div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+</section></section><div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 <ol>
 <li id="fn1" role="doc-endnote"><p>Otsu, N. 1979. Threshold selection method from gray-level histograms. IEEE Trans Syst Man Cybern SMC-9(1): 62–66. doi: 10.1109/tsmc.1979.4310076.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol></section></div></main><!-- /main --><script type="application/javascript">
+</ol></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -490,8 +531,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles
@@ -577,7 +624,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
     setTimeout(function() {
+      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
@@ -692,13 +742,218 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">Analyze objects</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb20" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> " Segment objects"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="an">editor_options:</span><span class="co"> </span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">  chunk_output_type: console</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r include = FALSE}</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> <span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Directory</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"E:/Desktop/UFSC/cursos/pliman_tut/imgs"</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Import images</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r collapse = TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pliman) </span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> </span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_import</span>(<span class="st">"folhas.jpg"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_horizontal</span>(<span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="fu">apply_fun_to_imgs</span>(<span class="at">pattern =</span> <span class="st">"img_"</span>,</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fun =</span> image_resize,</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rel_size =</span> <span class="dv">50</span>,</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>                  <span class="at">dir_processed =</span> <span class="st">"lista_exportada"</span>)</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="fu"># Image indexes</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>In <span class="in">`pliman`</span>, the following functions can be used to segment image objects.</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_binary()`</span> to produce a binary (black and white) image.</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_segment()`</span> to produce a segmented image (image objects and a white background).</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_segment_iter()`</span> to segment an image interactively.</span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_segment_kmeans()`</span> to segment an image using the k-means algorithm </span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_segment_manual()`</span> to segment an image manually</span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="in">`image_segment_mask()`</span> to segment an image interactively</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>Both functions segment the image based on the value of some image index, which can be one of the RGB bands or any operation with these bands. Internally, these functions call <span class="in">`image_index()`</span> to calculate these indices.</span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>Here, we use the <span class="in">`index" `</span>argument to test segmentation based on RGB and its normalized values. Users can also provide their index with the <span class="in">`my_index`</span> argument.</span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a><span class="in">```{r segmentação2}</span></span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcule os índices</span></span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>indexes <span class="ot">&lt;-</span> </span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_index</span>(img, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"R, G, B, NR, NG, NB"</span>),</span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>              <span class="at">resize =</span> <span class="dv">30</span>) <span class="co"># 30% of the original size</span></span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um gráfico raster com os valores RGB</span></span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(indexes)</span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Crie um histograma com os valores RGB</span></span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(indexes, <span class="at">type =</span> <span class="st">"density"</span>)</span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>The two peaks represent the leaf (smallest peak) and the background (larger peak). The clearer the difference between these peaks, the better the image segmentation.</span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a><span class="fu"># Binary images</span></span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a>To segment objects, <span class="in">`pliman`</span> uses the <span class="in">`threshold`</span> technique (Otsu, 1979)^<span class="co">[</span><span class="ot">Otsu, N. 1979. Threshold selection method from gray-level histograms. IEEE Trans Syst Man Cybern SMC-9(1): 62–66. doi: 10.1109/tsmc.1979.4310076.</span><span class="co">]</span>, that is, a cut-off point (considering the pixel values) is chosen and the image is classified into two classes (foreground and background). We then have a binary image. We can produce this image with <span class="in">`image_binary()`</span>. This binarization is the key process to all object analysis steps. The better the binarization, the better the results.</span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a>By default, image binary applies median filtering in the binary mask so that noises (for example, small dust points) are removed. Users can control whether the filter is applied and its intensity. Let's to produce a binary image using the index <span class="in">`"B"`</span> with no filter applied.</span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r binary3}</span></span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a>binary <span class="ot">&lt;-</span> </span>
+<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_binary</span>(img,</span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a>               <span class="at">index =</span> <span class="st">"B"</span>,</span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>               <span class="at">filter =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-82"><a href="#cb20-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-83"><a href="#cb20-83" aria-hidden="true" tabindex="-1"></a>Note that some pixels within the bottom leaf were considered as background and some pixels at the bottom-right corner were considered as foreground. We can improve this binarization by both applying a median filter with the argument <span class="in">`filter`</span> and filling holes with <span class="in">`fill_hull = TRUE`</span>. Note how the change in the <span class="in">`filter`</span> argument impact the results.</span>
+<span id="cb20-84"><a href="#cb20-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-85"><a href="#cb20-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r binary2}</span></span>
+<span id="cb20-86"><a href="#cb20-86" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb20-87"><a href="#cb20-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-88"><a href="#cb20-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-89"><a href="#cb20-89" aria-hidden="true" tabindex="-1"></a>bin <span class="ot">&lt;-</span> <span class="fu">image_binary</span>(img, </span>
+<span id="cb20-90"><a href="#cb20-90" aria-hidden="true" tabindex="-1"></a>                    <span class="at">index =</span> <span class="st">"B"</span>, </span>
+<span id="cb20-91"><a href="#cb20-91" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fill_hull =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-92"><a href="#cb20-92" aria-hidden="true" tabindex="-1"></a>                    <span class="at">show_image =</span> <span class="cn">FALSE</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb20-93"><a href="#cb20-93" aria-hidden="true" tabindex="-1"></a>bin2 <span class="ot">&lt;-</span> <span class="fu">image_binary</span>(img, </span>
+<span id="cb20-94"><a href="#cb20-94" aria-hidden="true" tabindex="-1"></a>                     <span class="at">index =</span> <span class="st">"B"</span>, </span>
+<span id="cb20-95"><a href="#cb20-95" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill_hull =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-96"><a href="#cb20-96" aria-hidden="true" tabindex="-1"></a>                     <span class="at">filter =</span> <span class="dv">2</span>,</span>
+<span id="cb20-97"><a href="#cb20-97" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_image =</span> <span class="cn">FALSE</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb20-98"><a href="#cb20-98" aria-hidden="true" tabindex="-1"></a>bin3 <span class="ot">&lt;-</span> <span class="fu">image_binary</span>(img, </span>
+<span id="cb20-99"><a href="#cb20-99" aria-hidden="true" tabindex="-1"></a>                     <span class="at">index =</span> <span class="st">"B"</span>,</span>
+<span id="cb20-100"><a href="#cb20-100" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill_hull =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-101"><a href="#cb20-101" aria-hidden="true" tabindex="-1"></a>                     <span class="at">filter =</span> <span class="dv">30</span>,</span>
+<span id="cb20-102"><a href="#cb20-102" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_image =</span> <span class="cn">FALSE</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb20-103"><a href="#cb20-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-104"><a href="#cb20-104" aria-hidden="true" tabindex="-1"></a><span class="fu">image_combine</span>(bin, bin2, bin3, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb20-105"><a href="#cb20-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-106"><a href="#cb20-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-107"><a href="#cb20-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-108"><a href="#cb20-108" aria-hidden="true" tabindex="-1"></a><span class="fu"># Automatic segmentation</span></span>
+<span id="cb20-109"><a href="#cb20-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using image indexes</span></span>
+<span id="cb20-110"><a href="#cb20-110" aria-hidden="true" tabindex="-1"></a>The <span class="in">`image_segment()`</span> function is used to segment images using image indices. In this example, we will use compare the <span class="in">`B`</span> and <span class="in">`NB`</span> index to segment the leaves.</span>
+<span id="cb20-111"><a href="#cb20-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-112"><a href="#cb20-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r segmentação3}</span></span>
+<span id="cb20-113"><a href="#cb20-113" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb20-114"><a href="#cb20-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-115"><a href="#cb20-115" aria-hidden="true" tabindex="-1"></a>seg1 <span class="ot">&lt;-</span> </span>
+<span id="cb20-116"><a href="#cb20-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_segment</span>(img,</span>
+<span id="cb20-117"><a href="#cb20-117" aria-hidden="true" tabindex="-1"></a>                <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"B, NB"</span>))</span>
+<span id="cb20-118"><a href="#cb20-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-119"><a href="#cb20-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-120"><a href="#cb20-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-121"><a href="#cb20-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-122"><a href="#cb20-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using k-means algorithm</span></span>
+<span id="cb20-123"><a href="#cb20-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-124"><a href="#cb20-124" aria-hidden="true" tabindex="-1"></a>THe function <span class="in">`image_segment_kmeans()`</span> segments image objects using clustering by the k-means clustering algorithm. Users need to declare the number of classes after object segmentation using the argument <span class="in">`nclasses`</span>. By default, two classes are returned.</span>
+<span id="cb20-125"><a href="#cb20-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-128"><a href="#cb20-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-129"><a href="#cb20-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb20-130"><a href="#cb20-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-131"><a href="#cb20-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-132"><a href="#cb20-132" aria-hidden="true" tabindex="-1"></a>seg2 <span class="ot">&lt;-</span> <span class="fu">image_segment_kmeans</span>(img, <span class="at">nclasses =</span> <span class="dv">4</span>)</span>
+<span id="cb20-133"><a href="#cb20-133" aria-hidden="true" tabindex="-1"></a>seg2 <span class="ot">&lt;-</span> <span class="fu">image_segment_kmeans</span>(img, <span class="at">nclasses =</span> <span class="dv">2</span>) <span class="co"># default</span></span>
+<span id="cb20-134"><a href="#cb20-134" aria-hidden="true" tabindex="-1"></a>seg2 <span class="ot">&lt;-</span> </span>
+<span id="cb20-135"><a href="#cb20-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image_segment_kmeans</span>(img,</span>
+<span id="cb20-136"><a href="#cb20-136" aria-hidden="true" tabindex="-1"></a>                       <span class="at">nclasses =</span> <span class="dv">2</span>,</span>
+<span id="cb20-137"><a href="#cb20-137" aria-hidden="true" tabindex="-1"></a>                       <span class="at">invert =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb20-138"><a href="#cb20-138" aria-hidden="true" tabindex="-1"></a>                       <span class="at">filter =</span> <span class="dv">5</span>)</span>
+<span id="cb20-139"><a href="#cb20-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-140"><a href="#cb20-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-141"><a href="#cb20-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using a mask</span></span>
+<span id="cb20-142"><a href="#cb20-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-143"><a href="#cb20-143" aria-hidden="true" tabindex="-1"></a>By using <span class="in">`image_segment_mask()`</span> it is possible to segment an object using a mask.</span>
+<span id="cb20-144"><a href="#cb20-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-147"><a href="#cb20-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-148"><a href="#cb20-148" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: "100%"</span></span>
+<span id="cb20-149"><a href="#cb20-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| layout-ncol: 3</span></span>
+<span id="cb20-150"><a href="#cb20-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-151"><a href="#cb20-151" aria-hidden="true" tabindex="-1"></a>objs <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"objects_300.jpg"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-152"><a href="#cb20-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-153"><a href="#cb20-153" aria-hidden="true" tabindex="-1"></a><span class="fu">image_segment_mask</span>(objs,</span>
+<span id="cb20-154"><a href="#cb20-154" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">"shadow"</span>,</span>
+<span id="cb20-155"><a href="#cb20-155" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">1171</span>,</span>
+<span id="cb20-156"><a href="#cb20-156" aria-hidden="true" tabindex="-1"></a>                   <span class="at">shape =</span> <span class="st">"box"</span>)</span>
+<span id="cb20-157"><a href="#cb20-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-158"><a href="#cb20-158" aria-hidden="true" tabindex="-1"></a><span class="fu">image_segment_mask</span>(objs,</span>
+<span id="cb20-159"><a href="#cb20-159" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="dv">1171</span>,</span>
+<span id="cb20-160"><a href="#cb20-160" aria-hidden="true" tabindex="-1"></a>                   <span class="at">rel_pos_y =</span> <span class="fl">0.6</span>,</span>
+<span id="cb20-161"><a href="#cb20-161" aria-hidden="true" tabindex="-1"></a>                   <span class="at">rel_pos_x =</span> <span class="fl">0.08</span>,</span>
+<span id="cb20-162"><a href="#cb20-162" aria-hidden="true" tabindex="-1"></a>                   <span class="at">shape =</span> <span class="st">"disc"</span>)</span>
+<span id="cb20-163"><a href="#cb20-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-164"><a href="#cb20-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-165"><a href="#cb20-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-166"><a href="#cb20-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-167"><a href="#cb20-167" aria-hidden="true" tabindex="-1"></a><span class="fu"># Manual segmentation (only runs interactively)</span></span>
+<span id="cb20-168"><a href="#cb20-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iterative segmentation</span></span>
+<span id="cb20-169"><a href="#cb20-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-170"><a href="#cb20-170" aria-hidden="true" tabindex="-1"></a>The function <span class="in">`image_segment_iter()`</span> provides an iterative image segmentation. Users can choose how many segmentation to perform, using the argument <span class="in">`nseg`</span>. Note that the same results can be obtained with <span class="in">`image_segment_iter()`</span> using an iterative section.</span>
+<span id="cb20-171"><a href="#cb20-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-172"><a href="#cb20-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{r segmentation7, eval=FALSE}</span></span>
+<span id="cb20-173"><a href="#cb20-173" aria-hidden="true" tabindex="-1"></a><span class="co"># Only run iteratively</span></span>
+<span id="cb20-174"><a href="#cb20-174" aria-hidden="true" tabindex="-1"></a><span class="fu">image_segment_iter</span>(img, <span class="at">nseg =</span> <span class="dv">1</span>)</span>
+<span id="cb20-175"><a href="#cb20-175" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-176"><a href="#cb20-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-177"><a href="#cb20-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-178"><a href="#cb20-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Point, click, and segment</span></span>
+<span id="cb20-179"><a href="#cb20-179" aria-hidden="true" tabindex="-1"></a><span class="in">`image_segment_manual()`</span> segments image objects 'by hand'. The user will need to pick the perimeter of the object to be segmented. So, this only works in an interactive section.</span>
+<span id="cb20-180"><a href="#cb20-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-181"><a href="#cb20-181" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb20-182"><a href="#cb20-182" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb20-183"><a href="#cb20-183" aria-hidden="true" tabindex="-1"></a>seg3 <span class="ot">&lt;-</span> <span class="fu">image_segment_manual</span>(img)</span>
+<span id="cb20-184"><a href="#cb20-184" aria-hidden="true" tabindex="-1"></a>seg3 <span class="ot">&lt;-</span> <span class="fu">image_segment_manual</span>(img, <span class="at">resize =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-185"><a href="#cb20-185" aria-hidden="true" tabindex="-1"></a>seg3 <span class="ot">&lt;-</span> <span class="fu">image_segment_manual</span>(img, <span class="at">type =</span> <span class="st">"exclude"</span>)</span>
+<span id="cb20-186"><a href="#cb20-186" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-187"><a href="#cb20-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-188"><a href="#cb20-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-189"><a href="#cb20-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Shapefiles</span></span>
+<span id="cb20-190"><a href="#cb20-190" aria-hidden="true" tabindex="-1"></a><span class="in">`image_shp()`</span> creates a list of object coordinates given the desired number of rows and columns. It starts by selecting 4 points at the corners of objects of interest in the plot space. Then, given <span class="in">`rows`</span> and <span class="in">`cols`</span>, a grid is drawn and the objects' coordinates are returned.</span>
+<span id="cb20-191"><a href="#cb20-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-192"><a href="#cb20-192" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb20-193"><a href="#cb20-193" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb20-194"><a href="#cb20-194" aria-hidden="true" tabindex="-1"></a>flax <span class="ot">&lt;-</span> <span class="fu">image_import</span>(<span class="st">"shapefiles.jpg"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-195"><a href="#cb20-195" aria-hidden="true" tabindex="-1"></a>shps <span class="ot">&lt;-</span> <span class="fu">image_shp</span>(flax, <span class="at">rows =</span> <span class="dv">3</span>, <span class="at">cols =</span> <span class="dv">10</span>)</span>
+<span id="cb20-196"><a href="#cb20-196" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(shps)</span>
+<span id="cb20-197"><a href="#cb20-197" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(shps<span class="sc">$</span>bbox, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb20-198"><a href="#cb20-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-199"><a href="#cb20-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-200"><a href="#cb20-200" aria-hidden="true" tabindex="-1"></a><span class="in">`object_split_shp()`</span> splits the image objects into a list of objects considering the object coordinates computed with <span class="in">`image_shp()`</span>.</span>
+<span id="cb20-201"><a href="#cb20-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-202"><a href="#cb20-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE}</span></span>
+<span id="cb20-203"><a href="#cb20-203" aria-hidden="true" tabindex="-1"></a>leaves <span class="ot">&lt;-</span> <span class="fu">object_split_shp</span>(flax, <span class="at">rows =</span> <span class="dv">3</span>, <span class="at">cols =</span> <span class="dv">5</span>)</span>
+<span id="cb20-204"><a href="#cb20-204" aria-hidden="true" tabindex="-1"></a><span class="fu">image_combine</span>(leaves[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb20-205"><a href="#cb20-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-206"><a href="#cb20-206" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">A brief tutorial on {pliman} R package</div>   
+    <div class="nav-footer-left">The {pliman} R package</div>   
     <div class="nav-footer-right">Prof.&nbsp;Dr.&nbsp;Tiago Olivoto FIT/CCA/UFSC</div>
   </div>
 </footer>
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -1,5 +1,7 @@
 ---
 title: " Segment objects"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r include = FALSE}
@@ -14,30 +16,43 @@ setwd("E:/Desktop/UFSC/cursos/pliman_tut/imgs")
 
 # Import images
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
+#| out-width: "100%"
 library(pliman) 
 img <- 
   image_import("folhas.jpg") |> 
   image_horizontal(plot = TRUE)
-img_r <- image_resize(img, rel_size = 30) #fast processing
+
+apply_fun_to_imgs(pattern = "img_",
+                  fun = image_resize,
+                  rel_size = 50,
+                  dir_processed = "lista_exportada")
 ```
 
 
-# Segment images
+# Image indexes
 
-In `pliman`, the following functions can be used to segment an image.
+In `pliman`, the following functions can be used to segment image objects.
 
 * `image_binary()` to produce a binary (black and white) image.
 * `image_segment()` to produce a segmented image (image objects and a white background).
 * `image_segment_iter()` to segment an image interactively.
+* `image_segment_kmeans()` to segment an image using the k-means algorithm 
+* `image_segment_manual()` to segment an image manually
+* `image_segment_mask()` to segment an image interactively
 
 Both functions segment the image based on the value of some image index, which can be one of the RGB bands or any operation with these bands. Internally, these functions call `image_index()` to calculate these indices.
 
 Here, we use the `index" `argument to test segmentation based on RGB and its normalized values. Users can also provide their index with the `my_index` argument.
 
 
-```{r segmentação2, fig.width = 10, fig.height = 6}
+```{r segmentação2}
+#| out-width: "100%"
+
+
 # Calcule os índices
-indexes <- image_index(img_r, index = c("R, G, B, NR, NG, NB"))
+indexes <- 
+  image_index(img, index = c("R, G, B, NR, NG, NB"),
+              resize = 30) # 30% of the original size
 
 # Crie um gráfico raster com os valores RGB
 plot(indexes)
@@ -50,33 +65,39 @@ plot(indexes, type = "density")
 The two peaks represent the leaf (smallest peak) and the background (larger peak). The clearer the difference between these peaks, the better the image segmentation.
 
 
-
-# Producing a binary image
+# Binary images
 
 To segment objects, `pliman` uses the `threshold` technique (Otsu, 1979)^[Otsu, N. 1979. Threshold selection method from gray-level histograms. IEEE Trans Syst Man Cybern SMC-9(1): 62–66. doi: 10.1109/tsmc.1979.4310076.], that is, a cut-off point (considering the pixel values) is chosen and the image is classified into two classes (foreground and background). We then have a binary image. We can produce this image with `image_binary()`. This binarization is the key process to all object analysis steps. The better the binarization, the better the results.
 
 By default, image binary applies median filtering in the binary mask so that noises (for example, small dust points) are removed. Users can control whether the filter is applied and its intensity. Let's to produce a binary image using the index `"B"` with no filter applied.
 
-```{r binary3, fig.width = 10, fig.height = 5}
+```{r binary3}
+#| out-width: "100%"
+
 binary <- 
   image_binary(img,
                index = "B",
                filter = FALSE)
-
 ```
 
-Note that some pixels within the bottom leaf were considered as background and some pixels at the bottom-right corner were considered as foreground. We can improve this binarization by applying a median filter. The default is `image_binary()` is `filter = 2`, but this value can be adjusted to obtain better results. Note how the change in the `filter` argument impact the results.
+Note that some pixels within the bottom leaf were considered as background and some pixels at the bottom-right corner were considered as foreground. We can improve this binarization by both applying a median filter with the argument `filter` and filling holes with `fill_hull = TRUE`. Note how the change in the `filter` argument impact the results.
 
-```{r binary2, fig.width = 10, fig.height = 5}
+```{r binary2}
+#| out-width: "100%"
+
+
 bin <- image_binary(img, 
                     index = "B", 
+                    fill_hull = TRUE,
                     show_image = FALSE)[[1]]
 bin2 <- image_binary(img, 
                      index = "B", 
-                     filter = 5,
+                     fill_hull = TRUE,
+                     filter = 2,
                      show_image = FALSE)[[1]]
 bin3 <- image_binary(img, 
-                     index = "B", 
+                     index = "B",
+                     fill_hull = TRUE,
                      filter = 30,
                      show_image = FALSE)[[1]]
 
@@ -84,19 +105,63 @@ image_combine(bin, bin2, bin3, ncol = 3)
 ```
 
 
-
+# Automatic segmentation
+## Using image indexes
 The `image_segment()` function is used to segment images using image indices. In this example, we will use compare the `B` and `NB` index to segment the leaves.
 
-```{r segmentação3, fig.width = 10, fig.height = 5}
-segmented <- 
+```{r segmentação3}
+#| out-width: "100%"
+
+seg1 <- 
   image_segment(img,
                 index = c("B, NB"))
 
 ```
 
 
+## Using k-means algorithm
 
-# Iterative segmentation
+THe function `image_segment_kmeans()` segments image objects using clustering by the k-means clustering algorithm. Users need to declare the number of classes after object segmentation using the argument `nclasses`. By default, two classes are returned.
+
+```{r}
+#| out-width: "100%"
+
+
+seg2 <- image_segment_kmeans(img, nclasses = 4)
+seg2 <- image_segment_kmeans(img, nclasses = 2) # default
+seg2 <- 
+  image_segment_kmeans(img,
+                       nclasses = 2,
+                       invert = TRUE,
+                       filter = 5)
+```
+
+## Using a mask
+
+By using `image_segment_mask()` it is possible to segment an object using a mask.
+
+```{r}
+#| out-width: "100%"
+#| layout-ncol: 3
+
+objs <- image_import("objects_300.jpg", plot = TRUE)
+
+image_segment_mask(objs,
+                   type = "shadow",
+                   size = 1171,
+                   shape = "box")
+
+image_segment_mask(objs,
+                   size = 1171,
+                   rel_pos_y = 0.6,
+                   rel_pos_x = 0.08,
+                   shape = "disc")
+```
+
+
+
+# Manual segmentation (only runs interactively)
+## Iterative segmentation
 
 The function `image_segment_iter()` provides an iterative image segmentation. Users can choose how many segmentation to perform, using the argument `nseg`. Note that the same results can be obtained with `image_segment_iter()` using an iterative section.
 
@@ -106,18 +171,33 @@ image_segment_iter(img, nseg = 1)
 ```
 
 
-# Segmentation with a mask
+## Point, click, and segment
+`image_segment_manual()` segments image objects 'by hand'. The user will need to pick the perimeter of the object to be segmented. So, this only works in an interactive section.
 
-By using `image_segment_mask()` it is possible to segment an object using a mask.
+```{r eval=FALSE}
+x11()
+seg3 <- image_segment_manual(img)
+seg3 <- image_segment_manual(img, resize = FALSE)
+seg3 <- image_segment_manual(img, type = "exclude")
+```
 
-```{r}
-img <- image_import("objects_300.jpg", plot = TRUE)
 
-image_segment_mask(img,
-                   size = 1171,
-                   rel_pos_y = 0.6,
-                   rel_pos_x = 0.08,
-                   shape = "box")
+## Shapefiles
+`image_shp()` creates a list of object coordinates given the desired number of rows and columns. It starts by selecting 4 points at the corners of objects of interest in the plot space. Then, given `rows` and `cols`, a grid is drawn and the objects' coordinates are returned.
+
+```{r eval=FALSE}
+x11()
+flax <- image_import("shapefiles.jpg", plot = TRUE)
+shps <- image_shp(flax, rows = 3, cols = 10)
+str(shps)
+lines(shps$bbox, col = "red", lwd = 5)
+```
+
+`object_split_shp()` splits the image objects into a list of objects considering the object coordinates computed with `image_shp()`.
+
+```{r eval=FALSE}
+leaves <- object_split_shp(flax, rows = 3, cols = 5)
+image_combine(leaves[1:2])
 ```
 
 

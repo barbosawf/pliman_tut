@@ -1,12 +1,14 @@
 project:
   type: website
   output-dir: docs
-
+  # render:
+  #   - "00_about.qmd"
+  #   - "01_manipulate.qmd"
+  #   - "02_segment.qmd"
 
 theme:
   light: flatly
   dark: darkly
-
 website:
   search:
     location: sidebar
@@ -19,7 +21,7 @@ website:
   page-footer: 
     border: true
     background: light
-    left: "A brief tutorial on {pliman} R package"
+    left: "The {pliman} R package"
     right: "Prof. Dr. Tiago Olivoto FIT/CCA/UFSC "
   page-navigation: true
   navbar:
@@ -53,14 +55,13 @@ website:
         - 03_analyze.qmd
         - 04_phytopathometry.qmd
 
-
 format:
   html:
+    css: style.css
     theme: 
        light: journal
        dark: darkly
     toc: true
-    df_print: paged
     toc-title: "In this page"
     number-sections: true
     number-depth: 3
@@ -72,5 +73,8 @@ format:
     code-block-border-left: "#31BAE9"
     code-link: true
 
+    
 execute:
   collapse: true
+fig-responsive: true
+fig-align: center

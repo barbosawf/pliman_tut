@@ -6,39 +6,48 @@ title: "Phytopathometry"
 knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/cursos/pliman_tut/imgs")
 ```
 
-
 # Directory
+
 ```{r eval=FALSE}
 setwd("E:/Desktop/UFSC/cursos/pliman_tut/imgs")
+
 ```
-
-
 
 # Disease severity
+
 # Using image indexes
+
+The following image[^1] shows symptoms of anthracnose (*Elsinoë ampelina*) on grape leaves.
+
+[^1]: Fonte: <http://gazeta-rs.com.br/as-principais-doencas-da-videira-na-primavera/#prettyPhoto>
+
 ```{r}
+#| warning: false
+#| message: false
+
 library(pliman)
-img <- image_import("disease.jpeg", plot = TRUE)
-res <- measure_disease(img,
-                       index_lb = "B",
-                       index_dh = "HUE2",
-                       invert = c(FALSE, TRUE))
-res$severity
+library(tidyverse)
+img <- image_import("videira.png", plot = TRUE)
+sev <- 
+  measure_disease(img,
+                  index_lb = "G",
+                  index_dh = "G-R",
+                  show_segmentation = TRUE)
+sev$severity
 ```
+
 
 
 # Using sample palettes
 
-Sample palettes can be made by simply manually sampling small areas of representative images and producing a composite image that will represent each of the desired classes (background, healthy, and symptomatic tissues). 
+Sample palettes can be made by simply manually sampling small areas of representative images and producing a composite image that will represent each of the desired classes (background, healthy, and symptomatic tissues).
 
 ```{r doença1, fig.width = 12, fig.height = 3}
-img <- image_import("exemp_1.jpeg", plot = TRUE)
-h <- image_import("exem_h.png")
-d <- image_import("exem_d.png")
-b <- image_import("exem_b.png")
+h <- image_import("videira_h.png")
+d <- image_import("videira_d.png")
+b <- image_import("videira_b.png")
 image_combine(img, h, d, b, ncol = 4)
 ```
-
 
 ## Producing sample palettes
 
@@ -52,8 +61,8 @@ image_combine(h2, d2, b2, ncol = 3)
 
 ```
 
-
 ### Defaults settings
+
 ```{r}
 sev <- 
   measure_disease(img = img,
@@ -61,10 +70,11 @@ sev <-
                   img_symptoms = d,
                   img_background = b)
 sev$severity
+
 ```
 
-
 ### Filling lesions
+
 ```{r}
 sev <- 
   measure_disease(img = img,
@@ -74,8 +84,8 @@ sev <-
                   show_contour = FALSE)
 ```
 
-
 ### Showing a mask
+
 ```{r}
 sev <- 
   measure_disease(img = img,
@@ -83,9 +93,8 @@ sev <-
                   img_symptoms = d,
                   img_background = b,
                   show_original = FALSE,
-                  col_lesions = "brown") # padrão é "black"
+                  col_lesions = "brown") # default is "black"
 ```
-
 
 ### Segmenting and analyzing lesions
 
@@ -98,14 +107,15 @@ sev <-
                   img_symptoms = d,
                   img_background = b,
                   show_features = TRUE,
+                  watershed = TRUE,
                   show_segmentation = TRUE)
 
 # correct the measures (dpi = 150)
 sev_corrected <- get_measures(sev, dpi = 150)
 ```
 
-
 # Batch processing
+
 To analyze several images from a directory, use the `pattern` argument to declare a pattern of filenames. Here, we Will used 50 soybean leaves available in the repository https://osf.io/4hbr6, a database of images of annotation of severity of plant diseases. Thanks to [Emerson M. Del Ponte](https://osf.io/jb6yd/) and his contributors for keeping this project publicly available. Using the `save_image = TRUE` argument we save the processed images in a temporary directory, defined by `tempdir()`.
 
 ```{r}
@@ -127,23 +137,17 @@ system.time(
 sev_lote$severity
 ```
 
-
-
-
 # Standard area diagrams
 
-Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments.
-
-Given an object computed with `measure_disease()` a Standard Area Diagram (SAD) with `n` images containing the respective severity values are obtained with `sad()`.
+Standard area diagrams (SAD) have long been used as a tool to aid the estimation of plant disease severity, serving as a standard reference template before or during the assessments. Given an object computed with `measure_disease()` a Standard Area Diagram (SAD) with `n` images containing the respective severity values are obtained with `sad()`.
 
 Leaves with the smallest and highest severity will always be in the SAD. If `n = 1`, the leaf with the smallest severity will be returned. The others are sampled sequentially to achieve the n images after severity has been ordered in ascending order. For example, if there are 30 leaves and n is set to 3, the leaves sampled will be the 1st, 15th, and 30th with the smallest severity values.
 
 The SAD can be only computed if an image pattern name is used in argument `pattern` of `measure_disease()`. If the images are saved, the `n` images will be retrevied from `dir_processed` directory. Otherwise, the severity will be computed again to generate the images. A SAD with 8 images from the above example can be obtained easely with:
 
 ```{r}
-sad(sev_lote, n = 6, ncol = 3)
+sad(sev_lote, n = 9, ncol = 3)
 ```
-
 
 # Parallel processing
 
@@ -162,8 +166,6 @@ system.time(
 
 
 ```
-
-
 
 # Multiple images of the same sample
 
@@ -186,15 +188,13 @@ sev <-
   sev_trats$severity |> 
   separate_col(img, into = c("TRAT", "REP"))
 
-library(ggplot2)
+
 ggplot(sev, aes(TRAT, symptomatic))+
   geom_boxplot() +
   geom_jitter(alpha = 0.3) +
   labs(x = "Tratamentos",
        y = "Severidade (%)")
 ```
-
-
 
 # Multiple leaves in one image
 
@@ -204,7 +204,7 @@ This function computes the percentage of symptomatic leaf area using color palet
 
 ```{r}
 byl <- 
-  measure_disease_byl(pattern = "multiplas",
+  measure_disease_byl(pattern = "multiplas_02",
                       index = "B", # used to segment leaves from background
                       img_healthy = "soja_h",
                       img_symptoms = "soja_s",
@@ -219,47 +219,53 @@ results_byl$results |>
   head()
 ```
 
+# More than two classes
+```{r}
+img <- image_pliman("sev_leaf.jpg")
+image_segment_iter(img,
+                   nseg = 3,
+                   index = c("B", "NGRDI", "G-B"),
+                   ncol = 4)
+```
 
 
 # A little gift
 
 ```{r}
-f0 <- image_import("fungo.jpg", plot = TRUE)
+fungo <- image_import("fungo.jpeg", plot = TRUE)
 res <- 
-  analyze_objects(f0,
-                  my_index = "(G+B)^3-R",
+  analyze_objects(fungo, 
+                  index = "HUE",
+                  invert = TRUE,
+                  filter = 5,
                   watershed = FALSE,
-                  filter = 30,
-                  contour_size = 3,
-                  contour_col = "black")
-
-meas <- get_measures(res, dpi = 254)
-plot_measures(meas,
-              col = "white",
-              measure = "diam_mean",
-              size = 2)
+                  contour_size = 6)
+get_measures(res, dpi = 90) |> 
+  plot_measures(measure = "area", 
+                col = "black",
+                size = 2)
 ```
 
-
-:::{.callout-tip}
+::: callout-tip
 The segmentation can also be performed using sample palettes representing the foreground and background. In this example, pick the color samples, then use them in the `analyze_objects()`.
+
 ```{r eval=FALSE}
 
-
-back <- pick_palette(f0)
-fore <- pick_palette(f0)
+back <- pick_palette(fungo)
+fore <- pick_palette(fungo)
 
 res <- 
-  analyze_objects(f0,
+  analyze_objects(fungo,
                   background = back,
                   foreground = fore,
                   watershed = FALSE,
-                  filter = 30)
+                  filter = 5,
+                  contour_size = 6)
 
-meas <- get_measures(res, dpi = 254)
+meas <- get_measures(res, dpi = 90)
 plot_measures(meas,
               col = "black",
-              measure = "diam_mean",
+              measure = "area",
               size = 2)
 ```
 :::

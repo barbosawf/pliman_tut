@@ -12,16 +12,29 @@ setwd("E:/Desktop/UFSC/cursos/pliman_tut/imgs")
 ```
 
 
-# Import images
+# File manipulation
 ```{r collapse = TRUE, message=FALSE, warning=FALSE}
 library(pliman)
 library(tidyverse)
 library(patchwork)
-img <- image_import("folhas.jpg")
+# set_wd_here("imgs")
+list.files(pattern = "2022", path = "manipula")
 
+# name vector
+nomes <- c("T1_R1", "T1_R2", "T2_R1", "T2_R2")
+
+# rename the files
+manipulate_files(pattern = "2022",
+                 name = nomes,
+                 save_to = "manipula/renomeadas",
+                 dir = "manipula")
 ```
 
 
+# Import images
+```{r }
+img <- image_import("folhas.jpg")
+```
 
 To import a list of images, use a vector of image names, or the `pattern` argument. In the latter, all images that match the pattern name are imported into a list.
 
@@ -39,7 +52,6 @@ Individual images are displayed with `plot()`. To combine images, the `image_com
 # Imagens individuais
 plot(img)
 ```
-
 
 
 ```{r display2, fig.width = 10, fig.height=5}
@@ -70,24 +82,31 @@ The `dpi()` function executes an interactive function to calculate the image res
 ```{r eval = FALSE}
 #  this only works in an interactive section
 rule <- image_import("rule.jpg", plot = TRUE)
-(dpi <- dpi(rule))
+x11()
+(imgres <- dpi(rule))
 
 rule2 <- 
   image_crop(rule,
-             width = 130:1390, 
-             height = 582:1487, 
+             width = 130:1390,
+             height = 582:1487,
              plot = TRUE)
 
 analyze_objects(rule2,
                 watershed = FALSE,
-                marker = "area") |> 
+                marker = "area",
+                contour_col = "blue",
+                contour_size = 8) |> 
   get_measures(dpi = 518) |> 
   plot_measures(measure = "area", vjust = -100, size = 2)
 ```
 
+# Align an image
+To construct shapefiles with `image_shp()` the image objects need to be aligned along the x/y axis. `image_align()` can be used to provide such alignment. Users will need to draw a line along the y axis that corresponds to the alignment of the objects (e.g., field plots). By default, the aligment will be to the vertical, which means that if the drawed line have an angle < 90º parallel to the x axis, the rotation angle wil be negative (anticlocwise rotation). If the drawed line have an angle > 90º along the x axis, the rotation angle wil be positive (clocwise rotation). If the aligment is horizontal, the image will be rotated to align the drawed line paralell to the x axis assuming the shortest angle (left or right rotation if the angle is < 90º or > 90º, respectively)
 
-
-
+```{r eval=FALSE}
+shp <- image_import("shapefiles.jpg")
+shp_aligned <- image_align(shp)
+```
 
 # Filter, blur, contrast, dilatation, erosion, opening, and closing
 
@@ -111,13 +130,22 @@ image_combine(img,
 ```
 
 
+# Apply a function to images
+
+```{r}
+apply_fun_to_imgs(pattern = "img_",
+                  fun = image_autocrop,
+                  dir_processed = "lista_exportada")
+```
+
 # Export
 To export images to the current directory, use the `image_export()` function. If an image list is exported, the images will be saved considering the name and extension present in the list. If no extension is present, images will be saved as `*.jpg` files.
 
 ```{r export, eval=FALSE}
 image_export(img, "imgs/img_exported.jpg")
-# ou subpasta
+# or a subfolder
 image_export(img, "imgs/test/img_exported.jpg")
 
-```
+image_export(img_list1, subfolder = "lista")
 
+```
