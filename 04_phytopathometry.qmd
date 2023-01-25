@@ -1,16 +1,18 @@
 ---
 title: "Phytopathometry"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r include = FALSE}
-knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/cursos/pliman_tut/imgs")
+knitr::opts_knit$set(root.dir = "imgs")
 ```
 
 # Directory
 
 ```{r eval=FALSE}
-setwd("E:/Desktop/UFSC/cursos/pliman_tut/imgs")
-
+setwd("imgs")
+getwd()
 ```
 
 # Disease severity

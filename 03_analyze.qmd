@@ -1,15 +1,18 @@
 ---
 title: "Analyze objects"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r include = FALSE}
-knitr::opts_knit$set(root.dir = "E:/Desktop/UFSC/cursos/pliman_tut/imgs")
+knitr::opts_knit$set(root.dir = "imgs")
+
 ```
 
 # Directory
 
 ```{r eval=FALSE}
-setwd("E:/Desktop/UFSC/cursos/pliman_tut/imgs")
+setwd("imgs")
 ```
 
 # Working with polygons
@@ -283,7 +286,6 @@ c2 <- draw_circle(n = 200, plot = FALSE) |>
 plot_polygon(list(c1, c2), merge = FALSE)
 ```
 
-
 # Analyzing objects
 
 The functions we've seen can be used to obtain measurements of objects. However, for image analysis it is necessary to combine different functions (mainly `object_contour()` and `poly_measures()`). Also, almost always, several images need to be analyzed and repeating this process each time would be tedious and inefficient. To address these needs, users can use the `analyze_objects()` function. Let's start with a simple example, using the `object_300dpi.png` image available on [GitHub page](https://github.com/TiagoOlivoto/pliman/tree/master/inst/tmp_images). To facilitate importing images from this folder, an `image_pliman()` helper function is used.
@@ -482,7 +484,6 @@ system.time(
 
 ```
 
-
 # Object coordinates
 
 Users can get the coordinates for all desired objects with `object_coord()`. When the `id` argument is set to `NULL` (default), a bounding rectangle is drawn including all objects. Use `id = "all"` to get the coordinates of all objects in the image or use a numeric vector to indicate the objects to calculate the coordinates. Note that the `watershed = FALSE` argument is used to avoid unique objects being split up into multiple objects by the watershed segmentation algorithm.
@@ -538,7 +539,6 @@ plot(id1)
 list <- object_split(leaves, watershed = FALSE)
 str(list)
 ```
-
 
 # RGB values for each object
 
@@ -640,8 +640,6 @@ plot_measures(flax_leaves ,
               col = "white")
 ```
 
-
-
 ::: callout-tip
 When there are many objects, the `parallel = TRUE` argument will speed up extracting the RGB values. In the following example, an image with 1343 grains of *Vicia cracca* is analyzed. The indices `"R"` and `"R/G"` are computed. Grains with an average red value greater than 0.25 are highlighted.
 
@@ -673,7 +671,6 @@ plot_contour(count2, col = "red")
 
 ```
 :::
-
 
 # Leaf area
 
@@ -708,7 +705,6 @@ plot_measures(af_cor2 ,
               col = "salmon")
 
 ```
-
 
 ## Reference object (dev version)
 
@@ -786,7 +782,6 @@ plot_measures(af_cor ,
               vjust = -20,
               col = " cyan ")
 ```
-
 
 ### Multiple images
 
@@ -912,8 +907,6 @@ ggplot(df_plot, aes(das, n)) +
 
 ```
 
-
-
 ## Filling 'holes'
 
 An important aspect to consider in leaf area measures is when leaves present 'holes'. This can occur, for example, by the attack of pests. In this case, the area would have to be considered, because it was there! The image bellow is used as an example.
@@ -963,7 +956,6 @@ We can simply use the ratio between `proc_img` and `proc_img2` to compute the in
 # percent of the injured area
 100 - 86432 / 99186 * 100
 ```
-
 
 ## Compound leaves
 
@@ -1033,11 +1025,9 @@ carea_cor <- get_measures(carea, dpi = 49.5)
 carea_cor |> t()
 ```
 
-
-
 # Shapefiles
-Orthomosaic kindly provided by Prof. Dr. [Ivan Ricardo Carvalho](https://www.researchgate.net/profile/Ivan-Carvalho-4) (UNIJUÍ)
 
+Orthomosaic kindly provided by Prof. Dr. [Ivan Ricardo Carvalho](https://www.researchgate.net/profile/Ivan-Carvalho-4) (UNIJUÍ)
 
 ```{r}
 #| out-width: "100%"
@@ -1064,11 +1054,13 @@ plot(anal$shapefiles)
 plot_measures(anal, measure = "DGCI")
 ```
 
-
 # Fourier analyses
+
 ## Functions
-The functions were adapted from Claude (2088)^[Claude, J. 2008. Morphometrics with R. Springer.
-]
+
+The functions were adapted from Claude (2088)[^12]
+
+[^12]: Claude, J. 2008. Morphometrics with R. Springer.
 
 ```{r}
 #| code-fold: true
@@ -1194,12 +1186,10 @@ fourier_inv <- function(ef, nhm, nb.pts = 120) {
 
 ```
 
-
 ## Elliptical fourier
 
 ```{r}
 #| out-width: "100%"
-
 
 library(pliman)
 imgs <- image_import(pattern = "img", path = "fourier")
@@ -1226,7 +1216,6 @@ plot_contour(d_i, lwd = 2, col = "red")
 
 ```
 
-
 ## Rotation and size
 
 ```{r}
@@ -1235,6 +1224,7 @@ plot_contour(d_i, lwd = 2, col = "red")
 
 library(pliman)
 img <- image_import("changes.png", path = "fourier")
+plot(img)
 cont <- 
   object_contour(img,
                  index = "B",
@@ -1256,8 +1246,6 @@ f1n$A
 f2n$A
 f3n$A
 ```
-
-
 
 ## Morphological diversity
 
@@ -1287,16 +1275,17 @@ coefs <-
 
 library(factoextra)
 library(FactoMineR)
-pca <- PCA(coefs, quali.sup = 61, graph = FALSE)
+pca <- PCA(coefs, quali.sup = 61, graph = F)
 fviz_pca_ind(pca, habillage = 61, repel = TRUE)
 
 image_combine(imgs)
 
 ```
 
-
 # Distance to an ideotype
+
 ## Cluster objects
+
 ```{r}
 #| out-width: "100%"
 img <- image_import("distance.png", path = "fourier")
@@ -1333,6 +1322,7 @@ fviz_dend(distance, k = 3)
 ```
 
 ## Distance to an ideotype
+
 ```{r}
 desc_ide <- coefs[1,]
 desc_objs <- coefs[-1,]
@@ -1345,4 +1335,3 @@ distances <-
   sort(decreasing = FALSE)
 distances
 ```
-
